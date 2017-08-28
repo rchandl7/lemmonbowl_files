@@ -33,13 +33,20 @@ table tr:nth-child(even) {
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	</head>
 	<body>
-<div id="id01" align="center"></div>
-<div id="wrapper" style="width:100%; text-align:center">
+		<div id="wrapper" style="width:100%; text-align:center">
 			<img src="lemon_bowl_logo.png" height="120" width="180" />
+		</div><br><br>
+		<div id="wrapper" style="width:100%; text-align:center">
+			<h3>Preseason Ranks </h3>
+			<img src="preseason_ranks.png" height="320" width="180" />
+		</div><br><br>
+
+<div id="wrapper" style="width:100%; text-align:center">
+			<h3>Weekly Payouts</h3>	
 		</div>
 
 <!-- Weekly table -->
-<div style="margin: 20px auto; width: 100%;">
+<div style="margin: 20px auto; width: 100%;" align:"center">
 	<table id="jsonTable" style="border-collapse: collapse;" cellpadding="5" border="1">
 	    </table>
 	</div>
@@ -81,7 +88,8 @@ $.getJSON("weeklydata.json", function (data) {
 </script>
 
 <!-- Season long table -->
-
+<div id="wrapper" style="width:100%; text-align:center">
+			<h3>Season Long Payouts</h3>	
 <div style="margin: 20px auto; width: 100%;">
 	<table id="jsonTable2" style="border-collapse: collapse;" cellpadding="5" border="1">
 	    </table>
