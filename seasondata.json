@@ -1,13 +1,13 @@
 [{
 		"Category": "Reg Season Champ",
-		"TeamName": "The Hauschka Always Wins",
-		"Payout": "$240"
+		"TeamName": "",
+		"Payout": "$500"
 	}, {
 		"Category": "Playoff Runner Up",
-		"TeamName": "Katniss and Pitta",
-		"Payout": "$100"
+		"TeamName": "",
+		"Payout": "$240"
 	}, {
 		"Category": "Playoff Champ",
-		"TeamName": "Turn your head and Goff",
-		"Payout": "$600"
+		"TeamName": "",
+		"Payout": "$800"
 	}]
