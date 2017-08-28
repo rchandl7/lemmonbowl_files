@@ -87,7 +87,7 @@ $.getJSON("weeklydata.json", function (data) {
 });
 </script>
 
-<!-- Season long table -->
+<!-- Season long table in JSON -->
 <div id="wrapper" style="width:100%; text-align:center">
 			<h3>Season Long Payouts</h3>	
 <div style="margin: 20px auto; width: 100%;">
@@ -113,7 +113,6 @@ function addAllColumnHeaders2(myList) {
     return columnSet;
 }
 
-<!--  $.getJSON("https://dl.dropboxusercontent.com/u/68174025/seasondata.json", function (data) { -->
 $.getJSON("seasondata.json", function (data) {
     var columns = addAllColumnHeaders2(data);
 
@@ -130,6 +129,7 @@ $.getJSON("seasondata.json", function (data) {
     }
 });
 </script>
+
 
 
 	</body>
