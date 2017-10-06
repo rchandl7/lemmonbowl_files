@@ -1,66 +1,105 @@
 [{
 	"Week": "1",
-	"TeamName": "test",
-	"WeeklyPoints": "",
-	"TotalPayout": null
+	"High TeamName": "something",
+	"High WeeklyPoints": "something",
+	"High TotalPayout": "something",
+	"Low TeamName": "else",
+	"Low WeeklyPoints": "else",
+	"Low Payout": "else"
 }, {
 	"Week": "2",
-	"TeamName": "",
-	"WeeklyPoints": "",
-	"TotalPayout": null
+	"High TeamName": "something",
+	"High WeeklyPoints": "something",
+	"High TotalPayout": "something",
+	"Low TeamName": "else",
+	"Low WeeklyPoints": "else",
+	"Low Payout": "else"
 }, {
 	"Week": "3",
-	"TeamName": "",
-	"WeeklyPoints": "",
-	"TotalPayout": null
+	"High TeamName": "something",
+	"High WeeklyPoints": "something",
+	"High TotalPayout": "something",
+	"Low TeamName": "else",
+	"Low WeeklyPoints": "else",
+	"Low Payout": "else"
 }, {
 	"Week": "4",
-	"TeamName": "",
-	"WeeklyPoints": "",
-	"TotalPayout": null
+	"High TeamName": "something",
+	"High WeeklyPoints": "something",
+	"High TotalPayout": "something",
+	"Low TeamName": "else",
+	"Low WeeklyPoints": "else",
+	"Low Payout": "else"
 }, {
 	"Week": "5",
-	"TeamName": "",
-	"WeeklyPoints": "",
-	"TotalPayout": null
+	"High TeamName": "something",
+	"High WeeklyPoints": "something",
+	"High TotalPayout": "something",
+	"Low TeamName": "else",
+	"Low WeeklyPoints": "else",
+	"Low Payout": "else"
 }, {
 	"Week": "6",
-	"TeamName": "",
-	"WeeklyPoints": "",
-	"TotalPayout": null
+	"High TeamName": "something",
+	"High WeeklyPoints": "something",
+	"High TotalPayout": "something",
+	"Low TeamName": "else",
+	"Low WeeklyPoints": "else",
+	"Low Payout": "else"
 }, {
 	"Week": "7",
-	"TeamName": "",
-	"WeeklyPoints": "",
-	"TotalPayout": null
+	"High TeamName": "something",
+	"High WeeklyPoints": "something",
+	"High TotalPayout": "something",
+	"Low TeamName": "else",
+	"Low WeeklyPoints": "else",
+	"Low Payout": "else"
 }, {
 	"Week": "8",
-	"TeamName": "",
-	"WeeklyPoints": "",
-	"TotalPayout": null
+	"High TeamName": "something",
+	"High WeeklyPoints": "something",
+	"High TotalPayout": "something",
+	"Low TeamName": "else",
+	"Low WeeklyPoints": "else",
+	"Low Payout": "else"
 }, {
 	"Week": "9",
-	"TeamName": "",
-	"WeeklyPoints": "",
-	"TotalPayout": null
+	"High TeamName": "something",
+	"High WeeklyPoints": "something",
+	"High TotalPayout": "something",
+	"Low TeamName": "else",
+	"Low WeeklyPoints": "else",
+	"Low Payout": "else"
 }, {
 	"Week": "10",
-	"TeamName": "",
-	"WeeklyPoints": "",
-	"TotalPayout": null
+	"High TeamName": "something",
+	"High WeeklyPoints": "something",
+	"High TotalPayout": "something",
+	"Low TeamName": "else",
+	"Low WeeklyPoints": "else",
+	"Low Payout": "else"
 }, {
 	"Week": "11",
-	"TeamName": "",
-	"WeeklyPoints": "",
-	"TotalPayout": null
+	"High TeamName": "something",
+	"High WeeklyPoints": "something",
+	"High TotalPayout": "something",
+	"Low TeamName": "else",
+	"Low WeeklyPoints": "else",
+	"Low Payout": "else"
 }, {
 	"Week": "12",
-	"TeamName": "",
-	"WeeklyPoints": "",
-	"TotalPayout": null
+	"High TeamName": "something",
+	"High WeeklyPoints": "something",
+	"High TotalPayout": "something",
+	"Low TeamName": "else",
+	"Low WeeklyPoints": "else",
+	"Low Payout": "else"
 }, {
 	"Week": "13",
-	"TeamName": "",
-	"WeeklyPoints": "",
-	"TotalPayout": null
+	"High TeamName": "something",
+	"High WeeklyPoints": "something",
+	"High TotalPayout": "something",
+	"Low TeamName": "else",
+	"Low WeeklyPoints": "else",
+	"Low Payout": "else"
 }]
