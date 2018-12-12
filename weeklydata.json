@@ -53,7 +53,7 @@
 	"Top Payout": "$25",
 	"Bottom TeamName": "Catching Fire",
 	"Bottom WeeklyPoints": "69.9",
-	"Bottom Payout": "-$5 ($10)"
+	"Bottom Payout": "-$5"
 }, {
 	"Week": "8",
 	"Top TeamName": "InIt2WinIt BeNnEtT",
@@ -82,24 +82,24 @@
 	"Week": "11",
 	"Top TeamName": "InIt2WinIt BeNnEtT",
 	"Top WeeklyPoints": "188.9",
-	"Top Payout": "$25 ($150)",
+	"Top Payout": "$25",
 	"Bottom TeamName": "Team Spell",
 	"Bottom WeeklyPoints": "72.3",
 	"Bottom Payout": "-$5"
 }, {
 	"Week": "12",
-	"Top TeamName": "",
-	"Top WeeklyPoints": "",
-	"Top Payout": "$25",
-	"Bottom TeamName": "",
-	"Bottom WeeklyPoints": "",
-	"Bottom Payout": "-$5"
+	"Top TeamName": "Catching Fire",
+	"Top WeeklyPoints": "176.2",
+	"Top Payout": "$25 ($35)",
+	"Bottom TeamName": "Good Vibes",
+	"Bottom WeeklyPoints": "72.2",
+	"Bottom Payout": "-$5 (-$10)"
 }, {
 	"Week": "13",
-	"Top TeamName": "",
-	"Top WeeklyPoints": "",
-	"Top Payout": "$25",
-	"Bottom TeamName": "",
-	"Bottom WeeklyPoints": "",
-	"Bottom Payout": "-$5"
+	"Top TeamName": "InIt2WinIt BeNnEtT",
+	"Top WeeklyPoints": "173.4",
+	"Top Payout": "$25 ($175)",
+	"Bottom TeamName": "Team chandler",
+	"Bottom WeeklyPoints": "76.6",
+	"Bottom Payout": "-$5 (-$10)"
 }]
