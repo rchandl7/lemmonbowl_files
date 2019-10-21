@@ -10,10 +10,10 @@
 	"Week": "2",
 	"Top TeamName": "Catching Fire",
 	"Top WeeklyPoints": "177.2",
-	"Top Payout": "$25",
+	"Top Payout": "-",
 	"Bottom TeamName": "yearly contribution",
 	"Bottom WeeklyPoints": "72.6",
-	"Bottom Payout": "-$5"
+	"Bottom Payout": "-"
 }, {
 	"Week": "3",
 	"Top TeamName": "Team Chandler",
@@ -24,27 +24,27 @@
 	"Bottom Payout": "-$5"
 }, {
 	"Week": "4",
-	"Top TeamName": "",
-	"Top WeeklyPoints": "",
-	"Top Payout": "$25",
-	"Bottom TeamName": "",
-	"Bottom WeeklyPoints": "",
-	"Bottom Payout": "-$5"
+	"Top TeamName": "Catching Fire",
+	"Top WeeklyPoints": "185.8",
+	"Top Payout": "-",
+	"Bottom TeamName": "yearly contribution",
+	"Bottom WeeklyPoints": "69.4",
+	"Bottom Payout": "-"
 }, {
 	"Week": "5",
-	"Top TeamName": "",
-	"Top WeeklyPoints": "",
-	"Top Payout": "$25",
-	"Bottom TeamName": "",
-	"Bottom WeeklyPoints": "",
+	"Top TeamName": "yearly contribution",
+	"Top WeeklyPoints": "178.9",
+	"Top Payout": "$25 ($15)",
+	"Bottom TeamName": "Todd Donaldson",
+	"Bottom WeeklyPoints": "89.4",
 	"Bottom Payout": "-$5"
 }, {
 	"Week": "6",
-	"Top TeamName": "",
-	"Top WeeklyPoints": "",
-	"Top Payout": "$25",
-	"Bottom TeamName": "",
-	"Bottom WeeklyPoints": "",
+	"Top TeamName": "Catching Fire",
+	"Top WeeklyPoints": "180",
+	"Top Payout": "$25 ($75)",
+	"Bottom TeamName": "Good Vibes",
+	"Bottom WeeklyPoints": "75.9",
 	"Bottom Payout": "-$5"
 }, {
 	"Week": "7",
