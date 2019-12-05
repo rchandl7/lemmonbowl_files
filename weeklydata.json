@@ -53,7 +53,7 @@
 	"Top Payout": "-",
 	"Bottom TeamName": "InIt2WinIt BeNnEtT",
 	"Bottom WeeklyPoints": "82.3",
-	"Bottom Payout": "-$5"
+	"Bottom Payout": "-"
 }, {
 	"Week": "8",
 	"Top TeamName": "Good Vibes",
@@ -74,7 +74,7 @@
 	"Week": "10",
 	"Top TeamName": "Scam Newtons",
 	"Top WeeklyPoints": "166.6",
-	"Top Payout": "$25 ($50)",
+	"Top Payout": "-",
 	"Bottom TeamName": "GetoffmyDitka Ditka",
 	"Bottom WeeklyPoints": "87.5",
 	"Bottom Payout": "-$5 (-$10)"
@@ -96,10 +96,10 @@
 	"Bottom Payout": "-$5 ($45)"
 }, {
 	"Week": "13",
-	"Top TeamName": "",
-	"Top WeeklyPoints": "",
-	"Top Payout": "$25",
-	"Bottom TeamName": "",
-	"Bottom WeeklyPoints": "",
-	"Bottom Payout": "-$5"
+	"Top TeamName": "Scam Newtons",
+	"Top WeeklyPoints": "181.7",
+	"Top Payout": "$25 ($75)",
+	"Bottom TeamName": "InIt2WinIt BeNnEtT",
+	"Bottom WeeklyPoints": "60.4",
+	"Bottom Payout": "-$5 (-$10)"
 }]
