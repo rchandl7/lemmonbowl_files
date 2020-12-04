@@ -53,12 +53,20 @@
 	"Top Payout": "-",
 	"Bottom TeamName": "Cho-Kon It",
 	"Bottom WeeklyPoints": "78.62",
+<<<<<<< HEAD
 	"Bottom Payout": "-"
+=======
+	"Bottom Payout": "-$5 ($15)"
+>>>>>>> ef7b97d8149927b63da2d33e4d8cf3259c37aff8
 }, {
 	"Week": "8",
 	"Top TeamName": "FREE MONEY 1.0",
 	"Top WeeklyPoints": "156.1",
+<<<<<<< HEAD
 	"Top Payout": "-",
+=======
+	"Top Payout": "$25 ($50)",
+>>>>>>> ef7b97d8149927b63da2d33e4d8cf3259c37aff8
 	"Bottom TeamName": "SLICK RICK",
 	"Bottom WeeklyPoints": "76.32",
 	"Bottom Payout": "-$5 ($20)"
@@ -88,12 +96,21 @@
 	"Bottom Payout": "-$5 ($15)"
 }, {
 	"Week": "12",
+<<<<<<< HEAD
 	"Top TeamName": "FREE MONEY 1.0",
 	"Top WeeklyPoints": "161.4",
 	"Top Payout": "$25 ($75)",
 	"Bottom TeamName": "Cho-Kon It",
 	"Bottom WeeklyPoints": "75.84",
 	"Bottom Payout": "-$5 ($10)"
+=======
+	"Top TeamName": "",
+	"Top WeeklyPoints": "",
+	"Top Payout": "$25",
+	"Bottom TeamName": "",
+	"Bottom WeeklyPoints": "",
+	"Bottom Payout": "-$5"
+>>>>>>> ef7b97d8149927b63da2d33e4d8cf3259c37aff8
 }, {
 	"Week": "13",
 	"Top TeamName": "",
