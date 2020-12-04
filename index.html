@@ -43,7 +43,7 @@ table tr:nth-child(even) {
 		</div>
 
 <!-- Weekly table -->
-<div style="margin: 20px auto; width: 100%;" align:"center">
+ <div style="overflow-x:auto;">
 	<table id="jsonTable" style="border-collapse: collapse;" cellpadding="5" border="1">
 	    </table>
 	</div>
@@ -88,8 +88,8 @@ $.getJSON("weeklydata.json", function (data) {
 <!-- Season long table in JSON -->
 <div id="wrapper" style="width:100%; text-align:center">
 			<h3>Season Long Payouts</h3>	
-<div style="margin: 20px auto; width: 100%;">
-	<table id="jsonTable2" style="border-collapse: collapse;" cellpadding="5" border="1">
+ <div style="overflow-x:auto;">
+ 	<table id="jsonTable2" style="border-collapse: collapse;" cellpadding="5" border="1">
 	    </table>
 	</div>
 	<script type="text/javascript">
