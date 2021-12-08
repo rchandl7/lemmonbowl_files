@@ -34,7 +34,7 @@
 	"Week": "5",
 	"Top TeamName": "Robby Andersons Profile Picture",
 	"Top WeeklyPoints": "223.04",
-	"Top Payout": "$25 ($45)",
+	"Top Payout": "-",
 	"Bottom TeamName": "team spell",
 	"Bottom WeeklyPoints": "82.96",
 	"Bottom Payout": "-"
@@ -93,15 +93,15 @@
 	"Top Payout": "$25 ($45)",
 	"Bottom TeamName": "Bayside Tigers",
 	"Bottom WeeklyPoints": "58.06",
-	"Bottom Payout": "-$5 ($20)"
+	"Bottom Payout": "-"
 }, {
 	"Week": "13",
-	"Top TeamName": "",
-	"Top WeeklyPoints": "",
-	"Top Payout": "$25",
-	"Bottom TeamName": "",
-	"Bottom WeeklyPoints": "",
-	"Bottom Payout": "-$5"
+	"Top TeamName": "Robby Andersons Profile Picture",
+	"Top WeeklyPoints": "176.02",
+	"Top Payout": "$25 ($70)",
+	"Bottom TeamName": "Bayside Tigers",
+	"Bottom WeeklyPoints": "81.66",
+	"Bottom Payout": "-$5 ($15)"
 }, {
 	"Week": "14",
 	"Top TeamName": "",
