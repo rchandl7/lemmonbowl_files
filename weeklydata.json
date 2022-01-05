@@ -21,7 +21,7 @@
 	"Top Payout": "-",
 	"Bottom TeamName": "Good Vibes",
 	"Bottom WeeklyPoints": "45.66",
-	"Bottom Payout": "-$5 ($20)"
+	"Bottom Payout": "-"
 }, {
 	"Week": "4",
 	"Top TeamName": "Richard Bentley Richard Bentley",
@@ -98,16 +98,16 @@
 	"Week": "13",
 	"Top TeamName": "Robby Andersons Profile Picture",
 	"Top WeeklyPoints": "176.02",
-	"Top Payout": "$25 ($70)",
+	"Top Payout": "-",
 	"Bottom TeamName": "Bayside Tigers",
 	"Bottom WeeklyPoints": "81.66",
 	"Bottom Payout": "-$5 ($15)"
 }, {
 	"Week": "14",
-	"Top TeamName": "",
-	"Top WeeklyPoints": "",
-	"Top Payout": "$25",
-	"Bottom TeamName": "",
-	"Bottom WeeklyPoints": "",
-	"Bottom Payout": "-$5"
+	"Top TeamName": "Robby Andersons Profile Picture",
+	"Top WeeklyPoints": "173.82",
+	"Top Payout": "$25 ($95)",
+	"Bottom TeamName": "Good Vibes",
+	"Bottom WeeklyPoints": "63.84",
+	"Bottom Payout": "-$5 ($15)"
 }]
