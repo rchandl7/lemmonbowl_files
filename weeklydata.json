@@ -5,7 +5,7 @@
 	"Top Payout": "-",
 	"Bottom TeamName": "Cho-Kon It",
 	"Bottom WeeklyPoints": "81.4",
-	"Bottom Payout": "-$5"
+	"Bottom Payout": "-"
 }, {
 	"Week": "2",
 	"Top TeamName": "Richard Bentley",
@@ -18,7 +18,7 @@
 	"Week": "3",
 	"Top TeamName": "Tool Time",
 	"Top WeeklyPoints": "127.3",
-	"Top Payout": "$25 ($50)",
+	"Top Payout": "-",
 	"Bottom TeamName": "Ballin Ballers",
 	"Bottom WeeklyPoints": "75.24",
 	"Bottom Payout": "-"
@@ -26,7 +26,7 @@
 	"Week": "4",
 	"Top TeamName": "SLICK RICK",
 	"Top WeeklyPoints": "170.52",
-	"Top Payout": "$25",
+	"Top Payout": "-",
 	"Bottom TeamName": "Free Money 1.0",
 	"Bottom WeeklyPoints": "76.88",
 	"Bottom Payout": "-"
@@ -37,77 +37,77 @@
 	"Top Payout": "$25",
 	"Bottom TeamName": "Losing Is Cool",
 	"Bottom WeeklyPoints": "47.26",
-	"Bottom Payout": "-$5"
+	"Bottom Payout": "-"
 }, {
 	"Week": "6",
 	"Top TeamName": "Free Money 1.0",
 	"Top WeeklyPoints": "159.5",
-	"Top Payout": "$25 ($20)",
+	"Top Payout": "-",
 	"Bottom TeamName": "Ballin Ballers",
 	"Bottom WeeklyPoints": "62.42",
-	"Bottom Payout": "-$5 (-10)"
+	"Bottom Payout": "-"
 }, {
 	"Week": "7",
-	"Top TeamName": "",
-	"Top WeeklyPoints": "",
-	"Top Payout": "$25",
-	"Bottom TeamName": "",
-	"Bottom WeeklyPoints": "",
-	"Bottom Payout": "-$5"
+	"Top TeamName": "Free Money 1.0",
+	"Top WeeklyPoints": "187.04",
+	"Top Payout": "-",
+	"Bottom TeamName": "Ballin Ballers",
+	"Bottom WeeklyPoints": "73.2",
+	"Bottom Payout": "-$5 (-$15)"
 }, {
 	"Week": "8",
-	"Top TeamName": "",
-	"Top WeeklyPoints": "",
-	"Top Payout": "$25",
-	"Bottom TeamName": "",
-	"Bottom WeeklyPoints": "",
-	"Bottom Payout": "-$5"
+	"Top TeamName": "Hit and Ruggs",
+	"Top WeeklyPoints": "177.24",
+	"Top Payout": "-",
+	"Bottom TeamName": "Free Money 1.0",
+	"Bottom WeeklyPoints": "62.48",
+	"Bottom Payout": "-$5 ($40)"
 }, {
 	"Week": "9",
-	"Top TeamName": "",
-	"Top WeeklyPoints": "",
-	"Top Payout": "$25",
-	"Bottom TeamName": "",
-	"Bottom WeeklyPoints": "",
-	"Bottom Payout": "-$5"
+	"Top TeamName": "Hit and Ruggs",
+	"Top WeeklyPoints": "146.84",
+	"Top Payout": "-",
+	"Bottom TeamName": "Cho-Kon It",
+	"Bottom WeeklyPoints": "74.9",
+	"Bottom Payout": "-$5 (-$10)"
 }, {
 	"Week": "10",
-	"Top TeamName": "",
-	"Top WeeklyPoints": "",
-	"Top Payout": "$25",
-	"Bottom TeamName": "",
-	"Bottom WeeklyPoints": "",
-	"Bottom Payout": "-$5"
+	"Top TeamName": "SLICK RICK",
+	"Top WeeklyPoints": "151.82",
+	"Top Payout": "-",
+	"Bottom TeamName": "Losing Is Cool",
+	"Bottom WeeklyPoints": "64.0",
+	"Bottom Payout": "-$5 (-$10)"
 }, {
 	"Week": "11",
-	"Top TeamName": "",
-	"Top WeeklyPoints": "",
+	"Top TeamName": "InIt2WinIt BeNnEtT",
+	"Top WeeklyPoints": "176.4",
 	"Top Payout": "$25",
-	"Bottom TeamName": "",
-	"Bottom WeeklyPoints": "",
-	"Bottom Payout": "-$5"
+	"Bottom TeamName": "Tool Time",
+	"Bottom WeeklyPoints": "64.68",
+	"Bottom Payout": "-"
 }, {
 	"Week": "12",
-	"Top TeamName": "",
-	"Top WeeklyPoints": "",
-	"Top Payout": "$25",
-	"Bottom TeamName": "",
-	"Bottom WeeklyPoints": "",
-	"Bottom Payout": "-$5"
+	"Top TeamName": "SLICK RICK",
+	"Top WeeklyPoints": "170.66",
+	"Top Payout": "-",
+	"Bottom TeamName": "Ballin Ballers",
+	"Bottom WeeklyPoints": "73.0",
+	"Bottom Payout": "-$5 (-$20)"
 }, {
 	"Week": "13",
-	"Top TeamName": "",
-	"Top WeeklyPoints": "",
+	"Top TeamName": "Losing is Cool",
+	"Top WeeklyPoints": "145.5",
 	"Top Payout": "$25",
-	"Bottom TeamName": "",
-	"Bottom WeeklyPoints": "",
-	"Bottom Payout": "-$5"
+	"Bottom TeamName": "Tool Time",
+	"Bottom WeeklyPoints": "60.72",
+	"Bottom Payout": "-$5 ($40)"
 }, {
 	"Week": "14",
-	"Top TeamName": "",
-	"Top WeeklyPoints": "",
-	"Top Payout": "$25",
-	"Bottom TeamName": "",
-	"Bottom WeeklyPoints": "",
-	"Bottom Payout": "-$5"
+	"Top TeamName": "SLICK RICK",
+	"Top WeeklyPoints": "161.66",
+	"Top Payout": "$25 ($100)",
+	"Bottom TeamName": "Ballin Ballers",
+	"Bottom WeeklyPoints": "64.72",
+	"Bottom Payout": "-$5 (-$25)"
 }]
