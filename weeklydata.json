@@ -53,7 +53,7 @@
 	"Top Payout": "-",
 	"Bottom TeamName": "Ballin Ballers",
 	"Bottom WeeklyPoints": "73.2",
-	"Bottom Payout": "-$5 (-$15)"
+	"Bottom Payout": "-"
 }, {
 	"Week": "8",
 	"Top TeamName": "Hit and Ruggs",
@@ -77,7 +77,7 @@
 	"Top Payout": "-",
 	"Bottom TeamName": "Losing Is Cool",
 	"Bottom WeeklyPoints": "64.0",
-	"Bottom Payout": "-$5 (-$10)"
+	"Bottom Payout": "-"
 }, {
 	"Week": "11",
 	"Top TeamName": "InIt2WinIt BeNnEtT",
@@ -93,12 +93,12 @@
 	"Top Payout": "-",
 	"Bottom TeamName": "Ballin Ballers",
 	"Bottom WeeklyPoints": "73.0",
-	"Bottom Payout": "-$5 (-$20)"
+	"Bottom Payout": "-"
 }, {
 	"Week": "13",
 	"Top TeamName": "Losing is Cool",
 	"Top WeeklyPoints": "145.5",
-	"Top Payout": "$25",
+	"Top Payout": "$25 ($15)",
 	"Bottom TeamName": "Tool Time",
 	"Bottom WeeklyPoints": "60.72",
 	"Bottom Payout": "-$5 ($40)"
