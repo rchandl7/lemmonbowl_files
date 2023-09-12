@@ -1,13 +1,13 @@
 [{
 		"Category": "Reg Season Champ",
-		"TeamName": "",
-		"Payout": "$500"
+		"TeamName": "Hit and Ruggs",
+		"Payout": "$500 ($550)"
 	}, {
 		"Category": "Playoff Runner Up",
 		"TeamName": "",
-		"Payout": "$200"
+		"Payout": "$220"
 	}, {
 		"Category": "Playoff Champ",
 		"TeamName": "",
-		"Payout": "$1140"
+		"Payout": "$800"
 	}]
