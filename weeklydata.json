@@ -1,35 +1,35 @@
 [{
 	"Week": "1",
 	"Top TeamName": "Wander Francos Quinceanera",
-	"Top WeeklyPoints": "142.5",
+	"Top WeeklyPoints": "142.54",
 	"Top Payout": "$50",
 	"Bottom TeamName": "Cho-Kon It",
-	"Bottom WeeklyPoints": "61",
-	"Bottom Payout": "-$10"
+	"Bottom WeeklyPoints": "60.96",
+	"Bottom Payout": "-"
 }, {
 	"Week": "2",
-	"Top TeamName": "",
-	"Top WeeklyPoints": "",
-	"Top Payout": "$50",
-	"Bottom TeamName": "",
-	"Bottom WeeklyPoints": "",
-	"Bottom Payout": "-$10"
+	"Top TeamName": "MOLASSES",
+	"Top WeeklyPoints": "141.3",
+	"Top Payout": "-",
+	"Bottom TeamName": "FREE MONEY 1.0",
+	"Bottom WeeklyPoints": "78.9",
+	"Bottom Payout": "-"
 }, {
 	"Week": "3",
-	"Top TeamName": "",
-	"Top WeeklyPoints": "",
-	"Top Payout": "$50",
-	"Bottom TeamName": "",
-	"Bottom WeeklyPoints": "",
+	"Top TeamName": "CHO-KON IT",
+	"Top WeeklyPoints": "168.68",
+	"Top Payout": "$50 ($40)",
+	"Bottom TeamName": "Richard Bentley Richard Bentley",
+	"Bottom WeeklyPoints": "91.58",
 	"Bottom Payout": "-$10"
 }, {
 	"Week": "4",
-	"Top TeamName": "",
-	"Top WeeklyPoints": "",
-	"Top Payout": "$50",
-	"Bottom TeamName": "",
-	"Bottom WeeklyPoints": "",
-	"Bottom Payout": "-$10"
+	"Top TeamName": "MOLASSES",
+	"Top WeeklyPoints": "144.38",
+	"Top Payout": "$50 ($100)",
+	"Bottom TeamName": "FREE MONEY 1.0",
+	"Bottom WeeklyPoints": "83.0",
+	"Bottom Payout": "-$10 (-$20)"
 }, {
 	"Week": "5",
 	"Top TeamName": "",
