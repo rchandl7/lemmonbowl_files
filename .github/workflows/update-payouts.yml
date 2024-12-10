@@ -1,0 +1,39 @@
+name: Update Payouts
+
+on:
+  push:
+    paths:
+      - "weeklydata.json"
+      - "seasondata.json"
+
+jobs:
+  update-payouts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Run script
+        run: |
+          python process_payouts.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add payouts.json
+          git commit -m "Update payouts.json after changes to weeklydata.json or seasondata.json"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
