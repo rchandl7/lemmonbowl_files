@@ -1,184 +1,194 @@
 <html>
-	<head>
-		<title>Fantasy</title>
-		<style type="text/css">
 
-table, th , td  {
-    border: 1px solid grey;
-    border-collapse: collapse;
-    padding: 5px;
-}
-th {
-  position: sticky;
-  top: 0; /* Don't forget this, required for the stickiness */;
-}
-td {
-width: 25%;}
-table tr:nth-child(odd) {
-    background-color: #f1f1f1;
-}
-table tr:nth-child(even) {
-    background-color: #ffffff;
-			}
-			caption
-			{
-			font-family: Verdana;
-			font-size: 10px;
-			line-height: 15px;
-			color: #000;
-			text-align: left;
-			}
-			img
-			{
-				padding-top: 5px;
-				padding-bottom: 5px;
-			}
-		
-		</style>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	</head>
-	<body>
-		<div id="wrapper" style="width:100%; text-align:center">
-			<img src="lemon_bowl_logo.png" height="120" width="180" />
-		</div><br>
+<head>
+    <title>Fantasy</title>
+    <style type="text/css">
+        table,
+        th,
+        td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
 
-<div id="wrapper" style="width:100%; text-align:center">
-			<h3>Weekly Winners/Losers</h3>	
-		</div>
+        th {
+            position: sticky;
+            top: 0;
+            /* Don't forget this, required for the stickiness */
+            ;
+        }
 
-<!-- Weekly table -->
-<div style="overflow-x:auto;">
-	<table id="jsonTable" style="border-collapse: collapse;" cellpadding="5" border="1">
-	    </table>
-	</div>
-	<script type="text/javascript">
-function addAllColumnHeaders(myList) {
-    var columnSet = [];
-    var headerTr$ = $('<tr/>');
+        td {
+            width: 25%;
+        }
 
-    for (var i = 0; i < myList.length; i++) {
-        var rowHash = myList[i];
-        for (var key in rowHash) {
-            if ($.inArray(key, columnSet) == -1) {
-                columnSet.push(key);
-                headerTr$.append($('<th/>').html(key));
+        table tr:nth-child(odd) {
+            background-color: #f1f1f1;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+
+        caption {
+            font-family: Verdana;
+            font-size: 10px;
+            line-height: 15px;
+            color: #000;
+            text-align: left;
+        }
+
+        img {
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="wrapper" style="width:100%; text-align:center">
+        <img src="lemon_bowl_logo.png" height="120" width="180" />
+    </div><br>
+
+    <div id="wrapper" style="width:100%; text-align:center">
+        <h3>Weekly Winners/Losers</h3>
+    </div>
+
+    <!-- Weekly table -->
+    <div style="overflow-x:auto;">
+        <table id="jsonTable" style="border-collapse: collapse;" cellpadding="5" border="1">
+        </table>
+    </div>
+    <script type="text/javascript">
+        function addAllColumnHeaders(myList) {
+            var columnSet = [];
+            var headerTr$ = $('<tr/>');
+
+            for (var i = 0; i < myList.length; i++) {
+                var rowHash = myList[i];
+                for (var key in rowHash) {
+                    if ($.inArray(key, columnSet) == -1) {
+                        columnSet.push(key);
+                        headerTr$.append($('<th/>').html(key));
+                    }
+                }
             }
+            $("#jsonTable").append(headerTr$);
+
+            return columnSet;
         }
-    }
-    $("#jsonTable").append(headerTr$);
+        <!-- $.getJSON("weeklydata.json", function (data) { -->
+        $.getJSON("weeklydata.json", function (data) {
 
-    return columnSet;
-}
-<!-- $.getJSON("weeklydata.json", function (data) { -->
-$.getJSON("weeklydata.json", function (data) {
+            var columns = addAllColumnHeaders(data);
 
-    var columns = addAllColumnHeaders(data);
+            for (var i = 0; i < data.length; i++) {
+                var row$ = $('<tr/>');
+                for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+                    var cellValue = data[i][columns[colIndex]];
 
-    for (var i = 0; i < data.length; i++) {
-        var row$ = $('<tr/>');
-        for (var colIndex = 0; colIndex < columns.length; colIndex++) {
-            var cellValue = data[i][columns[colIndex]];
+                    if (cellValue == null) { cellValue = ""; }
 
-            if (cellValue == null) { cellValue = ""; }
-
-            row$.append($('<td/>').html(cellValue));
-        }
-        $("#jsonTable").append(row$);
-    }
-});
-</script>
-
-<!-- Season long table in JSON -->
-<div id="wrapper" style="width:100%; text-align:center">
-	<h3>Season Long Payouts</h3>	
-<div style="overflow-x:auto;">
-	<table id="jsonTable2" style="border-collapse: collapse;" cellpadding="5" border="1">
-	</table>
-</div>
-
-<script type="text/javascript">
-function addAllColumnHeaders2(myList) {
-    var columnSet = [];
-    var headerTr$ = $('<tr/>');
-
-    for (var i = 0; i < myList.length; i++) {
-        var rowHash = myList[i];
-        for (var key in rowHash) {
-            if ($.inArray(key, columnSet) == -1) {
-                columnSet.push(key);
-                headerTr$.append($('<th/>').html(key));
+                    row$.append($('<td/>').html(cellValue));
+                }
+                $("#jsonTable").append(row$);
             }
-        }
-    }
-    $("#jsonTable2").append(headerTr$);
+        });
+    </script>
 
-    return columnSet;
-}
+    <!-- Season long table in JSON -->
+    <div id="wrapper" style="width:100%; text-align:center">
+        <h3>Season Long Payouts</h3>
+        <div style="overflow-x:auto;">
+            <table id="jsonTable2" style="border-collapse: collapse;" cellpadding="5" border="1">
+            </table>
+        </div>
 
-$.getJSON("seasondata.json", function (data) {
-    var columns = addAllColumnHeaders2(data);
+        <script type="text/javascript">
+            function addAllColumnHeaders2(myList) {
+                var columnSet = [];
+                var headerTr$ = $('<tr/>');
 
-    for (var i = 0; i < data.length; i++) {
-        var row$ = $('<tr/>');
-        for (var colIndex = 0; colIndex < columns.length; colIndex++) {
-            var cellValue = data[i][columns[colIndex]];
+                for (var i = 0; i < myList.length; i++) {
+                    var rowHash = myList[i];
+                    for (var key in rowHash) {
+                        if ($.inArray(key, columnSet) == -1) {
+                            columnSet.push(key);
+                            headerTr$.append($('<th/>').html(key));
+                        }
+                    }
+                }
+                $("#jsonTable2").append(headerTr$);
 
-            if (cellValue == null) { cellValue = ""; }
-
-            row$.append($('<td/>').html(cellValue));
-        }
-        $("#jsonTable2").append(row$);
-    }
-});
-</script>
-
-
-<!-- Payout table in JSON -->
-<div id="wrapper" style="width:100%; text-align:center">
-	<h3>Total Payouts</h3>	
-<div style="overflow-x:auto;">
-	<table id="jsonTable3" style="border-collapse: collapse;" cellpadding="5" border="1">
-	</table>
-</div>
-
-<script type="text/javascript">
-function addAllColumnHeaders3(myList) {
-    var columnSet = [];
-    var headerTr$ = $('<tr/>');
-
-    for (var i = 0; i < myList.length; i++) {
-        var rowHash = myList[i];
-        for (var key in rowHash) {
-            if ($.inArray(key, columnSet) == -1) {
-                columnSet.push(key);
-                headerTr$.append($('<th/>').html(key));
+                return columnSet;
             }
-        }
-    }
-    $("#jsonTable3").append(headerTr$);
 
-    return columnSet;
-}
+            $.getJSON("seasondata.json", function (data) {
+                var columns = addAllColumnHeaders2(data);
 
-$.getJSON("payouts.json", function (data) {
-    var columns = addAllColumnHeaders3(data);
+                for (var i = 0; i < data.length; i++) {
+                    var row$ = $('<tr/>');
+                    for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+                        var cellValue = data[i][columns[colIndex]];
 
-    for (var i = 0; i < data.length; i++) {
-        var row$ = $('<tr/>');
-        for (var colIndex = 0; colIndex < columns.length; colIndex++) {
-            var cellValue = data[i][columns[colIndex]];
+                        if (cellValue == null) { cellValue = ""; }
 
-            if (cellValue == null) { cellValue = ""; }
-
-            row$.append($('<td/>').html(cellValue));
-        }
-        $("#jsonTable3").append(row$);
-    }
-});
-</script>
+                        row$.append($('<td/>').html(cellValue));
+                    }
+                    $("#jsonTable2").append(row$);
+                }
+            });
+        </script>
 
 
-	</body>
+        <!-- Payout table in JSON -->
+        <div id="wrapper" style="width:100%; text-align:center">
+            <h3>Total Payouts</h3>
+            <div style="overflow-x:auto;">
+                <table id="jsonTable3" style="border-collapse: collapse;" cellpadding="5" border="1">
+                </table>
+            </div>
+
+            <script type="text/javascript">
+                function addAllColumnHeaders3(myList) {
+                    var columnSet = [];
+                    var headerTr$ = $('<tr/>');
+
+                    for (var i = 0; i < myList.length; i++) {
+                        var rowHash = myList[i];
+                        for (var key in rowHash) {
+                            if ($.inArray(key, columnSet) == -1) {
+                                columnSet.push(key);
+                                headerTr$.append($('<th/>').html(key));
+                            }
+                        }
+                    }
+                    $("#jsonTable3").append(headerTr$);
+
+                    return columnSet;
+                }
+
+                $.getJSON("payouts.json", function (data) {
+                    var columns = addAllColumnHeaders3(data);
+
+                    for (var i = 0; i < data.length; i++) {
+                        var row$ = $('<tr/>');
+                        for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+                            var cellValue = data[i][columns[colIndex]];
+
+                            if (cellValue == null) { cellValue = ""; }
+
+                            row$.append($('<td/>').html(cellValue));
+                        }
+                        $("#jsonTable3").append(row$);
+                    }
+                });
+            </script>
+
+
+</body>
+
 </html>
