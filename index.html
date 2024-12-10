@@ -1,7 +1,9 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Fantasy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lemmon Bowl</title>
     <style type="text/css">
         table,
         th,
@@ -43,152 +45,84 @@
             padding-bottom: 5px;
         }
     </style>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </head>
-
 <body>
     <div id="wrapper" style="width:100%; text-align:center">
         <img src="lemon_bowl_logo.png" height="120" width="180" />
     </div><br>
 
-    <div id="wrapper" style="width:100%; text-align:center">
-        <h3>Weekly Winners/Losers</h3>
-    </div>
+    <h2>Weekly Data</h2>
+    <table id="weekly-data">
+        <thead></thead>
+        <tbody></tbody>
+    </table>
 
-    <!-- Weekly table -->
-    <div style="overflow-x:auto;">
-        <table id="jsonTable" style="border-collapse: collapse;" cellpadding="5" border="1">
-        </table>
-    </div>
-    <script type="text/javascript">
-        function addAllColumnHeaders(myList) {
-            var columnSet = [];
-            var headerTr$ = $('<tr/>');
+    <h2>Season Data</h2>
+    <table id="season-data">
+        <thead></thead>
+        <tbody></tbody>
+    </table>
 
-            for (var i = 0; i < myList.length; i++) {
-                var rowHash = myList[i];
-                for (var key in rowHash) {
-                    if ($.inArray(key, columnSet) == -1) {
-                        columnSet.push(key);
-                        headerTr$.append($('<th/>').html(key));
-                    }
-                }
+    <h2>Payouts Data</h2>
+    <table id="payouts-data">
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        // Load JSON data and populate tables
+        async function loadAndDisplayData() {
+            try {
+                const [weeklyData, seasonData, payoutsData] = await Promise.all([
+                    fetch('weeklydata.json').then(res => res.json()),
+                    fetch('seasondata.json').then(res => res.json()),
+                    fetch('payouts.json').then(res => res.json())
+                ]);
+
+                populateTable('weekly-data', weeklyData);
+                populateTable('season-data', seasonData);
+                populateTable('payouts-data', payoutsData);
+            } catch (error) {
+                console.error('Error loading JSON data:', error);
             }
-            $("#jsonTable").append(headerTr$);
-
-            return columnSet;
         }
-        <!-- $.getJSON("weeklydata.json", function (data) { -->
-        $.getJSON("weeklydata.json", function (data) {
 
-            var columns = addAllColumnHeaders(data);
+        // Populate a table with JSON data
+        function populateTable(tableId, data) {
+            const table = document.getElementById(tableId);
+            const thead = table.querySelector('thead');
+            const tbody = table.querySelector('tbody');
 
-            for (var i = 0; i < data.length; i++) {
-                var row$ = $('<tr/>');
-                for (var colIndex = 0; colIndex < columns.length; colIndex++) {
-                    var cellValue = data[i][columns[colIndex]];
+            // Clear existing table content
+            thead.innerHTML = '';
+            tbody.innerHTML = '';
 
-                    if (cellValue == null) { cellValue = ""; }
-
-                    row$.append($('<td/>').html(cellValue));
-                }
-                $("#jsonTable").append(row$);
-            }
-        });
-    </script>
-
-    <!-- Season long table in JSON -->
-    <div id="wrapper" style="width:100%; text-align:center">
-        <h3>Season Long Payouts</h3>
-        <div style="overflow-x:auto;">
-            <table id="jsonTable2" style="border-collapse: collapse;" cellpadding="5" border="1">
-            </table>
-        </div>
-
-        <script type="text/javascript">
-            function addAllColumnHeaders2(myList) {
-                var columnSet = [];
-                var headerTr$ = $('<tr/>');
-
-                for (var i = 0; i < myList.length; i++) {
-                    var rowHash = myList[i];
-                    for (var key in rowHash) {
-                        if ($.inArray(key, columnSet) == -1) {
-                            columnSet.push(key);
-                            headerTr$.append($('<th/>').html(key));
-                        }
-                    }
-                }
-                $("#jsonTable2").append(headerTr$);
-
-                return columnSet;
-            }
-
-            $.getJSON("seasondata.json", function (data) {
-                var columns = addAllColumnHeaders2(data);
-
-                for (var i = 0; i < data.length; i++) {
-                    var row$ = $('<tr/>');
-                    for (var colIndex = 0; colIndex < columns.length; colIndex++) {
-                        var cellValue = data[i][columns[colIndex]];
-
-                        if (cellValue == null) { cellValue = ""; }
-
-                        row$.append($('<td/>').html(cellValue));
-                    }
-                    $("#jsonTable2").append(row$);
-                }
+            if (data.length === 0) return;
+            // Generate table headers
+            const headers = Object.keys(data[0]);
+            const headerRow = document.createElement('tr');
+            headers.forEach(header => {
+                const th = document.createElement('th');
+                th.textContent = header;
+                headerRow.appendChild(th);
             });
-        </script>
+            thead.appendChild(headerRow);
 
-
-        <!-- Payout table in JSON -->
-        <div id="wrapper" style="width:100%; text-align:center">
-            <h3>Total Payouts</h3>
-            <div style="overflow-x:auto;">
-                <table id="jsonTable3" style="border-collapse: collapse;" cellpadding="5" border="1">
-                </table>
-            </div>
-
-            <script type="text/javascript">
-                function addAllColumnHeaders3(myList) {
-                    var columnSet = [];
-                    var headerTr$ = $('<tr/>');
-
-                    for (var i = 0; i < myList.length; i++) {
-                        var rowHash = myList[i];
-                        for (var key in rowHash) {
-                            if ($.inArray(key, columnSet) == -1) {
-                                columnSet.push(key);
-                                headerTr$.append($('<th/>').html(key));
-                            }
-                        }
-                    }
-                    $("#jsonTable3").append(headerTr$);
-
-                    return columnSet;
-                }
-
-                $.getJSON("payouts.json", function (data) {
-                    var columns = addAllColumnHeaders3(data);
-
-                    for (var i = 0; i < data.length; i++) {
-                        var row$ = $('<tr/>');
-                        for (var colIndex = 0; colIndex < columns.length; colIndex++) {
-                            var cellValue = data[i][columns[colIndex]];
-
-                            if (cellValue == null) { cellValue = ""; }
-
-                            row$.append($('<td/>').html(cellValue));
-                        }
-                        $("#jsonTable3").append(row$);
-                    }
+            // Generate table rows
+            data.forEach(item => {
+                const row = document.createElement('tr');
+                headers.forEach(header => {
+                    const td = document.createElement('td');
+                    const value = Array.isArray(item[header]) ? item[header].join(', ') : item[header];
+                    td.textContent = value;
+                    row.appendChild(td);
                 });
-            </script>
+                tbody.appendChild(row);
+            });
+        }
 
-
+        // Initialize
+        loadAndDisplayData();
+    </script>
 </body>
-
 </html>
