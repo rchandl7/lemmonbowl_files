@@ -1,0 +1,117 @@
+[
+    {
+        "TeamName": "tba",
+        "TotalWinnings": 1340.0,
+        "TopWeeks": [],
+        "BottomWeeks": []
+    },
+    {
+        "TeamName": "Rayven Charles",
+        "TotalWinnings": 650.0,
+        "TopWeeks": [
+            "6",
+            "7",
+            "12"
+        ],
+        "BottomWeeks": []
+    },
+    {
+        "TeamName": "Free Money 1.0",
+        "TotalWinnings": 150.0,
+        "TopWeeks": [
+            "1",
+            "8",
+            "13"
+        ],
+        "BottomWeeks": []
+    },
+    {
+        "TeamName": "team spell",
+        "TotalWinnings": 150.0,
+        "TopWeeks": [
+            "3",
+            "5",
+            "11"
+        ],
+        "BottomWeeks": []
+    },
+    {
+        "TeamName": "GetoffmyDitka",
+        "TotalWinnings": 50.0,
+        "TopWeeks": [
+            "14"
+        ],
+        "BottomWeeks": []
+    },
+    {
+        "TeamName": "Richard Bentley",
+        "TotalWinnings": 40.0,
+        "TopWeeks": [
+            "10"
+        ],
+        "BottomWeeks": [
+            "11"
+        ]
+    },
+    {
+        "TeamName": "Imane Khelif",
+        "TotalWinnings": 30.0,
+        "TopWeeks": [
+            "2"
+        ],
+        "BottomWeeks": [
+            "8",
+            "14"
+        ]
+    },
+    {
+        "TeamName": "InIt2WinIt BeNnEtT",
+        "TotalWinnings": 30.0,
+        "TopWeeks": [
+            "4"
+        ],
+        "BottomWeeks": [
+            "5",
+            "6"
+        ]
+    },
+    {
+        "TeamName": "SLICK RICK",
+        "TotalWinnings": 30.0,
+        "TopWeeks": [
+            "9"
+        ],
+        "BottomWeeks": [
+            "7",
+            "10"
+        ]
+    },
+    {
+        "TeamName": "Ballin Ballers",
+        "TotalWinnings": -20.0,
+        "TopWeeks": [],
+        "BottomWeeks": [
+            "3",
+            "13"
+        ]
+    },
+    {
+        "TeamName": "ICEBOX",
+        "TotalWinnings": -20.0,
+        "TopWeeks": [],
+        "BottomWeeks": [
+            "4",
+            "9"
+        ]
+    },
+    {
+        "TeamName": "Cho-Kon It",
+        "TotalWinnings": -30.0,
+        "TopWeeks": [],
+        "BottomWeeks": [
+            "1",
+            "2",
+            "12"
+        ]
+    }
+]

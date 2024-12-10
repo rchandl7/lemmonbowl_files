@@ -45,7 +45,7 @@ table tr:nth-child(even) {
 		</div><br>
 
 <div id="wrapper" style="width:100%; text-align:center">
-			<h3>Weekly Payouts</h3>	
+			<h3>Weekly Winners/Losers</h3>	
 		</div>
 
 <!-- Weekly table -->
@@ -89,7 +89,6 @@ $.getJSON("weeklydata.json", function (data) {
     }
 });
 </script>
-<h5>Value in parenthesis are running total</h5>
 
 <!-- Season long table in JSON -->
 <div id="wrapper" style="width:100%; text-align:center">
@@ -134,6 +133,52 @@ $.getJSON("seasondata.json", function (data) {
     }
 });
 </script>
+
+
+<!-- Payout table in JSON -->
+<div id="wrapper" style="width:100%; text-align:center">
+	<h3>Total Payouts</h3>	
+<div style="overflow-x:auto;">
+	<table id="jsonTable3" style="border-collapse: collapse;" cellpadding="5" border="1">
+	</table>
+</div>
+
+<script type="text/javascript">
+function addAllColumnHeaders2(myList) {
+    var columnSet = [];
+    var headerTr$ = $('<tr/>');
+
+    for (var i = 0; i < myList.length; i++) {
+        var rowHash = myList[i];
+        for (var key in rowHash) {
+            if ($.inArray(key, columnSet) == -1) {
+                columnSet.push(key);
+                headerTr$.append($('<th/>').html(key));
+            }
+        }
+    }
+    $("#jsonTable3").append(headerTr$);
+
+    return columnSet;
+}
+
+$.getJSON("payouts.json", function (data) {
+    var columns = addAllColumnHeaders2(data);
+
+    for (var i = 0; i < data.length; i++) {
+        var row$ = $('<tr/>');
+        for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+            var cellValue = data[i][columns[colIndex]];
+
+            if (cellValue == null) { cellValue = ""; }
+
+            row$.append($('<td/>').html(cellValue));
+        }
+        $("#jsonTable2").append(row$);
+    }
+});
+</script>
+
 
 	</body>
 </html>
