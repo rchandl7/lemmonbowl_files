@@ -144,7 +144,7 @@ $.getJSON("seasondata.json", function (data) {
 </div>
 
 <script type="text/javascript">
-function addAllColumnHeaders2(myList) {
+function addAllColumnHeaders3(myList) {
     var columnSet = [];
     var headerTr$ = $('<tr/>');
 
@@ -163,7 +163,7 @@ function addAllColumnHeaders2(myList) {
 }
 
 $.getJSON("payouts.json", function (data) {
-    var columns = addAllColumnHeaders2(data);
+    var columns = addAllColumnHeaders3(data);
 
     for (var i = 0; i < data.length; i++) {
         var row$ = $('<tr/>');
@@ -174,7 +174,7 @@ $.getJSON("payouts.json", function (data) {
 
             row$.append($('<td/>').html(cellValue));
         }
-        $("#jsonTable2").append(row$);
+        $("#jsonTable3").append(row$);
     }
 });
 </script>
