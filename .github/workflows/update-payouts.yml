@@ -26,7 +26,7 @@ jobs:
 
       - name: Run script
         run: |
-          python process_payouts.py
+          python fantasy_payouts.py
 
       - name: Commit and push changes
         run: |
