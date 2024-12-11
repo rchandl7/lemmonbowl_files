@@ -1,9 +1,10 @@
 name: Run generate_weekly.py on api_data.json commit
 
 on:
-  push:
-    paths:
-      - 'api_data.json'
+  workflow_run:
+    workflows: ["Run generate_data.py"]
+    types:
+      - completed
 
 jobs:
   run-script:
