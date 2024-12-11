@@ -1,10 +1,10 @@
 name: Update Payouts
 
 on:
-  push:
-    paths:
-      - "weeklydata.json"
-      - "seasondata.json"
+  workflow_run:
+    workflows: ["Run generate_weekly.py on api_data.json commit"]
+    types:
+      - completed
 
 jobs:
   update-payouts:
