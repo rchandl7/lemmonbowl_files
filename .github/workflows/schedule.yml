@@ -2,8 +2,8 @@ name: Run generate_data.py
 
 on:
   schedule:
-    - cron: "0 14 * * 2"  # Runs at 9AM ET every Tuesday (14:00 UTC)
-
+    # - cron: "0 14 * * 2"  # Runs at 9AM ET every Tuesday (14:00 UTC)
+    - cron: "*/1 * * * *"
 jobs:
   run-script:
     runs-on: ubuntu-latest
