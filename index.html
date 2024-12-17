@@ -16,13 +16,12 @@
         td {
             border: 1px solid grey;
             border-collapse: collapse;
-            padding: 5px;
+            padding: 8px; /* Increase padding for better spacing */
         }
 
         th {
             position: sticky;
             top: 0;
-            /* Don't forget this, required for the stickiness */
         }
 
         td {
@@ -49,6 +48,38 @@
             padding-top: 5px;
             padding-bottom: 5px;
         }
+
+        /* Make tables scrollable and responsive */
+        @media screen and (max-width: 600px) {
+            table {
+                width: 100%;
+                overflow-x: auto;
+                display: block;
+                margin-bottom: 20px;
+            }
+
+            th,
+            td {
+                padding: 6px; /* Reduce padding to save space */
+                font-size: 14px; /* Adjust font size */
+            }
+
+            td {
+                width: auto; /* Allow columns to auto-size for small screens */
+                word-wrap: break-word; /* Allow long words to wrap */
+            }
+
+            th {
+                font-size: 16px;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            td,
+            th {
+                font-size: 12px; /* Further reduce font size for very small screens */
+            }
+        }
     </style>
 </head>
 
@@ -64,22 +95,28 @@
     </select><br><br>
 
     <h2>Weekly Data</h2>
-    <table id="weekly-data">
-        <thead></thead>
-        <tbody></tbody>
-    </table>
+    <div class="table-container">
+        <table id="weekly-data">
+            <thead></thead>
+            <tbody></tbody>
+        </table>
+    </div>
 
     <h2>Season Data</h2>
-    <table id="season-data">
-        <thead></thead>
-        <tbody></tbody>
-    </table>
+    <div class="table-container">
+        <table id="season-data">
+            <thead></thead>
+            <tbody></tbody>
+        </table>
+    </div>
 
     <h2>Payouts Data</h2>
-    <table id="payouts-data">
-        <thead></thead>
-        <tbody></tbody>
-    </table>
+    <div class="table-container">
+        <table id="payouts-data">
+            <thead></thead>
+            <tbody></tbody>
+        </table>
+    </div>
 
     <script>
         // Load seasons.json to populate the dropdown
