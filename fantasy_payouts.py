@@ -57,15 +57,33 @@ def calculate_payouts(weekly_data, season_data):
 
 # Main function
 def main():
+    # Current Season
+    with open("seasons.json", "r") as seasons_file:
+        seasons_data = json.load(seasons_file)
+
+    # Find the current season ID
+    current_season_id = None
+    for season in seasons_data["seasons"]:
+        if season.get("current"):  # Use .get() to avoid KeyError
+            current_season_id = season["id"]
+            weekly_data_filename = f"weeklydata_{current_season_id}.json"
+            season_data_filename = f"seasondata_{current_season_id}.json"
+            payout_filename = f"payouts_{current_season_id}.json"
+            break
+
+    # Handle the case where no current season is found
+    if not current_season_id:
+        raise ValueError("No current season found in seasons.json. Please ensure one season has 'current': true.")
+
     # Load data
-    weekly_data = load_json("weeklydata.json")
-    season_data = load_json("seasondata.json")
+    weekly_data = load_json(weekly_data_filename)
+    season_data = load_json(season_data_filename)
 
     # Calculate payouts
     payouts = calculate_payouts(weekly_data, season_data)
 
     # Save to payouts.json
-    save_json("payouts.json", payouts)
+    save_json(payout_filename, payouts)
     print("payouts.json generated successfully.")
 
 if __name__ == "__main__":

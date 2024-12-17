@@ -1,0 +1,120 @@
+[
+    {
+        "TeamName": "Catching  Fire",
+        "TotalWinnings": 940.0,
+        "TopWeeks": [
+            "2",
+            "4",
+            "6",
+            "12"
+        ],
+        "BottomWeeks": []
+    },
+    {
+        "TeamName": "A Team Has No Name",
+        "TotalWinnings": 840.0,
+        "TopWeeks": [
+            "14"
+        ],
+        "BottomWeeks": [
+            "9"
+        ]
+    },
+    {
+        "TeamName": "Scam Newtons",
+        "TotalWinnings": 150.0,
+        "TopWeeks": [
+            "7",
+            "10",
+            "13"
+        ],
+        "BottomWeeks": []
+    },
+    {
+        "TeamName": "Cho-Kon It",
+        "TotalWinnings": 90.0,
+        "TopWeeks": [
+            "1",
+            "9"
+        ],
+        "BottomWeeks": [
+            "12"
+        ]
+    },
+    {
+        "TeamName": "Team chandler",
+        "TotalWinnings": 40.0,
+        "TopWeeks": [
+            "3"
+        ],
+        "BottomWeeks": [
+            "11"
+        ]
+    },
+    {
+        "TeamName": "Todd Donaldson",
+        "TotalWinnings": 40.0,
+        "TopWeeks": [
+            "11"
+        ],
+        "BottomWeeks": [
+            "5"
+        ]
+    },
+    {
+        "TeamName": "yearly  contribution",
+        "TotalWinnings": 30.0,
+        "TopWeeks": [
+            "5"
+        ],
+        "BottomWeeks": [
+            "2",
+            "4"
+        ]
+    },
+    {
+        "TeamName": "Good Vibes",
+        "TotalWinnings": 30.0,
+        "TopWeeks": [
+            "8"
+        ],
+        "BottomWeeks": [
+            "6",
+            "14"
+        ]
+    },
+    {
+        "TeamName": ". FREE MONEY 1.0",
+        "TotalWinnings": -10.0,
+        "TopWeeks": [],
+        "BottomWeeks": [
+            "1"
+        ]
+    },
+    {
+        "TeamName": "\ud83c\udf46 Orchids Of Asia",
+        "TotalWinnings": -10.0,
+        "TopWeeks": [],
+        "BottomWeeks": [
+            "3"
+        ]
+    },
+    {
+        "TeamName": "InIt2WinIt BeNnEtT",
+        "TotalWinnings": -20.0,
+        "TopWeeks": [],
+        "BottomWeeks": [
+            "7",
+            "13"
+        ]
+    },
+    {
+        "TeamName": "GetoffmyDitka Ditka",
+        "TotalWinnings": -20.0,
+        "TopWeeks": [],
+        "BottomWeeks": [
+            "8",
+            "10"
+        ]
+    }
+]

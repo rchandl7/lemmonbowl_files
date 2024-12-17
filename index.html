@@ -23,7 +23,6 @@
             position: sticky;
             top: 0;
             /* Don't forget this, required for the stickiness */
-            ;
         }
 
         td {
@@ -58,6 +57,12 @@
         <img src="lemon_bowl_logo.png" height="120" width="180" />
     </div><br>
 
+    <!-- Dropdown to select season -->
+    <label for="season-dropdown">Select Season: </label>
+    <select id="season-dropdown" onchange="updateDataFiles()">
+        <!-- Options will be added dynamically -->
+    </select><br><br>
+
     <h2>Weekly Data</h2>
     <table id="weekly-data">
         <thead></thead>
@@ -77,21 +82,45 @@
     </table>
 
     <script>
-        // Load JSON data and populate tables
-        async function loadAndDisplayData() {
+        // Load seasons.json to populate the dropdown
+        async function loadSeasons() {
             try {
-                const [weeklyData, seasonData, payoutsData] = await Promise.all([
-                    fetch('weeklydata.json').then(res => res.json()),
-                    fetch('seasondata.json').then(res => res.json()),
-                    fetch('payouts.json').then(res => res.json())
-                ]);
+                const response = await fetch('seasons.json');
+                const seasonsData = await response.json();
 
-                populateTable('weekly-data', weeklyData);
-                populateTable('season-data', seasonData);
-                populateTable('payouts-data', payoutsData);
+                const seasonDropdown = document.getElementById("season-dropdown");
+                seasonsData.seasons.forEach(season => {
+                    const option = document.createElement("option");
+                    option.value = season.id;
+                    option.textContent = season.id;
+                    seasonDropdown.appendChild(option);
+                });
+
+                // Set the default season as the one marked as "current"
+                const currentSeason = seasonsData.seasons.find(season => season.current === true);
+                if (currentSeason) {
+                    seasonDropdown.value = currentSeason.id;
+                }
+
+                updateDataFiles(); // Update data files based on the default or selected season
             } catch (error) {
-                console.error('Error loading JSON data:', error);
+                console.error('Error loading seasons data:', error);
             }
+        }
+
+        // Update the file names and reload the data when the dropdown changes
+        async function updateDataFiles() {
+            const selectedYear = document.getElementById("season-dropdown").value;
+
+            const [weeklyData, seasonData, payoutsData] = await Promise.all([
+                fetch(`weeklydata_${selectedYear}.json`).then(res => res.json()),
+                fetch(`seasondata_${selectedYear}.json`).then(res => res.json()),
+                fetch(`payouts_${selectedYear}.json`).then(res => res.json())
+            ]);
+
+            populateTable('weekly-data', weeklyData);
+            populateTable('season-data', seasonData);
+            populateTable('payouts-data', payoutsData);
         }
 
         // Populate a table with JSON data
@@ -128,8 +157,8 @@
             });
         }
 
-        // Initialize
-        loadAndDisplayData();
+        // Initialize the page
+        loadSeasons();
     </script>
 </body>
 

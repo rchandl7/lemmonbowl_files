@@ -1,0 +1,110 @@
+[
+    {
+        "TeamName": "Good Vibes",
+        "TotalWinnings": 850.0,
+        "TopWeeks": [
+            "5"
+        ],
+        "BottomWeeks": []
+    },
+    {
+        "TeamName": "Hit and Ruggs",
+        "TotalWinnings": 600.0,
+        "TopWeeks": [
+            "8",
+            "9"
+        ],
+        "BottomWeeks": []
+    },
+    {
+        "TeamName": ". FREE MONEY 1.0",
+        "TotalWinnings": 300.0,
+        "TopWeeks": [
+            "6",
+            "7"
+        ],
+        "BottomWeeks": [
+            "4",
+            "8"
+        ]
+    },
+    {
+        "TeamName": "SLICK RICK",
+        "TotalWinnings": 200.0,
+        "TopWeeks": [
+            "4",
+            "10",
+            "12",
+            "14"
+        ],
+        "BottomWeeks": []
+    },
+    {
+        "TeamName": "I guess losing is cool",
+        "TotalWinnings": 80.0,
+        "TopWeeks": [
+            "1",
+            "3"
+        ],
+        "BottomWeeks": [
+            "11",
+            "13"
+        ]
+    },
+    {
+        "TeamName": "Richard Bentley Richard Bentley",
+        "TotalWinnings": 50.0,
+        "TopWeeks": [
+            "2"
+        ],
+        "BottomWeeks": []
+    },
+    {
+        "TeamName": "InIt2WinIt BeNnEtT",
+        "TotalWinnings": 50.0,
+        "TopWeeks": [
+            "11"
+        ],
+        "BottomWeeks": []
+    },
+    {
+        "TeamName": "Losing Is Cool",
+        "TotalWinnings": 30.0,
+        "TopWeeks": [
+            "13"
+        ],
+        "BottomWeeks": [
+            "5",
+            "10"
+        ]
+    },
+    {
+        "TeamName": "GetoffmyDitka Ditka",
+        "TotalWinnings": -10.0,
+        "TopWeeks": [],
+        "BottomWeeks": [
+            "2"
+        ]
+    },
+    {
+        "TeamName": "Cho-Kon It",
+        "TotalWinnings": -20.0,
+        "TopWeeks": [],
+        "BottomWeeks": [
+            "1",
+            "9"
+        ]
+    },
+    {
+        "TeamName": "Ballin Ballers",
+        "TotalWinnings": -50.0,
+        "TopWeeks": [],
+        "BottomWeeks": [
+            "3",
+            "6",
+            "7",
+            "12",
+            "14"
+        ]
+    }
+]

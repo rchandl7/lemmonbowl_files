@@ -1,0 +1,106 @@
+[
+    {
+        "TeamName": "SLICK RICK",
+        "TotalWinnings": 1390.0,
+        "TopWeeks": [
+            "11",
+            "12"
+        ],
+        "BottomWeeks": [
+            "1"
+        ]
+    },
+    {
+        "TeamName": "Robby Andersons Profile Picture",
+        "TotalWinnings": 410.0,
+        "TopWeeks": [
+            "3",
+            "5",
+            "13",
+            "14"
+        ],
+        "BottomWeeks": [
+            "4"
+        ]
+    },
+    {
+        "TeamName": "Richard Bentley Richard Bentley",
+        "TotalWinnings": 100.0,
+        "TopWeeks": [
+            "4",
+            "8"
+        ],
+        "BottomWeeks": []
+    },
+    {
+        "TeamName": "Cho-Kon It",
+        "TotalWinnings": 100.0,
+        "TopWeeks": [
+            "7",
+            "9"
+        ],
+        "BottomWeeks": []
+    },
+    {
+        "TeamName": "GetoffmyDitka Ditka",
+        "TotalWinnings": 40.0,
+        "TopWeeks": [
+            "6"
+        ],
+        "BottomWeeks": [
+            "8"
+        ]
+    },
+    {
+        "TeamName": "Good Vibes",
+        "TotalWinnings": 30.0,
+        "TopWeeks": [
+            "1"
+        ],
+        "BottomWeeks": [
+            "3",
+            "14"
+        ]
+    },
+    {
+        "TeamName": "Bayside Tigers",
+        "TotalWinnings": 30.0,
+        "TopWeeks": [
+            "10"
+        ],
+        "BottomWeeks": [
+            "12",
+            "13"
+        ]
+    },
+    {
+        "TeamName": "team spell",
+        "TotalWinnings": 10.0,
+        "TopWeeks": [
+            "2"
+        ],
+        "BottomWeeks": [
+            "5",
+            "7",
+            "9",
+            "11"
+        ]
+    },
+    {
+        "TeamName": ". FREE MONEY 1.0",
+        "TotalWinnings": -10.0,
+        "TopWeeks": [],
+        "BottomWeeks": [
+            "10"
+        ]
+    },
+    {
+        "TeamName": "Ballin Ballers",
+        "TotalWinnings": -20.0,
+        "TopWeeks": [],
+        "BottomWeeks": [
+            "2",
+            "6"
+        ]
+    }
+]
