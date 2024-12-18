@@ -1,7 +1,7 @@
 [
     {
         "TeamName": "Good Vibes",
-        "TotalWinnings": 850.0,
+        "TotalWinnings": 825.0,
         "TopWeeks": [
             "5"
         ],
@@ -9,7 +9,7 @@
     },
     {
         "TeamName": "Hit and Ruggs",
-        "TotalWinnings": 600.0,
+        "TotalWinnings": 550.0,
         "TopWeeks": [
             "8",
             "9"
@@ -18,7 +18,7 @@
     },
     {
         "TeamName": ". FREE MONEY 1.0",
-        "TotalWinnings": 300.0,
+        "TotalWinnings": 280.0,
         "TopWeeks": [
             "6",
             "7"
@@ -30,7 +30,7 @@
     },
     {
         "TeamName": "SLICK RICK",
-        "TotalWinnings": 200.0,
+        "TotalWinnings": 100.0,
         "TopWeeks": [
             "4",
             "10",
@@ -41,7 +41,7 @@
     },
     {
         "TeamName": "I guess losing is cool",
-        "TotalWinnings": 80.0,
+        "TotalWinnings": 40.0,
         "TopWeeks": [
             "1",
             "3"
@@ -53,7 +53,7 @@
     },
     {
         "TeamName": "Richard Bentley Richard Bentley",
-        "TotalWinnings": 50.0,
+        "TotalWinnings": 25.0,
         "TopWeeks": [
             "2"
         ],
@@ -61,7 +61,7 @@
     },
     {
         "TeamName": "InIt2WinIt BeNnEtT",
-        "TotalWinnings": 50.0,
+        "TotalWinnings": 25.0,
         "TopWeeks": [
             "11"
         ],
@@ -69,7 +69,7 @@
     },
     {
         "TeamName": "Losing Is Cool",
-        "TotalWinnings": 30.0,
+        "TotalWinnings": 15.0,
         "TopWeeks": [
             "13"
         ],
@@ -80,7 +80,7 @@
     },
     {
         "TeamName": "GetoffmyDitka Ditka",
-        "TotalWinnings": -10.0,
+        "TotalWinnings": -5.0,
         "TopWeeks": [],
         "BottomWeeks": [
             "2"
@@ -88,7 +88,7 @@
     },
     {
         "TeamName": "Cho-Kon It",
-        "TotalWinnings": -20.0,
+        "TotalWinnings": -10.0,
         "TopWeeks": [],
         "BottomWeeks": [
             "1",
@@ -97,7 +97,7 @@
     },
     {
         "TeamName": "Ballin Ballers",
-        "TotalWinnings": -50.0,
+        "TotalWinnings": -25.0,
         "TopWeeks": [],
         "BottomWeeks": [
             "3",

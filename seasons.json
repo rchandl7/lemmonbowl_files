@@ -2,35 +2,83 @@
     "seasons": [
         {
             "id": "2017",
-            "current": false
+            "current": false,
+            "dues": "150",
+            "weeklyTop": "25",
+            "weeklyBottom": "-5",
+            "oneSeed": "500",
+            "champ": "800",
+            "runnerUp": "220"
         },
         {
             "id": "2018",
-            "current": false
+            "current": false,
+            "dues": "150",
+            "weeklyTop": "25",
+            "weeklyBottom": "-5",
+            "oneSeed": "500",
+            "champ": "800",
+            "runnerUp": "220"
         },
         {
             "id": "2019",
-            "current": false
+            "current": false,
+            "dues": "150",
+            "weeklyTop": "25",
+            "weeklyBottom": "-5",
+            "oneSeed": "500",
+            "champ": "800",
+            "runnerUp": "220"
         },
         {
             "id": "2020",
-            "current": false
+            "current": false,
+            "dues": "150",
+            "weeklyTop": "25",
+            "weeklyBottom": "-5",
+            "oneSeed": "500",
+            "champ": "800",
+            "runnerUp": "220"
         },
         {
             "id": "2021",
-            "current": false
+            "current": false,
+            "dues": "150",
+            "weeklyTop": "25",
+            "weeklyBottom": "-5",
+            "oneSeed": "500",
+            "champ": "800",
+            "runnerUp": "240"
         },
         {
             "id": "2022",
-            "current": false
+            "current": false,
+            "dues": "150",
+            "weeklyTop": "25",
+            "weeklyBottom": "-5",
+            "oneSeed": "500",
+            "champ": "800",
+            "runnerUp": "240"
         },
         {
             "id": "2023",
-            "current": false
+            "current": false,
+            "dues": "200",
+            "weeklyTop": "50",
+            "weeklyBottom": "-10",
+            "oneSeed": "500",
+            "champ": "1140",
+            "runnerUp": "200"
         },
         {
             "id": "2024",
-            "current": true
+            "current": true,
+            "dues": "200",
+            "weeklyTop": "50",
+            "weeklyBottom": "-10",
+            "oneSeed": "500",
+            "champ": "1140",
+            "runnerUp": "200"
         }
     ]
 }

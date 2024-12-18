@@ -1,7 +1,32 @@
 import json
 
-def generate_weekly_data(api_data):
+def reference_data():
+    """Load seasons.json and extract current season data."""
+    with open("seasons.json", "r") as seasons_file:
+        seasons_data = json.load(seasons_file)
+
+    # Find the current season
+    current_season = next((season for season in seasons_data["seasons"] if season.get("current")), None)
+
+    # Handle case where no current season is found
+    if not current_season:
+        raise ValueError("No current season found in seasons.json. Ensure one season has 'current': true.")
+
+    # Return the current season's details
+    return {
+        "current_season_id": current_season["id"],
+        "weekly_top_payout": current_season.get("weeklyTop", "n/a"),
+        "weekly_bottom_payout": current_season.get("weeklyBottom", "n/a"),
+        "one_seed_bonus": current_season.get("oneSeed", "n/a"),
+        "champ_bonus": current_season.get("champ", "n/a"),
+        "runner_up_bonus": current_season.get("runnerUp", "n/a"),
+    }
+
+
+def generate_weekly_data(api_data, season_data):
     weekly_data = []
+    weekly_top_payout = season_data["weekly_top_payout"]
+    weekly_bottom_payout = season_data["weekly_bottom_payout"]
 
     # Iterate through each week's matchup data
     for week in api_data["schedule"]:
@@ -54,78 +79,80 @@ def generate_weekly_data(api_data):
                 "Week": str(week_number),
                 "Top TeamName": top_team_name,
                 "Top WeeklyPoints": f"{top_team.get('totalPoints', 0):.2f}",
-                "Top Payout": "$50",
+                "Top Payout": weekly_top_payout,
                 "Bottom TeamName": bottom_team_name,
                 "Bottom WeeklyPoints": f"{bottom_team.get('totalPoints', 0):.2f}",
-                "Bottom Payout": "-$10"
+                "Bottom Payout": weekly_bottom_payout
             })
 
     return weekly_data
 
 def update_season_data(api_data, season_data):
-    # Update Reg Season Champ
+    """Generate season payout data with categories, team names, and payouts."""
+    # Fetch values from season_data
+    one_seed_payout = f"${season_data['one_seed_bonus']}"
+    champ_payout = f"${season_data['champ_bonus']}"
+    runner_up_payout = f"${season_data['runner_up_bonus']}"
+
+    # Determine team names
     reg_season_champ = next((team for team in api_data["teams"] if team.get("playoffSeed") == 1), None)
-    reg_season_champ_name = reg_season_champ.get("name", "tba") if reg_season_champ else "tba"
-    season_data[0]["TeamName"] = reg_season_champ_name
-
-    # Update Playoff Champ
     playoff_champ = next((team for team in api_data["teams"] if team.get("rankCalculatedFinal") == 1), None)
-    playoff_champ_name = playoff_champ.get("name", "tba") if playoff_champ else "tba"
-    season_data[2]["TeamName"] = playoff_champ_name
-
-    # Update Playoff Runner Up
     playoff_runner_up = next((team for team in api_data["teams"] if team.get("rankCalculatedFinal") == 2), None)
-    playoff_runner_up_name = playoff_runner_up.get("name", "tba") if playoff_runner_up else "tba"
-    season_data[1]["TeamName"] = playoff_runner_up_name
 
-    return season_data
+    reg_season_champ_name = reg_season_champ.get("name", "tba") if reg_season_champ else "tba"
+    playoff_champ_name = playoff_champ.get("name", "tba") if playoff_champ else "tba"
+    playoff_runner_up_name = playoff_runner_up.get("name", "tba") if playoff_runner_up else "tba"
+
+    return [
+        {"Category": "Reg Season Champ", "TeamName": reg_season_champ_name, "Payout": one_seed_payout},
+        {"Category": "Playoff Runner Up", "TeamName": playoff_runner_up_name, "Payout": runner_up_payout},
+        {"Category": "Playoff Champ", "TeamName": playoff_champ_name, "Payout": champ_payout},
+    ]
+
 
 def main():
-    # Load the seasons data
-    with open("seasons.json", "r") as seasons_file:
-        seasons_data = json.load(seasons_file)
+    # Extract current season data from seasons.json
+    season_data = reference_data()
+    current_season_id = season_data["current_season_id"]
 
-    # Find the current season ID
-    current_season_id = None
-    for season in seasons_data["seasons"]:
-        if season.get("current"):  # Use .get() to avoid KeyError
-            current_season_id = season["id"]
-            break
-
-    # Handle the case where no current season is found
-    if not current_season_id:
-            raise ValueError("No current season found in seasons.json. Please ensure one season has 'current': true.")
-
-    # Construct the file name for the API data
+    # Construct the API data file name
     api_data_filename = f"{current_season_id}_api_data.json"
 
-    # Load the API data from the dynamically constructed file name
-    with open(api_data_filename, "r") as api_data_file:
-        api_data = json.load(api_data_file)
+    # Load the API data
+    try:
+        with open(api_data_filename, "r") as api_data_file:
+            api_data = json.load(api_data_file)
+    except FileNotFoundError:
+        print(f"Error: {api_data_filename} not found.")
+        return
 
     # Generate weekly data
-    weekly_data = generate_weekly_data(api_data)
+    weekly_data = generate_weekly_data(api_data, season_data)
 
-    # Write the weekly data to weeklydata.json
+    # Write weekly data to a JSON file
     weekly_data_filename = f"weeklydata_{current_season_id}.json"
-    with open(weekly_data_filename, 'w') as weekly_file:
+    with open(weekly_data_filename, "w") as weekly_file:
         json.dump(weekly_data, weekly_file, indent=4)
-        print("Data written to weeklydata_", current_season_id,".json.")
+        print(f"Weekly data written to {weekly_data_filename}.")
 
-    # Load the season data from the local file
+    # Construct the season data file name
     season_data_filename = f"seasondata_{current_season_id}.json"
-    with open(season_data_filename, 'r') as season_data_file:
-        season_data = json.load(season_data_file)
 
-    # Update season data with team names
+    # Load the season data (if needed as a template or for enrichment)
+    try:
+        with open(season_data_filename, "r") as season_data_file:
+            season_data_content = json.load(season_data_file)
+    except FileNotFoundError:
+        print(f"Error: {season_data_filename} not found.")
+        return
 
+    # Generate season-long payout data
     updated_season_data = update_season_data(api_data, season_data)
 
-    # Write the updated season data to seasondata.json
-    
-    with open(season_data_filename, 'w') as season_file:
+    # Write updated season payout data to a JSON file
+    with open(season_data_filename, "w") as season_file:
         json.dump(updated_season_data, season_file, indent=4)
-        print("Data written to seasondata_", current_season_id,".json.")
+        print(f"Season payout data written to {season_data_filename}.")
 
 if __name__ == "__main__":
     main()

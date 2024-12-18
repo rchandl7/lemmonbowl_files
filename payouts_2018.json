@@ -1,7 +1,15 @@
 [
     {
+        "TeamName": "Beware of Ligma",
+        "TotalWinnings": 795.0,
+        "TopWeeks": [],
+        "BottomWeeks": [
+            "2"
+        ]
+    },
+    {
         "TeamName": "InIt2WinIt BeNnEtT",
-        "TotalWinnings": 850.0,
+        "TotalWinnings": 675.0,
         "TopWeeks": [
             "1",
             "2",
@@ -14,16 +22,8 @@
         "BottomWeeks": []
     },
     {
-        "TeamName": "Beware of Ligma",
-        "TotalWinnings": 790.0,
-        "TopWeeks": [],
-        "BottomWeeks": [
-            "2"
-        ]
-    },
-    {
         "TeamName": "GetoffmyDitka Ditka",
-        "TotalWinnings": 290.0,
+        "TotalWinnings": 245.0,
         "TopWeeks": [
             "7"
         ],
@@ -31,7 +31,7 @@
     },
     {
         "TeamName": "Catching  Fire",
-        "TotalWinnings": 70.0,
+        "TotalWinnings": 35.0,
         "TopWeeks": [
             "3",
             "12"
@@ -44,7 +44,7 @@
     },
     {
         "TeamName": "Butter Cuts and Chips",
-        "TotalWinnings": 50.0,
+        "TotalWinnings": 25.0,
         "TopWeeks": [
             "4"
         ],
@@ -52,7 +52,7 @@
     },
     {
         "TeamName": "Scam Newtons",
-        "TotalWinnings": 50.0,
+        "TotalWinnings": 25.0,
         "TopWeeks": [
             "5"
         ],
@@ -60,7 +60,7 @@
     },
     {
         "TeamName": "Cho-Kon-It Tyler",
-        "TotalWinnings": 50.0,
+        "TotalWinnings": 25.0,
         "TopWeeks": [
             "10"
         ],
@@ -68,7 +68,7 @@
     },
     {
         "TeamName": "Team chandler",
-        "TotalWinnings": 30.0,
+        "TotalWinnings": 15.0,
         "TopWeeks": [
             "14"
         ],
@@ -79,7 +79,7 @@
     },
     {
         "TeamName": ". FREE MONEY 1.0",
-        "TotalWinnings": -20.0,
+        "TotalWinnings": -10.0,
         "TopWeeks": [],
         "BottomWeeks": [
             "3",
@@ -88,7 +88,7 @@
     },
     {
         "TeamName": "team spell",
-        "TotalWinnings": -20.0,
+        "TotalWinnings": -10.0,
         "TopWeeks": [],
         "BottomWeeks": [
             "6",
@@ -97,7 +97,7 @@
     },
     {
         "TeamName": "CiTRuS aCiD",
-        "TotalWinnings": -20.0,
+        "TotalWinnings": -10.0,
         "TopWeeks": [],
         "BottomWeeks": [
             "8",
@@ -106,7 +106,7 @@
     },
     {
         "TeamName": "Good Vibes",
-        "TotalWinnings": -20.0,
+        "TotalWinnings": -10.0,
         "TopWeeks": [],
         "BottomWeeks": [
             "10",
