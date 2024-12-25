@@ -39,6 +39,7 @@ jobs:
             data = json.load(f); \
         print(next(s['id'] for s in data if s.get('current') == True))")
         echo "::set-output name=current_year::$YEAR"
+    
       
     - name: Commit and push changes
       run: |

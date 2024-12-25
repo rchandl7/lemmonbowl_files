@@ -32,9 +32,9 @@ jobs:
         id: year
         run: |
           YEAR=$(python -c "import json; \
-            with open('seasons.json') as f: \
+          with open('seasons.json') as f: \
               data = json.load(f); \
-            print(next(s['id'] for s in data if s.get('current') == True))")
+          print(next(s['id'] for s in data if s.get('current') == True))")
           echo "::set-output name=current_year::$YEAR"
 
       - name: Commit and push changes
