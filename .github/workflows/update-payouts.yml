@@ -4,7 +4,7 @@ on:
   workflow_run:
     workflows: ["Run generate_weekly.py on api_data.json commit"]
     types:
-      - completed
+      - success
 
 jobs:
   update-payouts:
@@ -27,22 +27,13 @@ jobs:
       - name: Run script
         run: |
           python fantasy_payouts.py
-      
-      - name: Extract current year from seasons.json
-        id: year
-        run: |
-          YEAR=$(python -c "import json; \
-          with open('seasons.json') as f: \
-              data = json.load(f); \
-          print(next(s['id'] for s in data if s.get('current') == True))")
-          echo "::set-output name=current_year::$YEAR"
 
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add payouts_${{ steps.year.outputs.current_year }}.json
-          git commit -m "Update payouts.json after changes to weeklydata.json or seasondata.json"
+          git add *.json
+          git commit -m "Update Data Files"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
