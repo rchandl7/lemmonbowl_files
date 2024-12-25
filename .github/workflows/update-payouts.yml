@@ -4,7 +4,7 @@ on:
   workflow_run:
     workflows: ["Run generate_weekly.py on api_data.json commit"]
     types:
-      - success
+      - completed
 
 jobs:
   update-payouts:

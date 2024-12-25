@@ -4,7 +4,7 @@ on:
   workflow_run:
     workflows: ["Run generate_data.py"]
     types:
-      - success
+      - completed
 
 jobs:
   run-script:
