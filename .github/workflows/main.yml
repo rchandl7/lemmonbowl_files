@@ -8,6 +8,7 @@ on:
       - main
     paths:
       - '*_api_data.json'
+      - 'seasons.json'
   workflow_dispatch:
 
 jobs:

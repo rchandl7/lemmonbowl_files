@@ -1,8 +1,11 @@
 import json
 from collections import defaultdict
+import os
 
 # Load JSON files
 def load_json(filename):
+    if not os.path.exists(filename):
+        return []  # Default to an empty list if the file doesn't exist
     with open(filename, 'r') as file:
         return json.load(file)
 
@@ -75,7 +78,7 @@ def main():
     if not current_season_id:
         raise ValueError("No current season found in seasons.json. Please ensure one season has 'current': true.")
 
-    # Load data
+    # Load or initialize data
     weekly_data = load_json(weekly_data_filename)
     season_data = load_json(season_data_filename)
 
@@ -84,7 +87,7 @@ def main():
 
     # Save to payouts.json
     save_json(payout_filename, payouts)
-    print("payouts.json generated successfully.")
+    print(f"{payout_filename} generated successfully.")
 
 if __name__ == "__main__":
     main()

@@ -138,6 +138,14 @@ def main():
     # Construct the season data file name
     season_data_filename = f"seasondata_{current_season_id}.json"
 
+    # Generate season-long payout data
+    updated_season_data = update_season_data(api_data, season_data)
+
+    # Write updated season payout data to a JSON file
+    with open(season_data_filename, "w") as season_file:
+        json.dump(updated_season_data, season_file, indent=4)
+        print(f"Season payout data written to {season_data_filename}.")
+
     # Load the season data (if needed as a template or for enrichment)
     try:
         with open(season_data_filename, "r") as season_data_file:
@@ -146,13 +154,6 @@ def main():
         print(f"Error: {season_data_filename} not found.")
         return
 
-    # Generate season-long payout data
-    updated_season_data = update_season_data(api_data, season_data)
-
-    # Write updated season payout data to a JSON file
-    with open(season_data_filename, "w") as season_file:
-        json.dump(updated_season_data, season_file, indent=4)
-        print(f"Season payout data written to {season_data_filename}.")
 
 if __name__ == "__main__":
     main()
