@@ -150,9 +150,9 @@
             const selectedYear = document.getElementById("season-dropdown").value;
 
             const [weeklyData, seasonData, payoutsData] = await Promise.all([
-                fetch(`weeklydata_${selectedYear}.json`).then(res => res.json()),
-                fetch(`seasondata_${selectedYear}.json`).then(res => res.json()),
-                fetch(`payouts_${selectedYear}.json`).then(res => res.json())
+                fetch(`${selectedYear}/weekly.json`).then(res => res.json()),
+                fetch(`${selectedYear}/season.json`).then(res => res.json()),
+                fetch(`${selectedYear}/payouts.json`).then(res => res.json())
             ]);
 
             populateTable('weekly-data', weeklyData);

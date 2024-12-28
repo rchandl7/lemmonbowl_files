@@ -116,7 +116,7 @@ def main():
     current_season_id = season_data["current_season_id"]
 
     # Construct the API data file name
-    api_data_filename = f"{current_season_id}_api_data.json"
+    api_data_filename = f"{current_season_id}/api_data.json"
 
     # Load the API data
     try:
@@ -130,13 +130,13 @@ def main():
     weekly_data = generate_weekly_data(api_data, season_data)
 
     # Write weekly data to a JSON file
-    weekly_data_filename = f"weeklydata_{current_season_id}.json"
+    weekly_data_filename = f"{current_season_id}/weekly.json"
     with open(weekly_data_filename, "w") as weekly_file:
         json.dump(weekly_data, weekly_file, indent=4)
         print(f"Weekly data written to {weekly_data_filename}.")
 
     # Construct the season data file name
-    season_data_filename = f"seasondata_{current_season_id}.json"
+    season_data_filename = f"{current_season_id}/season.json"
 
     # Generate season-long payout data
     updated_season_data = update_season_data(api_data, season_data)

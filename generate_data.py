@@ -1,5 +1,6 @@
 import requests
 import json
+import os
 
 with open("seasons.json", "r") as seasons_file:
     seasons_data = json.load(seasons_file)
@@ -63,9 +64,11 @@ def main():
 
     print("Weekly data fetched successfully!")
     # Save the data to a JSON file for further processing
-    with open(f"{season_id}_api_data.json", "w") as outfile:
+    os.makedirs(season_id, exist_ok=True)
+
+    with open(f"{season_id}/api_data.json", "w") as outfile:
         json.dump(weekly_data, outfile, indent=4)
-    print("Data written to ", season_id,"_api_data.json.")
+    print("Data written to ", season_id,"/api_data.json.")
 
 if __name__ == "__main__":
     main()

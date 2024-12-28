@@ -5,14 +5,24 @@ import os
 # Load JSON files
 def load_json(filename):
     if not os.path.exists(filename):
+        print(f"{filename} does not exist. Returning an empty list.")
         return []  # Default to an empty list if the file doesn't exist
     with open(filename, 'r') as file:
         return json.load(file)
 
 # Save JSON files
 def save_json(filename, data):
+    os.makedirs(os.path.dirname(filename), exist_ok=True)  # Ensure directory exists
     with open(filename, 'w') as file:
         json.dump(data, file, indent=4)
+
+# Get current season ID from seasons.json
+def get_current_season_id(seasons_filename):
+    seasons_data = load_json(seasons_filename)
+    for season in seasons_data.get("seasons", []):
+        if season.get("current"):  # Check if the 'current' key is True
+            return season["id"]
+    raise ValueError("No current season found in seasons.json. Please ensure one season has 'current': true.")
 
 # Calculate payouts
 def calculate_payouts(weekly_data, season_data):
@@ -60,33 +70,31 @@ def calculate_payouts(weekly_data, season_data):
 
 # Main function
 def main():
-    # Current Season
-    with open("seasons.json", "r") as seasons_file:
-        seasons_data = json.load(seasons_file)
+    # Fetch current season ID
+    seasons_filename = "seasons.json"
+    current_season_id = get_current_season_id(seasons_filename)
+    print(f"Current season ID: {current_season_id}")
 
-    # Find the current season ID
-    current_season_id = None
-    for season in seasons_data["seasons"]:
-        if season.get("current"):  # Use .get() to avoid KeyError
-            current_season_id = season["id"]
-            weekly_data_filename = f"weeklydata_{current_season_id}.json"
-            season_data_filename = f"seasondata_{current_season_id}.json"
-            payout_filename = f"payouts_{current_season_id}.json"
-            break
-
-    # Handle the case where no current season is found
-    if not current_season_id:
-        raise ValueError("No current season found in seasons.json. Please ensure one season has 'current': true.")
+    # File paths for current season
+    weekly_data_filename = f"{current_season_id}/weekly.json"
+    season_data_filename = f"{current_season_id}/season.json"
+    payout_filename = f"{current_season_id}/payouts.json"
 
     # Load or initialize data
     weekly_data = load_json(weekly_data_filename)
     season_data = load_json(season_data_filename)
+
+    if not weekly_data:
+        print(f"No weekly data found in {weekly_data_filename}.")
+    if not season_data:
+        print(f"No season data found in {season_data_filename}.")
 
     # Calculate payouts
     payouts = calculate_payouts(weekly_data, season_data)
 
     # Save to payouts.json
     save_json(payout_filename, payouts)
+    print(json.dumps(payouts, indent=4))  # Print the result for debugging
     print(f"{payout_filename} generated successfully.")
 
 if __name__ == "__main__":
