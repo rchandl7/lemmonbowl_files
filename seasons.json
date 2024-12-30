@@ -62,7 +62,7 @@
         },
         {
             "id": "2023",
-            "current": true,
+            "current": false,
             "dues": "200",
             "weeklyTop": "50",
             "weeklyBottom": "-10",
@@ -72,7 +72,7 @@
         },
         {
             "id": "2024",
-            "current": false,
+            "current": true,
             "dues": "200",
             "weeklyTop": "50",
             "weeklyBottom": "-10",
