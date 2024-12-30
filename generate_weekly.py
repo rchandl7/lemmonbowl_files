@@ -1,4 +1,5 @@
 import json
+import os
 
 def reference_data():
     """Load seasons.json and extract current season data."""
