@@ -1,7 +1,7 @@
 [
     {
-        "TeamName": "tba",
-        "TotalWinnings": 1340.0,
+        "TeamName": "team ",
+        "TotalWinnings": 1140.0,
         "TopWeeks": [],
         "BottomWeeks": []
     },
@@ -13,6 +13,12 @@
             "7",
             "12"
         ],
+        "BottomWeeks": []
+    },
+    {
+        "TeamName": "Crosstown Traffic",
+        "TotalWinnings": 200.0,
+        "TopWeeks": [],
         "BottomWeeks": []
     },
     {
