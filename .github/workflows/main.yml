@@ -44,6 +44,9 @@ jobs:
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SWID: ${{ secrets.SWID }}
+          ESPN_S2: ${{ secrets.ESPN_S2 }}
+          LEAGUE_ID: ${{ secrets.LEAGUE_ID }}
 
   generate-weekly:
     name: Run generate_weekly.py
