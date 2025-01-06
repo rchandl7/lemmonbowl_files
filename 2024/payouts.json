@@ -1,8 +1,12 @@
 [
     {
-        "TeamName": "team ",
-        "TotalWinnings": 1140.0,
-        "TopWeeks": [],
+        "TeamName": "team",
+        "TotalWinnings": 1290.0,
+        "TopWeeks": [
+            "3",
+            "5",
+            "11"
+        ],
         "BottomWeeks": []
     },
     {
@@ -28,16 +32,6 @@
             "1",
             "8",
             "13"
-        ],
-        "BottomWeeks": []
-    },
-    {
-        "TeamName": "team",
-        "TotalWinnings": 150.0,
-        "TopWeeks": [
-            "3",
-            "5",
-            "11"
         ],
         "BottomWeeks": []
     },

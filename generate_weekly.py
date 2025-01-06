@@ -1,6 +1,7 @@
 import json
 import os
 
+
 def reference_data():
     """Load seasons.json and extract current season data."""
     with open("seasons.json", "r") as seasons_file:
@@ -22,6 +23,15 @@ def reference_data():
         "champ_bonus": current_season.get("champ", "n/a"),
         "runner_up_bonus": current_season.get("runnerUp", "n/a"),
     }
+
+
+def get_team_name(team_id, api_data):
+    """Resolve a team's name by ID from API data."""
+    team = next((team for team in api_data["teams"] if team["id"] == team_id), None)
+    if team:
+        nickname = team.get('name', '').strip()
+        return nickname if nickname else "Unknown Team"
+    return "Unknown Team"
 
 
 def generate_weekly_data(api_data, season_data):
@@ -51,16 +61,9 @@ def generate_weekly_data(api_data, season_data):
         if not top_team or not bottom_team:
             continue
 
-        # Get team details from the API data
-        def get_team_name(team_id):
-            team = next((team for team in api_data["teams"] if team["id"] == team_id), None)
-            if team:
-                nickname = team.get('name', '').strip()
-                return nickname if nickname else "Unknown Team"
-            return "Unknown Team"
-
-        top_team_name = get_team_name(top_team["teamId"])
-        bottom_team_name = get_team_name(bottom_team["teamId"])
+        # Resolve team names
+        top_team_name = get_team_name(top_team["teamId"], api_data)
+        bottom_team_name = get_team_name(bottom_team["teamId"], api_data)
 
         # Check if the week already exists in weekly_data
         existing_week = next((item for item in weekly_data if item["Week"] == str(week_number)), None)
@@ -88,6 +91,7 @@ def generate_weekly_data(api_data, season_data):
 
     return weekly_data
 
+
 def update_season_data(api_data, season_data):
     """Generate season payout data with categories, team names, and payouts."""
     # Fetch values from season_data
@@ -100,9 +104,9 @@ def update_season_data(api_data, season_data):
     playoff_champ = next((team for team in api_data["teams"] if team.get("rankCalculatedFinal") == 1), None)
     playoff_runner_up = next((team for team in api_data["teams"] if team.get("rankCalculatedFinal") == 2), None)
 
-    reg_season_champ_name = reg_season_champ.get("name", "tba") if reg_season_champ else "tba"
-    playoff_champ_name = playoff_champ.get("name", "tba") if playoff_champ else "tba"
-    playoff_runner_up_name = playoff_runner_up.get("name", "tba") if playoff_runner_up else "tba"
+    reg_season_champ_name = get_team_name(reg_season_champ["id"], api_data) if reg_season_champ else "tba"
+    playoff_champ_name = get_team_name(playoff_champ["id"], api_data) if playoff_champ else "tba"
+    playoff_runner_up_name = get_team_name(playoff_runner_up["id"], api_data) if playoff_runner_up else "tba"
 
     return [
         {"Category": "Reg Season Champ", "TeamName": reg_season_champ_name, "Payout": one_seed_payout},
