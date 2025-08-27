@@ -33,7 +33,6 @@ def get_team_name(team_id, api_data):
         return nickname if nickname else "Unknown Team"
     return "Unknown Team"
 
-
 def generate_weekly_data(api_data, season_data):
     weekly_data = []
     weekly_top_payout = season_data["weekly_top_payout"]
@@ -61,9 +60,13 @@ def generate_weekly_data(api_data, season_data):
         if not top_team or not bottom_team:
             continue
 
-        # Resolve team names
-        top_team_name = get_team_name(top_team["teamId"], api_data)
-        bottom_team_name = get_team_name(bottom_team["teamId"], api_data)
+        # For this week, if all teams have 0 totalPoints, set names to "tba"
+        if all(t.get("totalPoints", 0) == 0 for t in matchups):
+            top_team_name = "tba"
+            bottom_team_name = "tba"
+        else:
+            top_team_name = get_team_name(top_team["teamId"], api_data)
+            bottom_team_name = get_team_name(bottom_team["teamId"], api_data)
 
         # Check if the week already exists in weekly_data
         existing_week = next((item for item in weekly_data if item["Week"] == str(week_number)), None)
