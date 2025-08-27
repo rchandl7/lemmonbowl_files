@@ -72,6 +72,16 @@
         },
         {
             "id": "2024",
+            "current": false,
+            "dues": "200",
+            "weeklyTop": "50",
+            "weeklyBottom": "-10",
+            "oneSeed": "500",
+            "champ": "1140",
+            "runnerUp": "200"
+        },
+        {
+            "id": "2025",
             "current": true,
             "dues": "200",
             "weeklyTop": "50",
