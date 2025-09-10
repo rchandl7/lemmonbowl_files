@@ -13499,7 +13499,8 @@
                                             "seasonId": 2025,
                                             "statSourceId": 1,
                                             "statSplitTypeId": 1,
-                                            "stats": {}
+                                            "stats": {},
+                                            "variance": {}
                                         }
                                     ],
                                     "universeId": 1
@@ -17760,7 +17761,7 @@
                                     "fullName": "Aaron Rodgers",
                                     "id": 8439,
                                     "injured": false,
-                                    "injuryStatus": "ACTIVE",
+                                    "injuryStatus": "QUESTIONABLE",
                                     "jersey": "8",
                                     "lastName": "Rodgers",
                                     "proTeamId": 23,
@@ -19492,7 +19493,7 @@
                                     "fullName": "Dallas Goedert",
                                     "id": 3121023,
                                     "injured": false,
-                                    "injuryStatus": "ACTIVE",
+                                    "injuryStatus": "QUESTIONABLE",
                                     "jersey": "88",
                                     "lastName": "Goedert",
                                     "proTeamId": 21,
@@ -20241,7 +20242,7 @@
                                     "fullName": "James Cook",
                                     "id": 4379399,
                                     "injured": false,
-                                    "injuryStatus": "ACTIVE",
+                                    "injuryStatus": "QUESTIONABLE",
                                     "jersey": "4",
                                     "lastName": "Cook",
                                     "proTeamId": 2,
@@ -23355,7 +23356,7 @@
                                     "fullName": "Jayden Reed",
                                     "id": 4362249,
                                     "injured": false,
-                                    "injuryStatus": "QUESTIONABLE",
+                                    "injuryStatus": "ACTIVE",
                                     "jersey": "11",
                                     "lastName": "Reed",
                                     "proTeamId": 9,
