@@ -11,33 +11,43 @@
 
     <title>Lemmon Bowl</title>
     <style type="text/css">
-        table,
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 320px;
+        }
+
         th,
         td {
-            border: 1px solid grey;
-            border-collapse: collapse;
-            padding: 8px; /* Increase padding for better spacing */
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+            word-break: break-word;
         }
 
         th {
+            background: #f9f9f9;
             position: sticky;
             top: 0;
+            z-index: 1;
         }
 
-        td {
-            width: 25%;
-        }
-
-        table tr:nth-child(odd) {
+        tr:nth-child(odd) {
             background-color: #f1f1f1;
         }
 
-        table tr:nth-child(even) {
-            background-color: #ffffff;
+        tr:nth-child(even) {
+            background-color: #fff;
         }
 
         caption {
-            font-family: Verdana;
+            font-family: Verdana, sans-serif;
             font-size: 10px;
             line-height: 15px;
             color: #000;
@@ -47,37 +57,37 @@
         img {
             padding-top: 5px;
             padding-bottom: 5px;
+            max-width: 100%;
+            height: auto;
         }
 
-        /* Make tables scrollable and responsive */
-        @media screen and (max-width: 600px) {
-            table {
-                width: 100%;
-                overflow-x: auto;
-                display: block;
-                margin-bottom: 20px;
-            }
-
+        @media screen and (max-width: 800px) {
             th,
             td {
-                padding: 6px; /* Reduce padding to save space */
-                font-size: 14px; /* Adjust font size */
+                padding: 8px;
+                font-size: 15px;
             }
+        }
 
+        @media screen and (max-width: 600px) {
+            th,
             td {
-                width: auto; /* Allow columns to auto-size for small screens */
-                word-wrap: break-word; /* Allow long words to wrap */
+                padding: 6px;
+                font-size: 14px;
             }
-
-            th {
-                font-size: 16px;
+            table {
+                font-size: 14px;
             }
         }
 
         @media screen and (max-width: 400px) {
-            td,
-            th {
-                font-size: 12px; /* Further reduce font size for very small screens */
+            th,
+            td {
+                padding: 4px;
+                font-size: 12px;
+            }
+            table {
+                font-size: 12px;
             }
         }
     </style>
@@ -94,7 +104,7 @@
         <!-- Options will be added dynamically -->
     </select><br><br>
 
-    <h2>Weekly Data</h2>
+    <h2>Weekly Top and Bottom Scorers</h2>
     <div class="table-container">
         <table id="weekly-data">
             <thead></thead>
@@ -102,7 +112,7 @@
         </table>
     </div>
 
-    <h2>Season Data</h2>
+    <h2>Playoff Categories</h2>
     <div class="table-container">
         <table id="season-data">
             <thead></thead>
@@ -110,7 +120,7 @@
         </table>
     </div>
 
-    <h2>Payouts Data</h2>
+    <h2>Total Team Winnings</h2>
     <div class="table-container">
         <table id="payouts-data">
             <thead></thead>

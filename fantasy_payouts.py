@@ -27,46 +27,46 @@ def get_current_season_id(seasons_filename):
 # Calculate payouts
 def calculate_payouts(weekly_data, season_data):
     team_stats = defaultdict(lambda: {
-        "TotalWinnings": 0,
-        "TopWeeks": [],
-        "BottomWeeks": []
+        "Total Winnings": 0,
+        "Top Weeks": [],
+        "Bottom Weeks": []
     })
 
     # Process weekly data
     for week in weekly_data:
-        top_team = week["Top TeamName"]
-        bottom_team = week["Bottom TeamName"]
-        
+        top_team = week["Top Team"]
+        bottom_team = week["Bottom Team"]
+
         # Add top team winnings
         top_payout = float(week["Top Payout"].replace('$', '').replace(',', ''))
-        team_stats[top_team]["TotalWinnings"] += top_payout
-        team_stats[top_team]["TopWeeks"].append(week["Week"])
+        team_stats[top_team]["Total Winnings"] += top_payout
+        team_stats[top_team]["Top Weeks"].append(week["Week"])
 
         # Deduct bottom team losses
         bottom_payout = float(week["Bottom Payout"].replace('$', '').replace(',', ''))
-        team_stats[bottom_team]["TotalWinnings"] += bottom_payout
-        team_stats[bottom_team]["BottomWeeks"].append(week["Week"])
+        team_stats[bottom_team]["Total Winnings"] += bottom_payout
+        team_stats[bottom_team]["Bottom Weeks"].append(week["Week"])
 
     # Process season data
     for season in season_data:
-        team_name = season["TeamName"]
+        team_name = season["Team"]
         payout = float(season["Payout"].replace('$', '').replace(',', ''))
-        team_stats[team_name]["TotalWinnings"] += payout
+        team_stats[team_name]["Total Winnings"] += payout
 
     # Compile results into a list, omitting "tba" team
     result = [
         {
-            "TeamName": team,
-            "TotalWinnings": round(stats["TotalWinnings"], 2),
-            "TopWeeks": stats["TopWeeks"],
-            "BottomWeeks": stats["BottomWeeks"]
+            "Team": team,
+            "Total Winnings": round(stats["Total Winnings"], 2),
+            "Top Weeks": stats["Top Weeks"],
+            "Bottom Weeks": stats["Bottom Weeks"]
         }
         for team, stats in team_stats.items()
         if team.lower() != "tba"
     ]
 
     # Sort by Total Winnings in descending order
-    result.sort(key=lambda x: x["TotalWinnings"], reverse=True)
+    result.sort(key=lambda x: x["Total Winnings"], reverse=True)
     return result
 
 # Main function

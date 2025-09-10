@@ -1,17 +1,17 @@
 [
     {
-        "TeamName": "Crosstown Traffic",
-        "TotalWinnings": 50.0,
-        "TopWeeks": [
+        "Team": "Crosstown Traffic",
+        "Total Winnings": 50.0,
+        "Top Weeks": [
             "1"
         ],
-        "BottomWeeks": []
+        "Bottom Weeks": []
     },
     {
-        "TeamName": ". FREE MONEY 1.0",
-        "TotalWinnings": -10.0,
-        "TopWeeks": [],
-        "BottomWeeks": [
+        "Team": ". FREE MONEY 1.0",
+        "Total Winnings": -10.0,
+        "Top Weeks": [],
+        "Bottom Weeks": [
             "1"
         ]
     }

@@ -73,22 +73,22 @@ def generate_weekly_data(api_data, season_data):
         
         if existing_week:
             # Update the existing week's top and bottom teams if necessary
-            if float(existing_week["Top WeeklyPoints"]) < top_team.get('totalPoints', 0):
-                existing_week["Top TeamName"] = top_team_name
-                existing_week["Top WeeklyPoints"] = f"{top_team.get('totalPoints', 0):.2f}"
-            
-            if float(existing_week["Bottom WeeklyPoints"]) > bottom_team.get('totalPoints', 0):
-                existing_week["Bottom TeamName"] = bottom_team_name
-                existing_week["Bottom WeeklyPoints"] = f"{bottom_team.get('totalPoints', 0):.2f}"
+            if float(existing_week["Top Points Scored"]) < top_team.get('totalPoints', 0):
+                existing_week["Top Team"] = top_team_name
+                existing_week["Top Points Scored"] = f"{top_team.get('totalPoints', 0):.2f}"
+
+            if float(existing_week["Bottom Points Scored"]) > bottom_team.get('totalPoints', 0):
+                existing_week["Bottom Team"] = bottom_team_name
+                existing_week["Bottom Points Scored"] = f"{bottom_team.get('totalPoints', 0):.2f}"
         else:
             # Create a new entry for the week
             weekly_data.append({
                 "Week": str(week_number),
-                "Top TeamName": top_team_name,
-                "Top WeeklyPoints": f"{top_team.get('totalPoints', 0):.2f}",
+                "Top Team": top_team_name,
+                "Top Points Scored": f"{top_team.get('totalPoints', 0):.2f}",
                 "Top Payout": weekly_top_payout,
-                "Bottom TeamName": bottom_team_name,
-                "Bottom WeeklyPoints": f"{bottom_team.get('totalPoints', 0):.2f}",
+                "Bottom Team": bottom_team_name,
+                "Bottom Points Scored": f"{bottom_team.get('totalPoints', 0):.2f}",
                 "Bottom Payout": weekly_bottom_payout
             })
 
@@ -105,9 +105,9 @@ def update_season_data(api_data, season_data):
                 if scoring_period_id is not None and (scoring_period_id < 0 or scoring_period_id < 15):
                     print("In regular season, skip seasonData.")
                     return [
-                    {"Category": "Reg Season Champ", "TeamName": "tba", "Payout": one_seed_payout},
-                    {"Category": "Playoff Runner Up", "TeamName": "tba", "Payout": runner_up_payout},
-                    {"Category": "Playoff Champ", "TeamName": "tba", "Payout": champ_payout},
+                    {"Category": "Reg Season Champ", "Team": "tba", "Payout": one_seed_payout},
+                    {"Category": "Playoff Runner Up", "Team": "tba", "Payout": runner_up_payout},
+                    {"Category": "Playoff Champ", "Team": "tba", "Payout": champ_payout},
                     ]
                 else:
 
@@ -121,9 +121,9 @@ def update_season_data(api_data, season_data):
                     playoff_runner_up_name = get_team_name(playoff_runner_up["id"], api_data) if playoff_runner_up else "tba"
 
                     return [
-                    {"Category": "Reg Season Champ", "TeamName": reg_season_champ_name, "Payout": one_seed_payout},
-                    {"Category": "Playoff Runner Up", "TeamName": playoff_runner_up_name, "Payout": runner_up_payout},
-                    {"Category": "Playoff Champ", "TeamName": playoff_champ_name, "Payout": champ_payout},
+                    {"Category": "Reg Season Champ", "Team": reg_season_champ_name, "Payout": one_seed_payout},
+                    {"Category": "Playoff Runner Up", "Team": playoff_runner_up_name, "Payout": runner_up_payout},
+                    {"Category": "Playoff Champ", "Team": playoff_champ_name, "Payout": champ_payout},
                     ]
 
 
