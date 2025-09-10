@@ -53,7 +53,7 @@ def calculate_payouts(weekly_data, season_data):
         payout = float(season["Payout"].replace('$', '').replace(',', ''))
         team_stats[team_name]["TotalWinnings"] += payout
 
-    # Compile results into a list
+    # Compile results into a list, omitting "tba" team
     result = [
         {
             "TeamName": team,
@@ -62,6 +62,7 @@ def calculate_payouts(weekly_data, season_data):
             "BottomWeeks": stats["BottomWeeks"]
         }
         for team, stats in team_stats.items()
+        if team.lower() != "tba"
     ]
 
     # Sort by Total Winnings in descending order
