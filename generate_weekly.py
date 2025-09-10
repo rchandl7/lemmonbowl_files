@@ -96,26 +96,35 @@ def generate_weekly_data(api_data, season_data):
 
 
 def update_season_data(api_data, season_data):
-    """Generate season payout data with categories, team names, and payouts."""
-    # Fetch values from season_data
-    one_seed_payout = f"${season_data['one_seed_bonus']}"
-    champ_payout = f"${season_data['champ_bonus']}"
-    runner_up_payout = f"${season_data['runner_up_bonus']}"
+                    # Check the scoringPeriodId value
+                scoring_period_id = api_data.get("scoringPeriodId")
+                    # Fetch values from season_data
+                one_seed_payout = f"${season_data['one_seed_bonus']}"
+                champ_payout = f"${season_data['champ_bonus']}"
+                runner_up_payout = f"${season_data['runner_up_bonus']}"
+                if scoring_period_id is not None and (scoring_period_id < 0 or scoring_period_id < 15):
+                    print("In regular season, skip seasonData.")
+                    return [
+                    {"Category": "Reg Season Champ", "TeamName": "tba", "Payout": one_seed_payout},
+                    {"Category": "Playoff Runner Up", "TeamName": "tba", "Payout": runner_up_payout},
+                    {"Category": "Playoff Champ", "TeamName": "tba", "Payout": champ_payout},
+                    ]
+                else:
 
-    # Determine team names
-    reg_season_champ = next((team for team in api_data["teams"] if team.get("playoffSeed") == 1), None)
-    playoff_champ = next((team for team in api_data["teams"] if team.get("rankCalculatedFinal") == 1), None)
-    playoff_runner_up = next((team for team in api_data["teams"] if team.get("rankCalculatedFinal") == 2), None)
+                    # Determine team names
+                    reg_season_champ = next((team for team in api_data["teams"] if team.get("playoffSeed") == 1), None)
+                    playoff_champ = next((team for team in api_data["teams"] if team.get("rankCalculatedFinal") == 1), None)
+                    playoff_runner_up = next((team for team in api_data["teams"] if team.get("rankCalculatedFinal") == 2), None)
 
-    reg_season_champ_name = get_team_name(reg_season_champ["id"], api_data) if reg_season_champ else "tba"
-    playoff_champ_name = get_team_name(playoff_champ["id"], api_data) if playoff_champ else "tba"
-    playoff_runner_up_name = get_team_name(playoff_runner_up["id"], api_data) if playoff_runner_up else "tba"
+                    reg_season_champ_name = get_team_name(reg_season_champ["id"], api_data) if reg_season_champ else "tba"
+                    playoff_champ_name = get_team_name(playoff_champ["id"], api_data) if playoff_champ else "tba"
+                    playoff_runner_up_name = get_team_name(playoff_runner_up["id"], api_data) if playoff_runner_up else "tba"
 
-    return [
-        {"Category": "Reg Season Champ", "TeamName": reg_season_champ_name, "Payout": one_seed_payout},
-        {"Category": "Playoff Runner Up", "TeamName": playoff_runner_up_name, "Payout": runner_up_payout},
-        {"Category": "Playoff Champ", "TeamName": playoff_champ_name, "Payout": champ_payout},
-    ]
+                    return [
+                    {"Category": "Reg Season Champ", "TeamName": reg_season_champ_name, "Payout": one_seed_payout},
+                    {"Category": "Playoff Runner Up", "TeamName": playoff_runner_up_name, "Payout": runner_up_payout},
+                    {"Category": "Playoff Champ", "TeamName": playoff_champ_name, "Payout": champ_payout},
+                    ]
 
 
 def main():
