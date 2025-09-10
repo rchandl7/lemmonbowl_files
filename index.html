@@ -11,6 +11,46 @@
 
     <title>Lemmon Bowl</title>
     <style type="text/css">
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 320px;
+            table-layout: fixed;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+            word-break: break-word;
+        }
+        th, td {
+            min-width: 30px;
+        }
+        th:nth-child(2), td:nth-child(2),
+        th:nth-child(5), td:nth-child(5) {
+            min-width: 0;
+            width: 1fr;
+        }
+        th {
+            background: #f9f9f9;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+        /* ... rest of your CSS ... */
+        th {
+            white-space: pre-wrap;
+            min-width: 20px;
+        }
+        th:first-child {
+            white-space: nowrap;
+        }
+        th:nth-child(4) {
+            min-width: 30px;
+        }
+        th:nth-child(7) {
+            min-width: 30px;
+        }
         .table-container {
             width: 100%;
             overflow-x: auto;
