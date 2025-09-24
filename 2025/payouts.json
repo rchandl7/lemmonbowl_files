@@ -1,17 +1,18 @@
 [
     {
-        "Team": "Crosstown Traffic",
-        "Total Winnings": 50.0,
+        "Team": "SLICK RICK",
+        "Total Winnings": 100.0,
         "Top Weeks": [
-            "1"
+            "2",
+            "3"
         ],
         "Bottom Weeks": []
     },
     {
-        "Team": "SLICK RICK",
+        "Team": "Crosstown Traffic",
         "Total Winnings": 50.0,
         "Top Weeks": [
-            "2"
+            "1"
         ],
         "Bottom Weeks": []
     },
@@ -29,6 +30,14 @@
         "Top Weeks": [],
         "Bottom Weeks": [
             "2"
+        ]
+    },
+    {
+        "Team": "Ballin Ballers",
+        "Total Winnings": -10.0,
+        "Top Weeks": [],
+        "Bottom Weeks": [
+            "3"
         ]
     }
 ]
