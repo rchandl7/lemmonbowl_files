@@ -1,10 +1,11 @@
 [
     {
         "Team": "SLICK RICK",
-        "Total Winnings": 100.0,
+        "Total Winnings": 150.0,
         "Top Weeks": [
             "2",
-            "3"
+            "3",
+            "4"
         ],
         "Bottom Weeks": []
     },
@@ -38,6 +39,14 @@
         "Top Weeks": [],
         "Bottom Weeks": [
             "3"
+        ]
+    },
+    {
+        "Team": "Ravens Hunter",
+        "Total Winnings": -10.0,
+        "Top Weeks": [],
+        "Bottom Weeks": [
+            "4"
         ]
     }
 ]
