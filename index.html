@@ -1,6 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+    let apiData = null;
 
+    // Helper to get selected season year
+    function getSelectedSeasonYear() {
+        const seasonDropdown = document.getElementById('season-dropdown');
+        return seasonDropdown && seasonDropdown.value ? seasonDropdown.value : seasonDropdown.options[0]?.value || null;
+    }
+
+    // Modified Median Score Tracker logic
+    async function loadApiData() {
+        try {
+            const seasonYear = getSelectedSeasonYear();
+            const response = await fetch(`${seasonYear}/api_data.json`);
+            apiData = await response.json();
+            populateWeekDropdown();
+        } catch (error) {
+            console.error('Error loading API data:', error);
+        }
+    }
+
+    // Fetch API data from ESPN endpoint for the selected season
+    async function fetchApiData() {
+        const seasonYear = getSelectedSeasonYear();
+        const url = `https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/${seasonYear}/segments/0/leagues/160513?view=modular&view=mNav&view=mMatchupScore&view=mScoreboard&view=mSettings&view=mTopPerformers&view=mTeam`;
+        // If you need to send a cookie, fetch will automatically include cookies for same-origin requests.
+        // For cross-origin requests, you must set credentials: 'include' and the server must allow it.
+        // Example:
+        // const response = await fetch(url, { credentials: 'include' });
+        // If you need to set a cookie manually, you cannot do so directly via fetch in browser JS.
+        // You must set document.cookie before the request, and the browser will send it if allowed.
+        // Example:
+        // document.cookie = "your_cookie_name=your_cookie_value; path=/";
+        // Then fetch as normal.
+        // Note: Setting cookies for another domain is not possible due to browser security.
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error('Network response was not ok');
+            apiData = await response.json();
+            populateWeekDropdown();
+            alert('API data fetched successfully!');
+        } catch (error) {
+            console.error('Error fetching API data:', error);
+            alert('Failed to fetch API data.');
+        }
+    }
+
+    // Show/hide fetch button based on season and week selection
+    async function updateFetchButtonVisibility() {
+        const seasonDropdown = document.getElementById('season-dropdown');
+        const weekDropdown = document.getElementById('week-dropdown');
+        const fetchBtn = document.getElementById('fetch-api-btn');
+        if (!seasonDropdown || !weekDropdown || !fetchBtn) return;
+
+        // Find default season from seasons.json (already loaded in dropdown)
+        // Fetch seasons.json and find the default season (where current === true)
+        let defaultSeason = null;
+        try {
+            const response = await fetch('seasons.json');
+            const seasonsData = await response.json();
+            const currentSeason = seasonsData.seasons.find(season => season.current === true);
+            defaultSeason = currentSeason ? currentSeason.id : seasonDropdown.options[0]?.value;
+        } catch (error) {
+            defaultSeason = seasonDropdown.options[0]?.value;
+        }
+        const currentWeek = apiData && typeof apiData.scoringPeriodId === 'number'
+            ? apiData.scoringPeriodId.toString()
+            : weekDropdown.options[0]?.value;
+
+        // Show button only if season is default and week is current
+        if (seasonDropdown.value === defaultSeason && weekDropdown.value === currentWeek) {
+            fetchBtn.style.display = 'inline-block';
+        } else {
+            fetchBtn.style.display = 'none';
+        }
+    }
+
+    // Add fetch button after DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.createElement('button');
+        btn.id = 'fetch-api-btn';
+        btn.textContent = 'Fetch Latest API Data';
+        btn.style.display = 'none';
+        btn.onclick = fetchApiData;
+        const weekDropdown = document.getElementById('week-dropdown');
+        if (weekDropdown) {
+            weekDropdown.parentNode.insertBefore(btn, weekDropdown.nextSibling);
+        }
+
+        // Update button visibility on dropdown changes
+        document.getElementById('season-dropdown').addEventListener('change', () => { updateFetchButtonVisibility(); });
+        document.getElementById('week-dropdown').addEventListener('change', () => { updateFetchButtonVisibility(); });
+
+        // Initial visibility
+        setTimeout(() => { updateFetchButtonVisibility(); }, 500);
+    });
+
+    function populateWeekDropdown() {
+        const weekDropdown = document.getElementById('week-dropdown');
+        weekDropdown.innerHTML = '';
+        // Prepopulate weeks 1-14
+        for (let i = 1; i <= 14; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.textContent = `Week ${i}`;
+            weekDropdown.appendChild(option);
+        }
+        // Set default selected week using apiData.scoringPeriodId
+        if (apiData && typeof apiData.scoringPeriodId === 'number') {
+            weekDropdown.value = apiData.scoringPeriodId;
+        }
+        updateMedianScoreTable();
+    }
+
+    function getTeamName(teamId, apiData) {
+        if (!apiData.teams) return teamId;
+        const team = apiData.teams.find(t => t.id === teamId);
+        return team ? team.name : teamId;
+    }
+
+    function updateMedianScoreTable() {
+        const weekDropdown = document.getElementById('week-dropdown');
+        const selectedWeek = parseInt(weekDropdown.value, 10);
+        const table = document.getElementById('median-score-table');
+        const thead = table.querySelector('thead');
+        const tbody = table.querySelector('tbody');
+        thead.innerHTML = '';
+        tbody.innerHTML = '';
+
+        if (!apiData || !apiData.schedule) return;
+
+        // Get all matchups for the selected week
+        const weekMatchups = apiData.schedule.filter(w => w.matchupPeriodId === selectedWeek);
+
+        // Collect all teams and scores for the week
+        // If all scores are 0, show only a TBA row
+        const allScoresZero = weekMatchups.every(matchup =>
+            (!matchup.home || matchup.home.totalPoints === 0) &&
+            (!matchup.away || matchup.away.totalPoints === 0)
+        );
+        if (allScoresZero) {
+            const row = document.createElement('tr');
+            const td = document.createElement('td');
+            td.colSpan = 3;
+            td.textContent = 'TBA';
+            row.appendChild(td);
+            tbody.appendChild(row);
+            return;
+        }
+        let teamScores = [];
+        weekMatchups.forEach(matchup => {
+            if (matchup.home) {
+                teamScores.push({
+                    teamId: matchup.home.teamId,
+                    score: matchup.home.totalPoints || 0
+                });
+            }
+            if (matchup.away) {
+                teamScores.push({
+                    teamId: matchup.away.teamId,
+                    score: matchup.away.totalPoints || 0
+                });
+            }
+        });
+
+        // Remove duplicate teams (in case of double headers)
+        const uniqueScores = {};
+        teamScores.forEach(ts => {
+            if (!uniqueScores[ts.teamId] || ts.score > uniqueScores[ts.teamId].score) {
+                uniqueScores[ts.teamId] = ts;
+            }
+        });
+        teamScores = Object.values(uniqueScores);
+
+        // Sort by score descending
+        teamScores.sort((a, b) => b.score - a.score);
+
+        // Table headers
+        const headerRow = document.createElement('tr');
+        ['Team Name', 'Score', '+/-'].forEach(header => {
+            const th = document.createElement('th');
+            th.textContent = header;
+            headerRow.appendChild(th);
+        });
+        thead.appendChild(headerRow);
+
+        // Top 6 get up arrow, bottom 6 get down arrow
+        const upArrow = '✅';
+        const downArrow = '❌';
+        const totalTeams = teamScores.length;
+        teamScores.forEach((ts, idx) => {
+            const row = document.createElement('tr');
+            // Team Name
+            row.appendChild(document.createElement('td')).textContent = getTeamName(ts.teamId, apiData);
+            // Score
+            row.appendChild(document.createElement('td')).textContent = ts.score;
+            // +/-
+            let arrow = '';
+            if (totalTeams >= 12) {
+                if (idx < 6) arrow = upArrow;
+                else if (idx >= totalTeams - 6) arrow = downArrow;
+            } else if (totalTeams > 0) {
+                // For leagues with fewer teams, split in half
+                if (idx < Math.ceil(totalTeams / 2)) arrow = upArrow;
+                else arrow = downArrow;
+            }
+            row.appendChild(document.createElement('td')).textContent = arrow;
+            tbody.appendChild(row);
+        });
+    }
+        // The following block was outside any function and caused a syntax error.
+        // If you want to show weekly top/bottom scorers, use the existing populateTable('weekly-data', ...) logic,
+        // or move this code into a function and call it appropriately.
+        // For now, this block is removed to fix the syntax error.
+
+    // Load seasons.json to populate the dropdown
+    async function loadSeasons() {
+        try {
+            const response = await fetch('seasons.json');
+            const seasonsData = await response.json();
+
+            const seasonDropdown = document.getElementById("season-dropdown");
+            seasonDropdown.innerHTML = ""; // Clear previous options to prevent duplicates
+            seasonsData.seasons.forEach(season => {
+                const option = document.createElement("option");
+                option.value = season.id;
+                option.textContent = season.id;
+                seasonDropdown.appendChild(option);
+            });
+
+            // Set the default season as the one marked as "current"
+            const currentSeason = seasonsData.seasons.find(season => season.current === true);
+            if (currentSeason) {
+                seasonDropdown.value = currentSeason.id;
+            }
+
+            await updateDataFiles(); // Update data files based on the default or selected season
+            await loadApiData(); // Load apiData for median score tracker
+        } catch (error) {
+            console.error('Error loading seasons data:', error);
+        }
+    }
+
+    // Update the file names and reload the data when the dropdown changes
+    async function updateDataFiles() {
+        const selectedYear = document.getElementById("season-dropdown").value;
+
+        const [weeklyData, seasonData, payoutsData] = await Promise.all([
+            fetch(`${selectedYear}/weekly.json`).then(res => res.ok ? res.json() : []),
+            fetch(`${selectedYear}/season.json`).then(res => res.ok ? res.json() : []),
+            fetch(`${selectedYear}/payouts.json`).then(res => res.ok ? res.json() : [])
+        ]);
+
+        populateTable('weekly-data', weeklyData);
+        populateTable('season-data', seasonData);
+        populateTable('payouts-data', payoutsData);
+    }
+
+    // Populate a table with JSON data
+    function populateTable(tableId, data) {
+        const table = document.getElementById(tableId);
+        const thead = table.querySelector('thead');
+        const tbody = table.querySelector('tbody');
+
+        // Clear existing table content
+        thead.innerHTML = '';
+        tbody.innerHTML = '';
+
+        if (data.length === 0) return;
+        // Generate table headers
+        const headers = Object.keys(data[0]);
+        const headerRow = document.createElement('tr');
+        headers.forEach(header => {
+            const th = document.createElement('th');
+            th.textContent = header;
+            headerRow.appendChild(th);
+        });
+        thead.appendChild(headerRow);
+
+        // Generate table rows
+        data.forEach(item => {
+            const row = document.createElement('tr');
+            headers.forEach(header => {
+                const td = document.createElement('td');
+                const value = Array.isArray(item[header]) ? item[header].join(', ') : item[header];
+                td.textContent = value;
+                row.appendChild(td);
+            });
+            tbody.appendChild(row);
+        });
+    }
+
+    // Initialize the page and event listeners
+    document.addEventListener('DOMContentLoaded', () => {
+        loadSeasons();
+
+        const weekDropdown = document.getElementById('week-dropdown');
+        if (weekDropdown) {
+            weekDropdown.addEventListener('change', updateMedianScoreTable);
+        }
+        const seasonDropdown = document.getElementById('season-dropdown');
+        if (seasonDropdown) {
+            seasonDropdown.addEventListener('change', async () => {
+                await updateDataFiles();
+                await loadApiData();
+            });
+        }
+    });
+</script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -61,14 +369,6 @@
             width: 100%;
             border-collapse: collapse;
             min-width: 320px;
-        }
-
-        th,
-        td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: left;
-            word-break: break-word;
         }
 
         th {
@@ -143,6 +443,17 @@
     <select id="season-dropdown" onchange="updateDataFiles()">
         <!-- Options will be added dynamically -->
     </select><br><br>
+    <h2>Median Score Tracker</h2>
+    <label for="week-dropdown">Select Week: </label>
+    <select id="week-dropdown">
+        <!-- Options will be added dynamically -->
+    </select>
+    <div class="table-container">
+        <table id="median-score-table">
+            <thead></thead>
+            <tbody></tbody>
+        </table>
+    </div>
 
     <h2>Weekly Top and Bottom Scorers</h2>
     <div class="table-container">
@@ -176,6 +487,7 @@
                 const seasonsData = await response.json();
 
                 const seasonDropdown = document.getElementById("season-dropdown");
+                seasonDropdown.innerHTML = ""; // Clear previous options to prevent duplicates
                 seasonsData.seasons.forEach(season => {
                     const option = document.createElement("option");
                     option.value = season.id;
@@ -189,7 +501,8 @@
                     seasonDropdown.value = currentSeason.id;
                 }
 
-                updateDataFiles(); // Update data files based on the default or selected season
+                await updateDataFiles(); // Update data files based on the default or selected season
+                await loadApiData(); // Load apiData for median score tracker
             } catch (error) {
                 console.error('Error loading seasons data:', error);
             }
@@ -200,9 +513,9 @@
             const selectedYear = document.getElementById("season-dropdown").value;
 
             const [weeklyData, seasonData, payoutsData] = await Promise.all([
-                fetch(`${selectedYear}/weekly.json`).then(res => res.json()),
-                fetch(`${selectedYear}/season.json`).then(res => res.json()),
-                fetch(`${selectedYear}/payouts.json`).then(res => res.json())
+                fetch(`${selectedYear}/weekly.json`).then(res => res.ok ? res.json() : []),
+                fetch(`${selectedYear}/season.json`).then(res => res.ok ? res.json() : []),
+                fetch(`${selectedYear}/payouts.json`).then(res => res.ok ? res.json() : [])
             ]);
 
             populateTable('weekly-data', weeklyData);
@@ -249,4 +562,4 @@
     </script>
 </body>
 
-</html>
+</html>       
