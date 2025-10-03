@@ -64,16 +64,6 @@
     async function fetchApiData() {
         const seasonYear = getSelectedSeasonYear();
         const url = `https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/${seasonYear}/segments/0/leagues/160513?view=modular&view=mNav&view=mMatchupScore&view=mScoreboard&view=mSettings&view=mTopPerformers&view=mTeam`;
-        // If you need to send a cookie, fetch will automatically include cookies for same-origin requests.
-        // For cross-origin requests, you must set credentials: 'include' and the server must allow it.
-        // Example:
-        // const response = await fetch(url, { credentials: 'include' });
-        // If you need to set a cookie manually, you cannot do so directly via fetch in browser JS.
-        // You must set document.cookie before the request, and the browser will send it if allowed.
-        // Example:
-        // document.cookie = "your_cookie_name=your_cookie_value; path=/";
-        // Then fetch as normal.
-        // Note: Setting cookies for another domain is not possible due to browser security.
         try {
             const response = await fetch(url);
             if (!response.ok) throw new Error('Network response was not ok');
@@ -159,100 +149,92 @@
         return team ? team.name : teamId;
     }
 
-    function updateMedianScoreTable() {
-        const weekDropdown = document.getElementById('week-dropdown');
-        const selectedWeek = parseInt(weekDropdown.value, 10);
-        const table = document.getElementById('median-score-table');
-        const thead = table.querySelector('thead');
-        const tbody = table.querySelector('tbody');
-        thead.innerHTML = '';
-        tbody.innerHTML = '';
+function updateMedianScoreTable() {
+    const weekDropdown = document.getElementById('week-dropdown');
+    const selectedWeek = parseInt(weekDropdown.value, 10);
+    const table = document.getElementById('median-score-table');
+    const thead = table.querySelector('thead');
+    const tbody = table.querySelector('tbody');
+    thead.innerHTML = '';
+    tbody.innerHTML = '';
 
-        if (!apiData || !apiData.schedule) return;
+    if (!apiData || !apiData.schedule) return;
 
-        // Get all matchups for the selected week
-        const weekMatchups = apiData.schedule.filter(w => w.matchupPeriodId === selectedWeek);
+    // Get all matchups for the selected week
+    const weekMatchups = apiData.schedule.filter(w => w.matchupPeriodId === selectedWeek);
 
-        // Collect all teams and scores for the week
-        // If all scores are 0, show only a TBA row
-        const allScoresZero = weekMatchups.every(matchup =>
-            (!matchup.home || matchup.home.totalPoints === 0) &&
-            (!matchup.away || matchup.away.totalPoints === 0)
-        );
-        if (allScoresZero) {
-            const row = document.createElement('tr');
-            const td = document.createElement('td');
-            td.colSpan = 3;
-            td.textContent = 'No scores available yet (TBA)';
-            row.appendChild(td);
-            tbody.appendChild(row);
-            return;
+    // Collect all teams and scores for the week
+    let teamScores = [];
+    weekMatchups.forEach(matchup => {
+        if (matchup.home) {
+            const score =
+                (matchup.home.totalPoints && matchup.home.totalPoints > 0)
+                    ? matchup.home.totalPoints
+                    : (matchup.home.pointsByScoringPeriod?.[selectedWeek] || 0);
+            teamScores.push({ teamId: matchup.home.teamId, score });
         }
-        let teamScores = [];
-        weekMatchups.forEach(matchup => {
-            if (matchup.home) {
-                teamScores.push({
-                    teamId: matchup.home.teamId,
-                    score: matchup.home.totalPoints || 0
-                });
-            }
-            if (matchup.away) {
-                teamScores.push({
-                    teamId: matchup.away.teamId,
-                    score: matchup.away.totalPoints || 0
-                });
-            }
-        });
+        if (matchup.away) {
+            const score =
+                (matchup.away.totalPoints && matchup.away.totalPoints > 0)
+                    ? matchup.away.totalPoints
+                    : (matchup.away.pointsByScoringPeriod?.[selectedWeek] || 0);
+            teamScores.push({ teamId: matchup.away.teamId, score });
+        }
+    });
 
-        // Remove duplicate teams (in case of double headers)
-        const uniqueScores = {};
-        teamScores.forEach(ts => {
-            if (!uniqueScores[ts.teamId] || ts.score > uniqueScores[ts.teamId].score) {
-                uniqueScores[ts.teamId] = ts;
-            }
-        });
-        teamScores = Object.values(uniqueScores);
-
-        // Sort by score descending
-        teamScores.sort((a, b) => b.score - a.score);
-
-        // Table headers
-        const headerRow = document.createElement('tr');
-        ['Team Name', 'Score', '+/-'].forEach(header => {
-            const th = document.createElement('th');
-            th.textContent = header;
-            headerRow.appendChild(th);
-        });
-        thead.appendChild(headerRow);
-
-        // Top 6 get up arrow, bottom 6 get down arrow
-        const upArrow = '✅';
-        const downArrow = '❌';
-        const totalTeams = teamScores.length;
-        teamScores.forEach((ts, idx) => {
-            const row = document.createElement('tr');
-            // Team Name
-            row.appendChild(document.createElement('td')).textContent = getTeamName(ts.teamId, apiData);
-            // Score
-            row.appendChild(document.createElement('td')).textContent = ts.score;
-            // +/-
-            let arrow = '';
-            if (totalTeams >= 12) {
-                if (idx < 6) arrow = upArrow;
-                else if (idx >= totalTeams - 6) arrow = downArrow;
-            } else if (totalTeams > 0) {
-                // For leagues with fewer teams, split in half
-                if (idx < Math.ceil(totalTeams / 2)) arrow = upArrow;
-                else arrow = downArrow;
-            }
-            row.appendChild(document.createElement('td')).textContent = arrow;
-            tbody.appendChild(row);
-        });
+    // If all scores are 0, show only a TBA row
+    const allScoresZero = teamScores.every(ts => ts.score === 0);
+    if (allScoresZero) {
+        const row = document.createElement('tr');
+        const td = document.createElement('td');
+        td.colSpan = 3;
+        td.textContent = 'No scores available yet (TBA)';
+        row.appendChild(td);
+        tbody.appendChild(row);
+        return;
     }
-        // The following block was outside any function and caused a syntax error.
-        // If you want to show weekly top/bottom scorers, use the existing populateTable('weekly-data', ...) logic,
-        // or move this code into a function and call it appropriately.
-        // For now, this block is removed to fix the syntax error.
+
+    // Remove duplicate teams (in case of double headers)
+    const uniqueScores = {};
+    teamScores.forEach(ts => {
+        if (!uniqueScores[ts.teamId] || ts.score > uniqueScores[ts.teamId].score) {
+            uniqueScores[ts.teamId] = ts;
+        }
+    });
+    teamScores = Object.values(uniqueScores);
+
+    // Sort by score descending
+    teamScores.sort((a, b) => b.score - a.score);
+
+    // Table headers
+    const headerRow = document.createElement('tr');
+    ['Team Name', 'Score', '+/-'].forEach(header => {
+        const th = document.createElement('th');
+        th.textContent = header;
+        headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+
+    // Top 6 get up arrow, bottom 6 get down arrow
+    const upArrow = '✅';
+    const downArrow = '❌';
+    const totalTeams = teamScores.length;
+    teamScores.forEach((ts, idx) => {
+        const row = document.createElement('tr');
+        row.appendChild(document.createElement('td')).textContent = getTeamName(ts.teamId, apiData);
+        row.appendChild(document.createElement('td')).textContent = ts.score.toFixed(2);
+        let arrow = '';
+        if (totalTeams >= 12) {
+            if (idx < 6) arrow = upArrow;
+            else if (idx >= totalTeams - 6) arrow = downArrow;
+        } else if (totalTeams > 0) {
+            if (idx < Math.ceil(totalTeams / 2)) arrow = upArrow;
+            else arrow = downArrow;
+        }
+        row.appendChild(document.createElement('td')).textContent = arrow;
+        tbody.appendChild(row);
+    });
+}
 
     // Load seasons.json to populate the dropdown
     async function loadSeasons() {
