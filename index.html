@@ -162,23 +162,26 @@ function updateMedianScoreTable() {
 
     // Get all matchups for the selected week
     const weekMatchups = apiData.schedule.filter(w => w.matchupPeriodId === selectedWeek);
+    if (!weekMatchups.length) return;
 
-    // Collect all teams and scores for the week
+    // Collect all team scores for the week
     let teamScores = [];
     weekMatchups.forEach(matchup => {
-        if (matchup.home) {
+        if (matchup.home && matchup.home.teamId != null) {
             const score =
                 (matchup.home.totalPoints && matchup.home.totalPoints > 0)
                     ? matchup.home.totalPoints
                     : (matchup.home.pointsByScoringPeriod?.[selectedWeek] || 0);
-            teamScores.push({ teamId: matchup.home.teamId, score });
+            const opponentId = matchup.away?.teamId ?? null;
+            teamScores.push({ teamId: matchup.home.teamId, opponentId, score });
         }
-        if (matchup.away) {
+        if (matchup.away && matchup.away.teamId != null) {
             const score =
                 (matchup.away.totalPoints && matchup.away.totalPoints > 0)
                     ? matchup.away.totalPoints
                     : (matchup.away.pointsByScoringPeriod?.[selectedWeek] || 0);
-            teamScores.push({ teamId: matchup.away.teamId, score });
+            const opponentId = matchup.home?.teamId ?? null;
+            teamScores.push({ teamId: matchup.away.teamId, opponentId, score });
         }
     });
 
@@ -194,7 +197,7 @@ function updateMedianScoreTable() {
         return;
     }
 
-    // Remove duplicate teams (in case of double headers)
+    // Remove duplicates (just in case of double headers)
     const uniqueScores = {};
     teamScores.forEach(ts => {
         if (!uniqueScores[ts.teamId] || ts.score > uniqueScores[ts.teamId].score) {
@@ -203,35 +206,76 @@ function updateMedianScoreTable() {
     });
     teamScores = Object.values(uniqueScores);
 
-    // Sort by score descending
+    // Sort by descending score
     teamScores.sort((a, b) => b.score - a.score);
+
+    // Calculate League Median (average of all team scores)
+    const medianScore = (() => {
+        const sorted = [...teamScores.map(ts => ts.score)].sort((a, b) => a - b);
+        const mid = Math.floor(sorted.length / 2);
+        return sorted.length % 2 === 0
+            ? (sorted[mid - 1] + sorted[mid]) / 2
+            : sorted[mid];
+    })();
 
     // Table headers
     const headerRow = document.createElement('tr');
-    ['Team Name', 'Score', '+/-'].forEach(header => {
+    ['Team Name', 'Score', 'Week Opponent'].forEach(header => {
         const th = document.createElement('th');
         th.textContent = header;
         headerRow.appendChild(th);
     });
     thead.appendChild(headerRow);
 
-    // Top 6 get up arrow, bottom 6 get down arrow
-    const upArrow = '✅';
-    const downArrow = '❌';
+    // Color helper
+    function getRowColor(idx, totalTeams) {
+        // Row 1: gold
+        if (idx === 0) return '#FFD700';
+        // Rows 2–6: green
+        if (idx >= 1 && idx <= 5) return '#90EE90';
+        // League median row handled separately
+        // Rows 8–12: orange
+        if (idx >= 6 && idx <= 10) return '#FFA500';
+        // Row 13 (worst): red
+        if (idx === 11) return '#FF6347';
+        return '';
+    }
+
     const totalTeams = teamScores.length;
+    const medianInsertIndex = Math.ceil(totalTeams / 2);
+
+    // Build the table rows
     teamScores.forEach((ts, idx) => {
-        const row = document.createElement('tr');
-        row.appendChild(document.createElement('td')).textContent = getTeamName(ts.teamId, apiData);
-        row.appendChild(document.createElement('td')).textContent = ts.score.toFixed(2);
-        let arrow = '';
-        if (totalTeams >= 12) {
-            if (idx < 6) arrow = upArrow;
-            else if (idx >= totalTeams - 6) arrow = downArrow;
-        } else if (totalTeams > 0) {
-            if (idx < Math.ceil(totalTeams / 2)) arrow = upArrow;
-            else arrow = downArrow;
+        // Insert League Median row before lower half
+        if (idx === medianInsertIndex) {
+            const medianRow = document.createElement('tr');
+            const td = document.createElement('td');
+            td.colSpan = 3;
+            td.textContent = `League Median (${medianScore.toFixed(2)})`;
+            td.style.textAlign = 'center';
+            td.style.fontWeight = 'bold';
+            medianRow.appendChild(td);
+            tbody.appendChild(medianRow);
         }
-        row.appendChild(document.createElement('td')).textContent = arrow;
+
+        const row = document.createElement('tr');
+        const teamName = getTeamName(ts.teamId, apiData);
+        const opponentName = ts.opponentId ? getTeamName(ts.opponentId, apiData) : '—';
+
+        const color = getRowColor(idx, totalTeams);
+        const tdTeam = document.createElement('td');
+        const tdOpponent = document.createElement('td');
+        const tdScore = document.createElement('td');
+
+        tdTeam.textContent = teamName;
+        tdOpponent.textContent = opponentName;
+        tdScore.textContent = ts.score.toFixed(2);
+
+        if (color) tdScore.style.backgroundColor = color;
+
+        row.appendChild(tdTeam);
+        row.appendChild(tdScore);
+        row.appendChild(tdOpponent);
         tbody.appendChild(row);
     });
 }
