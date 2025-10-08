@@ -18,6 +18,16 @@
         "Bottom Weeks": []
     },
     {
+        "Team": "Ballin Ballers",
+        "Total Winnings": 40.0,
+        "Top Weeks": [
+            "5"
+        ],
+        "Bottom Weeks": [
+            "3"
+        ]
+    },
+    {
         "Team": ". FREE MONEY 1.0",
         "Total Winnings": -10.0,
         "Top Weeks": [],
@@ -34,19 +44,19 @@
         ]
     },
     {
-        "Team": "Ballin Ballers",
-        "Total Winnings": -10.0,
-        "Top Weeks": [],
-        "Bottom Weeks": [
-            "3"
-        ]
-    },
-    {
         "Team": "Ravens Hunter",
         "Total Winnings": -10.0,
         "Top Weeks": [],
         "Bottom Weeks": [
             "4"
+        ]
+    },
+    {
+        "Team": "InIt2WinIt BeNnEtT",
+        "Total Winnings": -10.0,
+        "Top Weeks": [],
+        "Bottom Weeks": [
+            "5"
         ]
     }
 ]
