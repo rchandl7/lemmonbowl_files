@@ -1,11 +1,12 @@
 [
     {
         "Team": "SLICK RICK",
-        "Total Winnings": 150.0,
+        "Total Winnings": 200.0,
         "Top Weeks": [
             "2",
             "3",
-            "4"
+            "4",
+            "8"
         ],
         "Bottom Weeks": []
     },
@@ -70,6 +71,14 @@
         "Top Weeks": [],
         "Bottom Weeks": [
             "6"
+        ]
+    },
+    {
+        "Team": "Players Club Champion 2025",
+        "Total Winnings": -10.0,
+        "Top Weeks": [],
+        "Bottom Weeks": [
+            "8"
         ]
     }
 ]
