@@ -39,6 +39,16 @@
         ]
     },
     {
+        "Team": "Players Club Champion 2025",
+        "Total Winnings": 40.0,
+        "Top Weeks": [
+            "9"
+        ],
+        "Bottom Weeks": [
+            "8"
+        ]
+    },
+    {
         "Team": "Ballin Ballers",
         "Total Winnings": 30.0,
         "Top Weeks": [
@@ -67,18 +77,11 @@
     },
     {
         "Team": "GetoffmyDitka Ditka",
-        "Total Winnings": -10.0,
+        "Total Winnings": -20.0,
         "Top Weeks": [],
         "Bottom Weeks": [
-            "6"
-        ]
-    },
-    {
-        "Team": "Players Club Champion 2025",
-        "Total Winnings": -10.0,
-        "Top Weeks": [],
-        "Bottom Weeks": [
-            "8"
+            "6",
+            "9"
         ]
     }
 ]
