@@ -1,12 +1,13 @@
 [
     {
         "Team": "SLICK RICK",
-        "Total Winnings": 200.0,
+        "Total Winnings": 250.0,
         "Top Weeks": [
             "2",
             "3",
             "4",
-            "8"
+            "8",
+            "10"
         ],
         "Bottom Weeks": []
     },
@@ -77,11 +78,12 @@
     },
     {
         "Team": "GetoffmyDitka Ditka",
-        "Total Winnings": -20.0,
+        "Total Winnings": -30.0,
         "Top Weeks": [],
         "Bottom Weeks": [
             "6",
-            "9"
+            "9",
+            "10"
         ]
     }
 ]
