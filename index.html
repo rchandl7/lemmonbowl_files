@@ -41,6 +41,7 @@
 </script>
 <script>
     let apiData = null;
+    let liveData = false;
 
     // Helper to get selected season year
     function getSelectedSeasonYear() {
@@ -68,6 +69,7 @@
             const response = await fetch(url);
             if (!response.ok) throw new Error('Network response was not ok');
             apiData = await response.json();
+            liveData = true;
             populateWeekDropdown();
             alert('API data fetched successfully!');
         } catch (error) {
@@ -149,136 +151,166 @@
         return team ? team.name : teamId;
     }
 
-function updateMedianScoreTable() {
-    const weekDropdown = document.getElementById('week-dropdown');
-    const selectedWeek = parseInt(weekDropdown.value, 10);
-    const table = document.getElementById('median-score-table');
-    const thead = table.querySelector('thead');
-    const tbody = table.querySelector('tbody');
-    thead.innerHTML = '';
-    tbody.innerHTML = '';
+    function updateMedianScoreTable() {
+        const weekDropdown = document.getElementById('week-dropdown');
+        const selectedWeek = parseInt(weekDropdown.value, 10);
+        const table = document.getElementById('median-score-table');
+        const thead = table.querySelector('thead');
+        const tbody = table.querySelector('tbody');
+        thead.innerHTML = '';
+        tbody.innerHTML = '';
 
-    if (!apiData || !apiData.schedule) return;
+        if (!apiData || !apiData.schedule) return;
 
-    // Get all matchups for the selected week
-    const weekMatchups = apiData.schedule.filter(w => w.matchupPeriodId === selectedWeek);
-    if (!weekMatchups.length) return;
+        // Get all matchups for the selected week
+        const weekMatchups = apiData.schedule.filter(w => w.matchupPeriodId === selectedWeek);
+        if (!weekMatchups.length) return;
 
-    // Collect all team scores for the week
-    let teamScores = [];
-    weekMatchups.forEach(matchup => {
-        if (matchup.home && matchup.home.teamId != null) {
-            const score =
-                (matchup.home.totalPoints && matchup.home.totalPoints > 0)
-                    ? matchup.home.totalPoints
-                    : (matchup.home.pointsByScoringPeriod?.[selectedWeek] || 0);
-            const opponentId = matchup.away?.teamId ?? null;
-            teamScores.push({ teamId: matchup.home.teamId, opponentId, score });
-        }
-        if (matchup.away && matchup.away.teamId != null) {
-            const score =
-                (matchup.away.totalPoints && matchup.away.totalPoints > 0)
-                    ? matchup.away.totalPoints
-                    : (matchup.away.pointsByScoringPeriod?.[selectedWeek] || 0);
-            const opponentId = matchup.home?.teamId ?? null;
-            teamScores.push({ teamId: matchup.away.teamId, opponentId, score });
-        }
-    });
+        // Collect all team scores for the week
+        // Collect all team scores for the week
+        let teamScores = [];
+        weekMatchups.forEach(matchup => {
+            // --- HOME TEAM ---
+            if (matchup.home && matchup.home.teamId != null) {
+                // Actual live/snapshot score
+                const liveScore =
+                    (matchup.home.totalPoints && matchup.home.totalPoints > 0)
+                        ? matchup.home.totalPoints
+                        : (matchup.home.pointsByScoringPeriod?.[selectedWeek] || 0);
 
-    // If all scores are 0, show only a TBA row
-    const allScoresZero = teamScores.every(ts => ts.score === 0);
-    if (allScoresZero) {
-        const row = document.createElement('tr');
-        const td = document.createElement('td');
-        td.colSpan = 3;
-        td.textContent = 'No scores available yet (TBA)';
-        row.appendChild(td);
-        tbody.appendChild(row);
-        return;
-    }
+                // Projected score if live mode is active
+                const projected = liveData
+                    ? (matchup.home.totalProjectedPointsLive || null)
+                    : null;
 
-    // Remove duplicates (just in case of double headers)
-    const uniqueScores = {};
-    teamScores.forEach(ts => {
-        if (!uniqueScores[ts.teamId] || ts.score > uniqueScores[ts.teamId].score) {
-            uniqueScores[ts.teamId] = ts;
-        }
-    });
-    teamScores = Object.values(uniqueScores);
+                teamScores.push({
+                    teamId: matchup.home.teamId,
+                    opponentId: matchup.away?.teamId ?? null,
+                    score: liveScore,
+                    projected
+                });
+            }
 
-    // Sort by descending score
-    teamScores.sort((a, b) => b.score - a.score);
+            // --- AWAY TEAM ---
+            if (matchup.away && matchup.away.teamId != null) {
+                const liveScore =
+                    (matchup.away.totalPoints && matchup.away.totalPoints > 0)
+                        ? matchup.away.totalPoints
+                        : (matchup.away.pointsByScoringPeriod?.[selectedWeek] || 0);
 
-    // Calculate League Median (average of all team scores)
-    const medianScore = (() => {
-        const sorted = [...teamScores.map(ts => ts.score)].sort((a, b) => a - b);
-        const mid = Math.floor(sorted.length / 2);
-        return sorted.length % 2 === 0
-            ? (sorted[mid - 1] + sorted[mid]) / 2
-            : sorted[mid];
-    })();
+                const projected = liveData
+                    ? (matchup.away.totalProjectedPointsLive || null)
+                    : null;
 
-    // Table headers
-    const headerRow = document.createElement('tr');
-    ['Team Name', 'Score', 'Week Opponent'].forEach(header => {
-        const th = document.createElement('th');
-        th.textContent = header;
-        headerRow.appendChild(th);
-    });
-    thead.appendChild(headerRow);
+                teamScores.push({
+                    teamId: matchup.away.teamId,
+                    opponentId: matchup.home?.teamId ?? null,
+                    score: liveScore,
+                    projected
+                });
+            }
+        });
 
-    // Color helper
-    function getRowColor(idx, totalTeams) {
-        // Row 1: gold
-        if (idx === 0) return '#FFD700';
-        // Rows 2–6: green
-        if (idx >= 1 && idx <= 5) return '#90EE90';
-        // League median row handled separately
-        // Rows 8–12: orange
-        if (idx >= 6 && idx <= 10) return '#FFA500';
-        // Row 13 (worst): red
-        if (idx === 11) return '#FF6347';
-        return '';
-    }
 
-    const totalTeams = teamScores.length;
-    const medianInsertIndex = Math.ceil(totalTeams / 2);
-
-    // Build the table rows
-    teamScores.forEach((ts, idx) => {
-        // Insert League Median row before lower half
-        if (idx === medianInsertIndex) {
-            const medianRow = document.createElement('tr');
+        // If all scores are 0, show only a TBA row
+        const allScoresZero = teamScores.every(ts => ts.score === 0);
+        if (allScoresZero) {
+            const row = document.createElement('tr');
             const td = document.createElement('td');
             td.colSpan = 3;
-            td.textContent = `League Median (${medianScore.toFixed(2)})`;
-            td.style.textAlign = 'center';
-            td.style.fontWeight = 'bold';
-            medianRow.appendChild(td);
-            tbody.appendChild(medianRow);
+            td.textContent = 'No scores available yet (TBA)';
+            row.appendChild(td);
+            tbody.appendChild(row);
+            return;
         }
 
-        const row = document.createElement('tr');
-        const teamName = getTeamName(ts.teamId, apiData);
-        const opponentName = ts.opponentId ? getTeamName(ts.opponentId, apiData) : '—';
+        // Remove duplicates (just in case of double headers)
+        const uniqueScores = {};
+        teamScores.forEach(ts => {
+            if (!uniqueScores[ts.teamId] || ts.score > uniqueScores[ts.teamId].score) {
+                uniqueScores[ts.teamId] = ts;
+            }
+        });
+        teamScores = Object.values(uniqueScores);
 
-        const color = getRowColor(idx, totalTeams);
-        const tdTeam = document.createElement('td');
-        const tdOpponent = document.createElement('td');
-        const tdScore = document.createElement('td');
+        // Sort by descending score
+        teamScores.sort((a, b) => b.score - a.score);
 
-        tdTeam.textContent = teamName;
-        tdOpponent.textContent = opponentName;
-        tdScore.textContent = ts.score.toFixed(2);
+        // Calculate League Median (average of all team scores)
+        const medianScore = (() => {
+            const sorted = [...teamScores.map(ts => ts.score)].sort((a, b) => a - b);
+            const mid = Math.floor(sorted.length / 2);
+            return sorted.length % 2 === 0
+                ? (sorted[mid - 1] + sorted[mid]) / 2
+                : sorted[mid];
+        })();
 
-        if (color) tdScore.style.backgroundColor = color;
+        // Table headers
+        const headerRow = document.createElement('tr');
+        ['Team Name', 'Score', 'Week Opponent'].forEach(header => {
+            const th = document.createElement('th');
+            th.textContent = header;
+            headerRow.appendChild(th);
+        });
+        thead.appendChild(headerRow);
 
-        row.appendChild(tdTeam);
-        row.appendChild(tdScore);
-        row.appendChild(tdOpponent);
-        tbody.appendChild(row);
-    });
-}
+        // Color helper
+        function getRowColor(idx, totalTeams) {
+            // Row 1: gold
+            if (idx === 0) return '#FFD700';
+            // Rows 2–6: green
+            if (idx >= 1 && idx <= 5) return '#90EE90';
+            // League median row handled separately
+            // Rows 8–12: orange
+            if (idx >= 6 && idx <= 10) return '#FFA500';
+            // Row 13 (worst): red
+            if (idx === 11) return '#FF6347';
+            return '';
+        }
+
+        const totalTeams = teamScores.length;
+        const medianInsertIndex = Math.ceil(totalTeams / 2);
+
+        // Build the table rows
+        teamScores.forEach((ts, idx) => {
+            // Insert League Median row before lower half
+            if (idx === medianInsertIndex) {
+                const medianRow = document.createElement('tr');
+                const td = document.createElement('td');
+                td.colSpan = 3;
+                td.textContent = `League Median (${medianScore.toFixed(2)})`;
+                td.style.textAlign = 'center';
+                td.style.fontWeight = 'bold';
+                medianRow.appendChild(td);
+                tbody.appendChild(medianRow);
+            }
+
+            const row = document.createElement('tr');
+            const teamName = getTeamName(ts.teamId, apiData);
+            const opponentName = ts.opponentId ? getTeamName(ts.opponentId, apiData) : '—';
+
+            const color = getRowColor(idx, totalTeams);
+            const tdTeam = document.createElement('td');
+            const tdOpponent = document.createElement('td');
+            const tdScore = document.createElement('td');
+            const displayScore =
+                (liveData && ts.projected != null && ts.projected !== ts.score)
+                    ? `${ts.score.toFixed(2)} (${ts.projected.toFixed(2)})`
+                    : ts.score.toFixed(2);
+
+
+            tdTeam.textContent = teamName;
+            tdOpponent.textContent = opponentName;
+            tdScore.textContent = displayScore;
+
+            if (color) tdScore.style.backgroundColor = color;
+
+            row.appendChild(tdTeam);
+            row.appendChild(tdScore);
+            row.appendChild(tdOpponent);
+            tbody.appendChild(row);
+        });
+    }
 
     // Load seasons.json to populate the dropdown
     async function loadSeasons() {
@@ -374,6 +406,7 @@ function updateMedianScoreTable() {
         }
     });
 </script>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -390,40 +423,53 @@ function updateMedianScoreTable() {
             min-width: 320px;
             table-layout: fixed;
         }
-        th, td {
+
+        th,
+        td {
             border: 1px solid #ccc;
             padding: 10px;
             text-align: left;
             word-break: break-word;
         }
-        th, td {
+
+        th,
+        td {
             min-width: 30px;
         }
-        th:nth-child(2), td:nth-child(2),
-        th:nth-child(5), td:nth-child(5) {
+
+        th:nth-child(2),
+        td:nth-child(2),
+        th:nth-child(5),
+        td:nth-child(5) {
             min-width: 0;
             width: 1fr;
         }
+
         th {
             background: #f9f9f9;
             position: sticky;
             top: 0;
             z-index: 1;
         }
+
         /* ... rest of your CSS ... */
         th {
             white-space: pre-wrap;
             min-width: 20px;
         }
+
         th:first-child {
             white-space: nowrap;
         }
+
         th:nth-child(4) {
             min-width: 30px;
         }
+
         th:nth-child(7) {
             min-width: 30px;
         }
+
         .table-container {
             width: 100%;
             overflow-x: auto;
@@ -467,6 +513,7 @@ function updateMedianScoreTable() {
         }
 
         @media screen and (max-width: 800px) {
+
             th,
             td {
                 padding: 8px;
@@ -475,22 +522,26 @@ function updateMedianScoreTable() {
         }
 
         @media screen and (max-width: 600px) {
+
             th,
             td {
                 padding: 6px;
                 font-size: 14px;
             }
+
             table {
                 font-size: 14px;
             }
         }
 
         @media screen and (max-width: 400px) {
+
             th,
             td {
                 padding: 4px;
                 font-size: 12px;
             }
+
             table {
                 font-size: 12px;
             }
@@ -627,4 +678,4 @@ function updateMedianScoreTable() {
     </script>
 </body>
 
-</html>       
+</html>
