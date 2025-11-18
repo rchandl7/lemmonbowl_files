@@ -12,6 +12,17 @@
         "Bottom Weeks": []
     },
     {
+        "Team": "InIt2WinIt BeNnEtT",
+        "Total Winnings": 90.0,
+        "Top Weeks": [
+            "6",
+            "11"
+        ],
+        "Bottom Weeks": [
+            "5"
+        ]
+    },
+    {
         "Team": "Crosstown Traffic",
         "Total Winnings": 50.0,
         "Top Weeks": [
@@ -27,16 +38,6 @@
         ],
         "Bottom Weeks": [
             "2"
-        ]
-    },
-    {
-        "Team": "InIt2WinIt BeNnEtT",
-        "Total Winnings": 40.0,
-        "Top Weeks": [
-            "6"
-        ],
-        "Bottom Weeks": [
-            "5"
         ]
     },
     {
@@ -78,12 +79,13 @@
     },
     {
         "Team": "GetoffmyDitka Ditka",
-        "Total Winnings": -30.0,
+        "Total Winnings": -40.0,
         "Top Weeks": [],
         "Bottom Weeks": [
             "6",
             "9",
-            "10"
+            "10",
+            "11"
         ]
     }
 ]
