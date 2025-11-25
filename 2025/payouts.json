@@ -31,6 +31,16 @@
         "Bottom Weeks": []
     },
     {
+        "Team": ". FREE MONEY 1.0",
+        "Total Winnings": 40.0,
+        "Top Weeks": [
+            "12"
+        ],
+        "Bottom Weeks": [
+            "1"
+        ]
+    },
+    {
         "Team": "team",
         "Total Winnings": 40.0,
         "Top Weeks": [
@@ -62,19 +72,19 @@
         ]
     },
     {
-        "Team": ". FREE MONEY 1.0",
-        "Total Winnings": -10.0,
-        "Top Weeks": [],
-        "Bottom Weeks": [
-            "1"
-        ]
-    },
-    {
         "Team": "Ravens Hunter",
         "Total Winnings": -10.0,
         "Top Weeks": [],
         "Bottom Weeks": [
             "4"
+        ]
+    },
+    {
+        "Team": "Richard Bentley Richard Bentley",
+        "Total Winnings": -10.0,
+        "Top Weeks": [],
+        "Bottom Weeks": [
+            "12"
         ]
     },
     {
