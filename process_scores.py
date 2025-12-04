@@ -6,22 +6,25 @@ file_path = "2025/api_data.json"  # Replace with the actual file path
 with open(file_path, "r") as f:
     data = json.load(f)
 
-# Extract the schedule and team information
+# Extract schedule
 schedule = data["schedule"]
 
-# Initialize team win/loss counters
-teams = {
-    team["id"]: {
+# Initialize team data
+teams = {}
+for team in data["teams"]:
+    teams[team["id"]] = {
         "name": team["name"],
-        "wins": 0,
-        "losses": 0
+        "matchup_wins": 0,         # calculated H2H wins
+        "matchup_losses": 0,       # calculated H2H losses
+        "points_for": 0,
+        "points_against": 0,
+        "actual_wins": team["record"]["overall"]["wins"],
+        "actual_losses": team["record"]["overall"]["losses"],
+        "actual_rank": team.get("rank") or team.get("playoffSeed") or None
     }
-    for team in data["teams"]
-}
 
-# Process each matchup and assign wins/losses
+# Process matchups
 for match in schedule:
-    # Skip invalid matchups
     if "home" not in match or "away" not in match:
         continue
     if "totalPoints" not in match["home"] or "totalPoints" not in match["away"]:
@@ -32,22 +35,39 @@ for match in schedule:
     home_pts = match["home"]["totalPoints"]
     away_pts = match["away"]["totalPoints"]
 
+    # Track points for/against
+    teams[home_id]["points_for"] += home_pts
+    teams[home_id]["points_against"] += away_pts
+    teams[away_id]["points_for"] += away_pts
+    teams[away_id]["points_against"] += home_pts
+
     # Head-to-head win/loss
     if home_pts > away_pts:
-        teams[home_id]["wins"] += 1
-        teams[away_id]["losses"] += 1
+        teams[home_id]["matchup_wins"] += 1
+        teams[away_id]["matchup_losses"] += 1
     elif away_pts > home_pts:
-        teams[away_id]["wins"] += 1
-        teams[home_id]["losses"] += 1
-    # If exact tie → no wins/losses
+        teams[away_id]["matchup_wins"] += 1
+        teams[home_id]["matchup_losses"] += 1
+    # ties → no result
 
-# Convert results into a DataFrame
+# Convert results to DataFrame
 results = pd.DataFrame.from_dict(teams, orient="index")
-results = results[["name", "wins", "losses"]].sort_values(
-    by=["wins", "losses"], ascending=[False, True]
-)
 
-# Save results to CSV
+# Order columns for output
+results = results[
+    [
+        "name",
+        "matchup_wins",
+        "matchup_losses",
+        "points_for",
+        "points_against",
+        "actual_rank",
+        "actual_wins",
+        "actual_losses"
+    ]
+].sort_values(by=["matchup_wins", "matchup_losses"], ascending=[False, True])
+
+# Save CSV
 output_file = "final_team_records.csv"
 results.to_csv(output_file, index=False)
 

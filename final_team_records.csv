@@ -1,13 +1,13 @@
-name,wins,losses
-SLICK RICK,11,1
-ICEBOX,10,2
-Cho-Kon It,8,4
-Richard Bentley Richard Bentley,7,5
-team ,6,6
-Players Club Champion 2025,6,6
-InIt2WinIt BeNnEtT,5,7
-Ravens Hunter,5,7
-Ballin Ballers,4,8
-. FREE MONEY 1.0,4,8
-Crosstown Traffic,3,9
-GetoffmyDitka Ditka,3,9
+name,matchup_wins,matchup_losses,points_for,points_against,actual_rank,actual_wins,actual_losses
+SLICK RICK,12,1,1715.34,1264.24,1,21,5
+Cho-Kon It,9,4,1543.96,1482.08,3,18,8
+ICEBOX,11,2,1537.36,1220.70,2,21,5
+Richard Bentley Richard Bentley,7,6,1513.12,1448.42,4,15,11
+InIt2WinIt BeNnEtT,6,7,1497.78,1523.08,7,11,15
+Ravens Hunter,5,8,1484.52,1659.1,5,15,11
+team ,6,7,1471.48,1423.68,8,10,16
+Ballin Ballers,5,8,1406.12,1410.6,6,12,14
+Players Club Champion 2025,6,7,1382.74,1449.66,10,9,17
+Crosstown Traffic,3,10,1347.84,1501.02,11,7,19
+. FREE MONEY 1.0,5,8,1332.96,1555.34,9,10,16
+GetoffmyDitka Ditka,3,10,1204.14,1499.44,12,7,19
