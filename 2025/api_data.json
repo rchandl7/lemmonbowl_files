@@ -47748,8 +47748,8 @@
                                     "firstName": "Rome",
                                     "fullName": "Rome Odunze",
                                     "id": 4431299,
-                                    "injured": true,
-                                    "injuryStatus": "OUT",
+                                    "injured": false,
+                                    "injuryStatus": "QUESTIONABLE",
                                     "jersey": "15",
                                     "lastName": "Odunze",
                                     "proTeamId": 3,
@@ -48253,7 +48253,8 @@
                                             "seasonId": 2025,
                                             "statSourceId": 1,
                                             "statSplitTypeId": 1,
-                                            "stats": {}
+                                            "stats": {},
+                                            "variance": {}
                                         }
                                     ],
                                     "universeId": 1
@@ -52679,7 +52680,8 @@
                                             "seasonId": 2025,
                                             "statSourceId": 1,
                                             "statSplitTypeId": 1,
-                                            "stats": {}
+                                            "stats": {},
+                                            "variance": {}
                                         }
                                     ],
                                     "universeId": 1
@@ -53104,7 +53106,7 @@
                         },
                         {
                             "injuryStatus": "NORMAL",
-                            "lineupSlotId": 20,
+                            "lineupSlotId": 3,
                             "playerId": 4426502,
                             "playerPoolEntry": {
                                 "appliedStatTotal": 0.0,
@@ -53125,8 +53127,8 @@
                                     "firstName": "Drake",
                                     "fullName": "Drake London",
                                     "id": 4426502,
-                                    "injured": true,
-                                    "injuryStatus": "OUT",
+                                    "injured": false,
+                                    "injuryStatus": "QUESTIONABLE",
                                     "jersey": "5",
                                     "lastName": "London",
                                     "proTeamId": 1,
@@ -53786,7 +53788,7 @@
                         },
                         {
                             "injuryStatus": "NORMAL",
-                            "lineupSlotId": 2,
+                            "lineupSlotId": 20,
                             "playerId": 4373626,
                             "playerPoolEntry": {
                                 "appliedStatTotal": 0.0,
@@ -53907,7 +53909,7 @@
                         },
                         {
                             "injuryStatus": "NORMAL",
-                            "lineupSlotId": 3,
+                            "lineupSlotId": 20,
                             "playerId": 4429025,
                             "playerPoolEntry": {
                                 "appliedStatTotal": 0.0,
@@ -54009,72 +54011,7 @@
                         },
                         {
                             "injuryStatus": "NORMAL",
-                            "lineupSlotId": 6,
-                            "playerId": 15835,
-                            "playerPoolEntry": {
-                                "appliedStatTotal": 0.0,
-                                "id": 15835,
-                                "onTeamId": 2,
-                                "player": {
-                                    "active": true,
-                                    "defaultPositionId": 4,
-                                    "eligibleSlots": [
-                                        5,
-                                        6,
-                                        23,
-                                        7,
-                                        20,
-                                        21
-                                    ],
-                                    "firstName": "Zach",
-                                    "fullName": "Zach Ertz",
-                                    "id": 15835,
-                                    "injured": true,
-                                    "injuryStatus": "OUT",
-                                    "jersey": "86",
-                                    "lastName": "Ertz",
-                                    "proTeamId": 28,
-                                    "stats": [
-                                        {
-                                            "appliedStats": {},
-                                            "appliedTotal": 0.0,
-                                            "appliedTotalCeiling": 0.0,
-                                            "externalId": "202515",
-                                            "id": "11202515",
-                                            "lastUpdateInfo": {},
-                                            "proTeamId": 0,
-                                            "scoringPeriodId": 15,
-                                            "seasonId": 2025,
-                                            "statSourceId": 1,
-                                            "statSplitTypeId": 1,
-                                            "stats": {},
-                                            "variance": {
-                                                "23": 0.147441956,
-                                                "24": 0.589767825,
-                                                "25": 0.004431962,
-                                                "26": 0.213129079,
-                                                "42": 22.92659996,
-                                                "43": 0.480036231,
-                                                "44": 0.282667021,
-                                                "45": 0.079305159,
-                                                "46": 0.08,
-                                                "53": 2.100034506,
-                                                "58": 2.841378178,
-                                                "63": 0.001,
-                                                "68": 0.037037037,
-                                                "72": 0.429231499
-                                            }
-                                        }
-                                    ],
-                                    "universeId": 2
-                                },
-                                "status": "ONTEAM"
-                            },
-                            "status": "NORMAL"
-                        },
-                        {
-                            "injuryStatus": "NORMAL",
-                            "lineupSlotId": 20,
+                            "lineupSlotId": 2,
                             "playerId": 4038815,
                             "playerPoolEntry": {
                                 "appliedStatTotal": 0.0,
@@ -54325,7 +54262,7 @@
                         },
                         {
                             "injuryStatus": "NORMAL",
-                            "lineupSlotId": 20,
+                            "lineupSlotId": 6,
                             "playerId": 4429148,
                             "playerPoolEntry": {
                                 "appliedStatTotal": 0.0,
@@ -54537,7 +54474,7 @@
                 "tiebreak": 0.0,
                 "totalPoints": 0.0,
                 "totalPointsLive": 0.0,
-                "totalProjectedPointsLive": 100.01952337
+                "totalProjectedPointsLive": 119.44819688
             },
             "home": {
                 "adjustment": 0.0,
@@ -57424,7 +57361,8 @@
                                             "seasonId": 2025,
                                             "statSourceId": 1,
                                             "statSplitTypeId": 1,
-                                            "stats": {}
+                                            "stats": {},
+                                            "variance": {}
                                         }
                                     ],
                                     "universeId": 2
@@ -63138,7 +63076,8 @@
                                             "seasonId": 2025,
                                             "statSourceId": 1,
                                             "statSplitTypeId": 1,
-                                            "stats": {}
+                                            "stats": {},
+                                            "variance": {}
                                         }
                                     ],
                                     "universeId": 2
@@ -65120,8 +65059,8 @@
                                     "firstName": "Marvin",
                                     "fullName": "Marvin Harrison Jr.",
                                     "id": 4432708,
-                                    "injured": true,
-                                    "injuryStatus": "OUT",
+                                    "injured": false,
+                                    "injuryStatus": "QUESTIONABLE",
                                     "jersey": "18",
                                     "lastName": "Harrison Jr.",
                                     "proTeamId": 22,
@@ -65220,8 +65159,8 @@
                                     "firstName": "Alvin",
                                     "fullName": "Alvin Kamara",
                                     "id": 3054850,
-                                    "injured": true,
-                                    "injuryStatus": "OUT",
+                                    "injured": false,
+                                    "injuryStatus": "QUESTIONABLE",
                                     "jersey": "41",
                                     "lastName": "Kamara",
                                     "proTeamId": 18,
@@ -65756,8 +65695,8 @@
                                     "firstName": "Eddy",
                                     "fullName": "Eddy Pineiro",
                                     "id": 4034949,
-                                    "injured": true,
-                                    "injuryStatus": "OUT",
+                                    "injured": false,
+                                    "injuryStatus": "QUESTIONABLE",
                                     "jersey": "18",
                                     "lastName": "Pineiro",
                                     "proTeamId": 25,
@@ -71193,7 +71132,7 @@
             "transactionCounter": {
                 "acquisitionBudgetSpent": 0,
                 "acquisitions": 14,
-                "drops": 14,
+                "drops": 15,
                 "matchupAcquisitionTotals": {
                     "2": 1,
                     "3": 1,
@@ -71206,7 +71145,7 @@
                     "13": 1
                 },
                 "misc": 0,
-                "moveToActive": 36,
+                "moveToActive": 39,
                 "moveToIR": 2,
                 "paid": 0.0,
                 "teamCharges": 0.0,
