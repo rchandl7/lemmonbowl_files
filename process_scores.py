@@ -2,7 +2,7 @@ import json
 import pandas as pd
 
 # Load the JSON data
-file_path = "2025/api_data.json"  # Replace with the actual file path
+file_path = "2024/api_data.json"  # Replace with the actual file path
 with open(file_path, "r") as f:
     data = json.load(f)
 
@@ -25,6 +25,9 @@ for team in data["teams"]:
 
 # Process matchups
 for match in schedule:
+    # Only process matchups in period 1 through 14
+    if not (1 <= match.get("matchupPeriodId", 0) <= 14):
+        continue
     if "home" not in match or "away" not in match:
         continue
     if "totalPoints" not in match["home"] or "totalPoints" not in match["away"]:
