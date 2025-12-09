@@ -1,13 +1,14 @@
 [
     {
         "Team": "SLICK RICK",
-        "Total Winnings": 250.0,
+        "Total Winnings": 800.0,
         "Top Weeks": [
             "2",
             "3",
             "4",
             "8",
-            "10"
+            "10",
+            "14"
         ],
         "Bottom Weeks": []
     },
@@ -36,11 +37,13 @@
     },
     {
         "Team": "Crosstown Traffic",
-        "Total Winnings": 50.0,
+        "Total Winnings": 40.0,
         "Top Weeks": [
             "1"
         ],
-        "Bottom Weeks": []
+        "Bottom Weeks": [
+            "14"
+        ]
     },
     {
         "Team": ". FREE MONEY 1.0",
