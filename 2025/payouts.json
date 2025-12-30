@@ -1,7 +1,7 @@
 [
     {
         "Team": "SLICK RICK",
-        "Total Winnings": 800.0,
+        "Total Winnings": 1940.0,
         "Top Weeks": [
             "2",
             "3",
@@ -10,6 +10,12 @@
             "10",
             "14"
         ],
+        "Bottom Weeks": []
+    },
+    {
+        "Team": "ICEBOX",
+        "Total Winnings": 200.0,
+        "Top Weeks": [],
         "Bottom Weeks": []
     },
     {
