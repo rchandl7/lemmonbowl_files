@@ -7329,7 +7329,7 @@
                                     "fullName": "Alec Pierce",
                                     "id": 4360078,
                                     "injured": false,
-                                    "injuryStatus": "QUESTIONABLE",
+                                    "injuryStatus": "ACTIVE",
                                     "jersey": "14",
                                     "lastName": "Pierce",
                                     "proTeamId": 11,
@@ -13517,7 +13517,7 @@
                                     "fullName": "D'Andre Swift",
                                     "id": 4259545,
                                     "injured": false,
-                                    "injuryStatus": "ACTIVE",
+                                    "injuryStatus": "QUESTIONABLE",
                                     "jersey": "4",
                                     "lastName": "Swift",
                                     "proTeamId": 3,
@@ -24517,7 +24517,7 @@
                                     "fullName": "Rome Odunze",
                                     "id": 4431299,
                                     "injured": false,
-                                    "injuryStatus": "ACTIVE",
+                                    "injuryStatus": "QUESTIONABLE",
                                     "jersey": "15",
                                     "lastName": "Odunze",
                                     "proTeamId": 3,
@@ -31065,7 +31065,7 @@
         "standingsUpdateDate": 1787972923151,
         "teamsJoined": 12,
         "transactionScoringPeriod": 1,
-        "waiverLastExecutionDate": 1788419676535,
+        "waiverLastExecutionDate": 1788505839924,
         "waiverProcessStatus": {
             "2026-08-30T07:02:14.008+00:00": 2
         }
