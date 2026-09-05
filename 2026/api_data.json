@@ -118,6 +118,12 @@
                 {
                     "enabled": true,
                     "forId": 1,
+                    "id": "f9b4ed4c-95fb-39ed-a515-821a50f6591a",
+                    "type": "TEAM_LIVE_ACTIVITY"
+                },
+                {
+                    "enabled": true,
+                    "forId": 1,
                     "id": "0c614383-a861-3886-ab02-30ca068afe35",
                     "type": "TEAM_PLAYER_INJURY"
                 },
@@ -198,12 +204,6 @@
                     "forId": 1,
                     "id": "a42585cb-a88f-3432-be9e-a4fdf0a94538",
                     "type": "CELEBRATION_SHARE"
-                },
-                {
-                    "enabled": false,
-                    "forId": 1,
-                    "id": "f9b4ed4c-95fb-39ed-a515-821a50f6591a",
-                    "type": "TEAM_LIVE_ACTIVITY"
                 }
             ]
         },
@@ -215,6 +215,12 @@
             "isLeagueManager": false,
             "lastName": "Thomas",
             "notificationSettings": [
+                {
+                    "enabled": true,
+                    "forId": 7,
+                    "id": "ae011610-004e-33b4-8941-02e88d8758aa",
+                    "type": "TEAM_LIVE_ACTIVITY"
+                },
                 {
                     "enabled": true,
                     "forId": 7,
@@ -298,12 +304,6 @@
                     "forId": 7,
                     "id": "a808c148-3f72-3ee9-9556-eb84e28963a5",
                     "type": "CELEBRATION_SHARE"
-                },
-                {
-                    "enabled": false,
-                    "forId": 7,
-                    "id": "ae011610-004e-33b4-8941-02e88d8758aa",
-                    "type": "TEAM_LIVE_ACTIVITY"
                 }
             ]
         },
@@ -818,6 +818,12 @@
                 {
                     "enabled": true,
                     "forId": 2,
+                    "id": "c6273627-9aaa-37b2-95b4-e7095c3e05d0",
+                    "type": "TEAM_LIVE_ACTIVITY"
+                },
+                {
+                    "enabled": true,
+                    "forId": 2,
                     "id": "46239d39-1e8d-3453-a981-21bead106438",
                     "type": "TEAM_PLAYER_INJURY"
                 },
@@ -898,12 +904,6 @@
                     "forId": 2,
                     "id": "b740e372-a973-3796-9edf-d8a1277a9d02",
                     "type": "CELEBRATION_SHARE"
-                },
-                {
-                    "enabled": false,
-                    "forId": 2,
-                    "id": "c6273627-9aaa-37b2-95b4-e7095c3e05d0",
-                    "type": "TEAM_LIVE_ACTIVITY"
                 }
             ]
         },
@@ -915,6 +915,12 @@
             "isLeagueManager": false,
             "lastName": "Bentley",
             "notificationSettings": [
+                {
+                    "enabled": true,
+                    "forId": 16,
+                    "id": "547d192d-1636-3d20-94e4-83fe5e72518f",
+                    "type": "TEAM_LIVE_ACTIVITY"
+                },
                 {
                     "enabled": true,
                     "forId": 16,
@@ -998,12 +1004,6 @@
                     "forId": 16,
                     "id": "65fec6a9-bd8b-3dc9-845d-6d7c3cdaba8c",
                     "type": "CELEBRATION_SHARE"
-                },
-                {
-                    "enabled": false,
-                    "forId": 16,
-                    "id": "547d192d-1636-3d20-94e4-83fe5e72518f",
-                    "type": "TEAM_LIVE_ACTIVITY"
                 }
             ]
         },
@@ -1118,6 +1118,12 @@
                 {
                     "enabled": true,
                     "forId": 8,
+                    "id": "91a4c28f-58d3-34d6-abc2-47765043622c",
+                    "type": "TEAM_LIVE_ACTIVITY"
+                },
+                {
+                    "enabled": true,
+                    "forId": 8,
                     "id": "b5727805-f085-3fec-afbf-917bee8f98d1",
                     "type": "TEAM_PLAYER_INJURY"
                 },
@@ -1198,12 +1204,6 @@
                     "forId": 8,
                     "id": "ac0ac9e9-7f27-37f9-a508-274d741c13e9",
                     "type": "CELEBRATION_SHARE"
-                },
-                {
-                    "enabled": false,
-                    "forId": 8,
-                    "id": "91a4c28f-58d3-34d6-abc2-47765043622c",
-                    "type": "TEAM_LIVE_ACTIVITY"
                 }
             ]
         },
@@ -1215,6 +1215,12 @@
             "isLeagueManager": false,
             "lastName": "Muza",
             "notificationSettings": [
+                {
+                    "enabled": true,
+                    "forId": 4,
+                    "id": "eb363c30-26c9-3a05-97f0-99007efc8202",
+                    "type": "TEAM_LIVE_ACTIVITY"
+                },
                 {
                     "enabled": true,
                     "forId": 4,
@@ -1298,12 +1304,6 @@
                     "forId": 4,
                     "id": "c9383e8d-ccc4-38cf-ad96-a00c208f299b",
                     "type": "CELEBRATION_SHARE"
-                },
-                {
-                    "enabled": false,
-                    "forId": 4,
-                    "id": "eb363c30-26c9-3a05-97f0-99007efc8202",
-                    "type": "TEAM_LIVE_ACTIVITY"
                 }
             ]
         },
@@ -1315,6 +1315,12 @@
             "isLeagueManager": false,
             "lastName": "hall",
             "notificationSettings": [
+                {
+                    "enabled": true,
+                    "forId": 15,
+                    "id": "10888df1-dacf-35fa-ae24-c1dfe5602c61",
+                    "type": "TEAM_LIVE_ACTIVITY"
+                },
                 {
                     "enabled": true,
                     "forId": 15,
@@ -1398,12 +1404,6 @@
                     "forId": 15,
                     "id": "bbe2cce7-2c7d-3ca9-9c5b-cafe91ac5940",
                     "type": "CELEBRATION_SHARE"
-                },
-                {
-                    "enabled": false,
-                    "forId": 15,
-                    "id": "10888df1-dacf-35fa-ae24-c1dfe5602c61",
-                    "type": "TEAM_LIVE_ACTIVITY"
                 }
             ]
         },
@@ -20827,8 +20827,7 @@
                                             "seasonId": 2026,
                                             "statSourceId": 1,
                                             "statSplitTypeId": 1,
-                                            "stats": {},
-                                            "variance": {}
+                                            "stats": {}
                                         }
                                     ],
                                     "universeId": 1
@@ -23146,108 +23145,6 @@
                         },
                         {
                             "injuryStatus": "NORMAL",
-                            "lineupSlotId": 20,
-                            "playerId": 4695883,
-                            "playerPoolEntry": {
-                                "appliedStatTotal": 0.0,
-                                "id": 4695883,
-                                "onTeamId": 14,
-                                "player": {
-                                    "active": true,
-                                    "defaultPositionId": 3,
-                                    "eligibleSlots": [
-                                        3,
-                                        4,
-                                        5,
-                                        23,
-                                        7,
-                                        20,
-                                        21
-                                    ],
-                                    "firstName": "Jalen",
-                                    "fullName": "Jalen Coker",
-                                    "id": 4695883,
-                                    "injured": false,
-                                    "injuryStatus": "ACTIVE",
-                                    "jersey": "18",
-                                    "lastName": "Coker",
-                                    "proTeamId": 29,
-                                    "stats": [
-                                        {
-                                            "appliedStats": {
-                                                "53": 1.830723444,
-                                                "72": -0.07072439,
-                                                "56": 0.29831251,
-                                                "57": 0.018500000000000003,
-                                                "42": 4.197028203,
-                                                "43": 1.397835024,
-                                                "44": 0.0279534,
-                                                "63": 0.0016679999999999998
-                                            },
-                                            "appliedTotal": 7.70129619,
-                                            "appliedTotalCeiling": 13.0922035247,
-                                            "externalId": "20261",
-                                            "id": "1120261",
-                                            "lastUpdateInfo": {},
-                                            "proTeamId": 0,
-                                            "scoringPeriodId": 1,
-                                            "seasonId": 2026,
-                                            "statSourceId": 1,
-                                            "statSplitTypeId": 1,
-                                            "stats": {
-                                                "42": 41.97028203,
-                                                "43": 0.232972504,
-                                                "44": 0.0139767,
-                                                "45": 0.011644397,
-                                                "46": 0.007609613,
-                                                "47": 8.0,
-                                                "48": 4.0,
-                                                "49": 2.0,
-                                                "50": 1.0,
-                                                "53": 3.661446888,
-                                                "56": 0.059662502,
-                                                "57": 0.00185,
-                                                "58": 5.165672557,
-                                                "60": 11.46275866,
-                                                "61": 41.97028203,
-                                                "62": 0.0139767,
-                                                "63": 0.000278,
-                                                "67": 0.063146776,
-                                                "68": 0.063146776,
-                                                "71": 0.035362195,
-                                                "72": 0.035362195,
-                                                "73": 0.035362195,
-                                                "210": 1.0,
-                                                "213": 2.019576331
-                                            },
-                                            "variance": {
-                                                "23": 0.309561125,
-                                                "24": 2.961189065,
-                                                "25": 0.016224972,
-                                                "26": 0.200361847,
-                                                "35": 0.07,
-                                                "36": 0.06,
-                                                "42": 33.21528882,
-                                                "43": 0.455842306,
-                                                "44": 0.281375642,
-                                                "45": 0.208514414,
-                                                "46": 0.208514414,
-                                                "53": 2.012945119,
-                                                "58": 2.594115886,
-                                                "63": 0.001,
-                                                "68": 0.213200716,
-                                                "72": 0.213200716
-                                            }
-                                        }
-                                    ],
-                                    "universeId": 2
-                                },
-                                "status": "ONTEAM"
-                            },
-                            "status": "NORMAL"
-                        },
-                        {
-                            "injuryStatus": "NORMAL",
                             "lineupSlotId": 16,
                             "playerId": -16034,
                             "playerPoolEntry": {
@@ -23464,6 +23361,140 @@
                                         }
                                     ],
                                     "universeId": 1
+                                },
+                                "status": "ONTEAM"
+                            },
+                            "status": "NORMAL"
+                        },
+                        {
+                            "injuryStatus": "NORMAL",
+                            "lineupSlotId": 20,
+                            "playerId": 4032473,
+                            "playerPoolEntry": {
+                                "appliedStatTotal": 0.0,
+                                "id": 4032473,
+                                "onTeamId": 14,
+                                "player": {
+                                    "active": true,
+                                    "defaultPositionId": 3,
+                                    "eligibleSlots": [
+                                        3,
+                                        4,
+                                        5,
+                                        23,
+                                        7,
+                                        20,
+                                        21
+                                    ],
+                                    "firstName": "Rashid",
+                                    "fullName": "Rashid Shaheed",
+                                    "id": 4032473,
+                                    "injured": false,
+                                    "injuryStatus": "ACTIVE",
+                                    "jersey": "22",
+                                    "lastName": "Shaheed",
+                                    "proTeamId": 26,
+                                    "stats": [
+                                        {
+                                            "appliedStats": {
+                                                "37": 0.0054,
+                                                "101": 0.148350636,
+                                                "102": 0.12521055,
+                                                "38": 0.000368,
+                                                "72": -0.070645638,
+                                                "42": 3.7482343640000004,
+                                                "43": 1.196223132,
+                                                "44": 0.014483292,
+                                                "53": 1.242729751,
+                                                "24": 0.5042810803000001,
+                                                "56": 0.21811877000000002,
+                                                "25": 0.20681837999999997,
+                                                "57": 0.013500000000000002,
+                                                "26": 0.001968,
+                                                "63": 0.00174
+                                            },
+                                            "appliedTotal": 7.35678032,
+                                            "appliedTotalCeiling": 12.506526539410002,
+                                            "externalId": "20261",
+                                            "id": "1120261",
+                                            "lastUpdateInfo": {},
+                                            "proTeamId": 0,
+                                            "scoringPeriodId": 1,
+                                            "seasonId": 2026,
+                                            "statSourceId": 1,
+                                            "statSplitTypeId": 1,
+                                            "stats": {
+                                                "23": 0.813660051,
+                                                "24": 5.042810803,
+                                                "25": 0.03446973,
+                                                "26": 0.000984,
+                                                "27": 1.0,
+                                                "35": 0.001503405,
+                                                "36": 0.001052384,
+                                                "37": 0.00108,
+                                                "38": 3.68e-05,
+                                                "39": 6.197687594,
+                                                "40": 5.042810803,
+                                                "42": 37.48234364,
+                                                "43": 0.199370522,
+                                                "44": 0.007241646,
+                                                "45": 0.017848433,
+                                                "46": 0.011663951,
+                                                "47": 7.0,
+                                                "48": 3.0,
+                                                "49": 1.0,
+                                                "50": 1.0,
+                                                "53": 2.485459502,
+                                                "56": 0.043623754,
+                                                "57": 0.00135,
+                                                "58": 4.138218679,
+                                                "60": 15.08064952,
+                                                "61": 37.48234364,
+                                                "62": 0.008225265,
+                                                "63": 0.00029,
+                                                "66": 0.016273201,
+                                                "67": 0.04970919,
+                                                "68": 0.065982391,
+                                                "70": 0.007485672,
+                                                "71": 0.027837146,
+                                                "72": 0.035322819,
+                                                "73": 0.035322819,
+                                                "101": 0.024725106,
+                                                "102": 0.020868425,
+                                                "114": 69.21766209,
+                                                "115": 17.44681652,
+                                                "116": 6.0,
+                                                "117": 2.0,
+                                                "118": 1.0,
+                                                "210": 1.0,
+                                                "212": 0.36728356,
+                                                "213": 1.614029915
+                                            },
+                                            "variance": {
+                                                "23": 0.786622851,
+                                                "24": 7.217467474,
+                                                "25": 0.016224972,
+                                                "26": 0.200361847,
+                                                "35": 0.07,
+                                                "36": 0.06,
+                                                "42": 34.82009741,
+                                                "43": 0.431419111,
+                                                "44": 0.281375642,
+                                                "45": 0.37032804,
+                                                "46": 0.328260723,
+                                                "53": 1.993970503,
+                                                "58": 2.734884246,
+                                                "63": 0.001,
+                                                "68": 0.303045763,
+                                                "72": 0.239897937,
+                                                "101": 0.495840541,
+                                                "102": 0.260633592,
+                                                "114": 39.58624219,
+                                                "115": 17.98521507
+                                            }
+                                        }
+                                    ],
+                                    "universeId": 2
                                 },
                                 "status": "ONTEAM"
                             },
@@ -31065,7 +31096,7 @@
         "standingsUpdateDate": 1787972923151,
         "teamsJoined": 12,
         "transactionScoringPeriod": 1,
-        "waiverLastExecutionDate": 1788505839924,
+        "waiverLastExecutionDate": 1788591755753,
         "waiverProcessStatus": {
             "2026-08-30T07:02:14.008+00:00": 2
         }
@@ -32206,7 +32237,7 @@
             "transactionCounter": {
                 "acquisitionBudgetSpent": 0,
                 "acquisitions": 0,
-                "drops": 0,
+                "drops": 1,
                 "matchupAcquisitionTotals": {},
                 "misc": 0,
                 "moveToActive": 0,
