@@ -2888,7 +2888,7 @@
                         },
                         {
                             "injuryStatus": "NORMAL",
-                            "lineupSlotId": 6,
+                            "lineupSlotId": 20,
                             "playerId": 4572680,
                             "playerPoolEntry": {
                                 "appliedStatTotal": 0.0,
@@ -3385,7 +3385,7 @@
                         },
                         {
                             "injuryStatus": "NORMAL",
-                            "lineupSlotId": 20,
+                            "lineupSlotId": 6,
                             "playerId": 4361050,
                             "playerPoolEntry": {
                                 "appliedStatTotal": 0.0,
@@ -3832,8 +3832,8 @@
                 "tiebreak": 0.0,
                 "totalPoints": 0.0,
                 "totalPointsLive": 0.0,
-                "totalProjectedPoints": 118.14757682,
-                "totalProjectedPointsLive": 118.14757682,
+                "totalProjectedPoints": 118.38003132,
+                "totalProjectedPointsLive": 118.38003132,
                 "winProbability": 0.55
             },
             "home": {
@@ -31096,7 +31096,7 @@
         "standingsUpdateDate": 1787972923151,
         "teamsJoined": 12,
         "transactionScoringPeriod": 1,
-        "waiverLastExecutionDate": 1788678692735,
+        "waiverLastExecutionDate": 1788765094587,
         "waiverProcessStatus": {
             "2026-08-30T07:02:14.008+00:00": 2
         }
@@ -32373,7 +32373,7 @@
                 "drops": 1,
                 "matchupAcquisitionTotals": {},
                 "misc": 0,
-                "moveToActive": 1,
+                "moveToActive": 2,
                 "moveToIR": 0,
                 "paid": 0.0,
                 "teamCharges": 0.0,
