@@ -5479,7 +5479,7 @@
                                     "fullName": "De'Zhaun Stribling",
                                     "id": 4710714,
                                     "injured": false,
-                                    "injuryStatus": "QUESTIONABLE",
+                                    "injuryStatus": "ACTIVE",
                                     "jersey": "15",
                                     "lastName": "Stribling",
                                     "proTeamId": 25,
@@ -6615,7 +6615,7 @@
                                     "fullName": "Puka Nacua",
                                     "id": 4426515,
                                     "injured": false,
-                                    "injuryStatus": "QUESTIONABLE",
+                                    "injuryStatus": "ACTIVE",
                                     "jersey": "12",
                                     "lastName": "Nacua",
                                     "proTeamId": 14,
@@ -11029,7 +11029,7 @@
                                     "fullName": "Christian McCaffrey",
                                     "id": 3117251,
                                     "injured": false,
-                                    "injuryStatus": "QUESTIONABLE",
+                                    "injuryStatus": "ACTIVE",
                                     "jersey": "23",
                                     "lastName": "McCaffrey",
                                     "proTeamId": 25,
@@ -20192,7 +20192,7 @@
                         },
                         {
                             "injuryStatus": "NORMAL",
-                            "lineupSlotId": 2,
+                            "lineupSlotId": 20,
                             "playerId": 4432710,
                             "playerPoolEntry": {
                                 "appliedStatTotal": 0.0,
@@ -20212,18 +20212,16 @@
                                     "firstName": "TreVeyon",
                                     "fullName": "TreVeyon Henderson",
                                     "id": 4432710,
-                                    "injured": false,
-                                    "injuryStatus": "QUESTIONABLE",
+                                    "injured": true,
+                                    "injuryStatus": "OUT",
                                     "jersey": "32",
                                     "lastName": "Henderson",
                                     "proTeamId": 17,
                                     "stats": [
                                         {
-                                            "appliedStats": {
-                                                "101": 0.007017324
-                                            },
-                                            "appliedTotal": 0.00701732,
-                                            "appliedTotalCeiling": 0.0119294508,
+                                            "appliedStats": {},
+                                            "appliedTotal": 0.0,
+                                            "appliedTotalCeiling": 0.0,
                                             "externalId": "20261",
                                             "id": "1120261",
                                             "lastUpdateInfo": {},
@@ -20232,32 +20230,8 @@
                                             "seasonId": 2026,
                                             "statSourceId": 1,
                                             "statSplitTypeId": 1,
-                                            "stats": {
-                                                "101": 0.001169554,
-                                                "114": 10.4453288,
-                                                "116": 1.0,
-                                                "210": 1.0
-                                            },
-                                            "variance": {
-                                                "23": 4.819961218,
-                                                "24": 41.09036749,
-                                                "25": 0.857492926,
-                                                "26": 0.200361847,
-                                                "35": 0.13,
-                                                "36": 0.11,
-                                                "42": 11.24591429,
-                                                "43": 0.23570226,
-                                                "44": 0.281375642,
-                                                "45": 0.09,
-                                                "46": 0.08,
-                                                "53": 1.696786659,
-                                                "58": 1.917412472,
-                                                "63": 0.001,
-                                                "68": 0.23570226,
-                                                "72": 0.23570226,
-                                                "101": 0.032263564,
-                                                "114": 5.242829126
-                                            }
+                                            "stats": {},
+                                            "variance": {}
                                         }
                                     ],
                                     "universeId": 1
@@ -20496,7 +20470,7 @@
                         },
                         {
                             "injuryStatus": "NORMAL",
-                            "lineupSlotId": 20,
+                            "lineupSlotId": 2,
                             "playerId": 4575131,
                             "playerPoolEntry": {
                                 "appliedStatTotal": 0.0,
@@ -20777,7 +20751,8 @@
                                             "seasonId": 2026,
                                             "statSourceId": 1,
                                             "statSplitTypeId": 1,
-                                            "stats": {}
+                                            "stats": {},
+                                            "variance": {}
                                         }
                                     ],
                                     "universeId": 1
@@ -21258,9 +21233,9 @@
                 "tiebreak": 0.0,
                 "totalPoints": 0.0,
                 "totalPointsLive": 0.0,
-                "totalProjectedPoints": 103.17053264,
-                "totalProjectedPointsLive": 103.17053264,
-                "winProbability": 0.42
+                "totalProjectedPoints": 111.46694844,
+                "totalProjectedPointsLive": 111.46694844,
+                "winProbability": 0.47
             },
             "home": {
                 "adjustment": 0.0,
@@ -23464,7 +23439,7 @@
                 "totalPointsLive": 0.0,
                 "totalProjectedPoints": 117.32848789,
                 "totalProjectedPointsLive": 117.32848789,
-                "winProbability": 0.58
+                "winProbability": 0.53
             },
             "id": 5,
             "matchupPeriodId": 1,
@@ -26941,7 +26916,7 @@
                                     "fullName": "Mike Evans",
                                     "id": 16737,
                                     "injured": false,
-                                    "injuryStatus": "QUESTIONABLE",
+                                    "injuryStatus": "ACTIVE",
                                     "jersey": "5",
                                     "lastName": "Evans",
                                     "proTeamId": 25,
@@ -31046,7 +31021,7 @@
         "standingsUpdateDate": 1787972923151,
         "teamsJoined": 12,
         "transactionScoringPeriod": 1,
-        "waiverLastExecutionDate": 1788851338196,
+        "waiverLastExecutionDate": 1788937803875,
         "waiverProcessStatus": {
             "2026-08-30T07:02:14.008+00:00": 2
         }
@@ -31396,7 +31371,7 @@
                 "drops": 0,
                 "matchupAcquisitionTotals": {},
                 "misc": 0,
-                "moveToActive": 0,
+                "moveToActive": 1,
                 "moveToIR": 0,
                 "paid": 0.0,
                 "teamCharges": 0.0,
