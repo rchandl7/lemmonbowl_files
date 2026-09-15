@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "Team": "GetoffmyDitka Ditka",
+        "Total Winnings": 50.0,
+        "Top Weeks": [
+            "1"
+        ],
+        "Bottom Weeks": []
+    },
+    {
+        "Team": "Ballin Ballers",
+        "Total Winnings": -10.0,
+        "Top Weeks": [],
+        "Bottom Weeks": [
+            "1"
+        ]
+    }
+]
