@@ -1,19 +1,29 @@
 [
     {
-        "Team": "GetoffmyDitka Ditka",
-        "Total Winnings": 50.0,
-        "Top Weeks": [
-            "1"
-        ],
-        "Bottom Weeks": []
-    },
-    {
         "Team": "InIt2WinIt BeNnEtT",
         "Total Winnings": 50.0,
         "Top Weeks": [
             "2"
         ],
         "Bottom Weeks": []
+    },
+    {
+        "Team": "Good Vibes",
+        "Total Winnings": 50.0,
+        "Top Weeks": [
+            "3"
+        ],
+        "Bottom Weeks": []
+    },
+    {
+        "Team": "GetoffmyDitka Ditka",
+        "Total Winnings": 40.0,
+        "Top Weeks": [
+            "1"
+        ],
+        "Bottom Weeks": [
+            "3"
+        ]
     },
     {
         "Team": "Ballin Ballers",
