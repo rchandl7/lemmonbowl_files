@@ -16,6 +16,14 @@
         "Bottom Weeks": []
     },
     {
+        "Team": "ICEBOX",
+        "Total Winnings": 50.0,
+        "Top Weeks": [
+            "4"
+        ],
+        "Bottom Weeks": []
+    },
+    {
         "Team": "GetoffmyDitka Ditka",
         "Total Winnings": 40.0,
         "Top Weeks": [
@@ -35,10 +43,11 @@
     },
     {
         "Team": ". FREE MONEY 1.0",
-        "Total Winnings": -10.0,
+        "Total Winnings": -20.0,
         "Top Weeks": [],
         "Bottom Weeks": [
-            "2"
+            "2",
+            "4"
         ]
     }
 ]
