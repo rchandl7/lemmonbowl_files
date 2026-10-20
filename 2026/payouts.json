@@ -1,5 +1,14 @@
 [
     {
+        "Team": "Charlie Kirk LOL",
+        "Total Winnings": 100.0,
+        "Top Weeks": [
+            "5",
+            "6"
+        ],
+        "Bottom Weeks": []
+    },
+    {
         "Team": "InIt2WinIt BeNnEtT",
         "Total Winnings": 50.0,
         "Top Weeks": [
@@ -24,14 +33,6 @@
         "Bottom Weeks": []
     },
     {
-        "Team": "Charlie Kirk LOL",
-        "Total Winnings": 50.0,
-        "Top Weeks": [
-            "5"
-        ],
-        "Bottom Weeks": []
-    },
-    {
         "Team": "GetoffmyDitka Ditka",
         "Total Winnings": 30.0,
         "Top Weeks": [
@@ -48,6 +49,14 @@
         "Top Weeks": [],
         "Bottom Weeks": [
             "1"
+        ]
+    },
+    {
+        "Team": "Cho-Kon It",
+        "Total Winnings": -10.0,
+        "Top Weeks": [],
+        "Bottom Weeks": [
+            "6"
         ]
     },
     {
