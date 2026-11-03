@@ -17,12 +17,14 @@
         "Bottom Weeks": []
     },
     {
-        "Team": "ICEBOX",
-        "Total Winnings": 50.0,
+        "Team": "Ballin Ballers",
+        "Total Winnings": 40.0,
         "Top Weeks": [
-            "4"
+            "8"
         ],
-        "Bottom Weeks": []
+        "Bottom Weeks": [
+            "1"
+        ]
     },
     {
         "Team": "InIt2WinIt BeNnEtT",
@@ -32,6 +34,16 @@
         ],
         "Bottom Weeks": [
             "7"
+        ]
+    },
+    {
+        "Team": "ICEBOX",
+        "Total Winnings": 40.0,
+        "Top Weeks": [
+            "4"
+        ],
+        "Bottom Weeks": [
+            "8"
         ]
     },
     {
@@ -53,14 +65,6 @@
         "Bottom Weeks": [
             "3",
             "5"
-        ]
-    },
-    {
-        "Team": "Ballin Ballers",
-        "Total Winnings": -10.0,
-        "Top Weeks": [],
-        "Bottom Weeks": [
-            "1"
         ]
     },
     {
