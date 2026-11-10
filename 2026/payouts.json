@@ -9,6 +9,17 @@
         "Bottom Weeks": []
     },
     {
+        "Team": "ICEBOX",
+        "Total Winnings": 90.0,
+        "Top Weeks": [
+            "4",
+            "9"
+        ],
+        "Bottom Weeks": [
+            "8"
+        ]
+    },
+    {
         "Team": "Good Vibes",
         "Total Winnings": 50.0,
         "Top Weeks": [
@@ -37,16 +48,6 @@
         ]
     },
     {
-        "Team": "ICEBOX",
-        "Total Winnings": 40.0,
-        "Top Weeks": [
-            "4"
-        ],
-        "Bottom Weeks": [
-            "8"
-        ]
-    },
-    {
         "Team": "Cho-Kon It",
         "Total Winnings": 40.0,
         "Top Weeks": [
@@ -69,11 +70,12 @@
     },
     {
         "Team": ". FREE MONEY 1.0",
-        "Total Winnings": -20.0,
+        "Total Winnings": -30.0,
         "Top Weeks": [],
         "Bottom Weeks": [
             "2",
-            "4"
+            "4",
+            "9"
         ]
     }
 ]
