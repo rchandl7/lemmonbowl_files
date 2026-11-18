@@ -20,6 +20,18 @@
         ]
     },
     {
+        "Team": "GetoffmyDitka Ditka",
+        "Total Winnings": 80.0,
+        "Top Weeks": [
+            "1",
+            "10"
+        ],
+        "Bottom Weeks": [
+            "3",
+            "5"
+        ]
+    },
+    {
         "Team": "Good Vibes",
         "Total Winnings": 50.0,
         "Top Weeks": [
@@ -58,14 +70,11 @@
         ]
     },
     {
-        "Team": "GetoffmyDitka Ditka",
-        "Total Winnings": 30.0,
-        "Top Weeks": [
-            "1"
-        ],
+        "Team": "Crosstown Traffic",
+        "Total Winnings": -10.0,
+        "Top Weeks": [],
         "Bottom Weeks": [
-            "3",
-            "5"
+            "10"
         ]
     },
     {
