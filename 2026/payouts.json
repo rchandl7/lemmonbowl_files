@@ -1,5 +1,18 @@
 [
     {
+        "Team": "GetoffmyDitka Ditka",
+        "Total Winnings": 130.0,
+        "Top Weeks": [
+            "1",
+            "10",
+            "11"
+        ],
+        "Bottom Weeks": [
+            "3",
+            "5"
+        ]
+    },
+    {
         "Team": "Charlie Kirk LOL",
         "Total Winnings": 100.0,
         "Top Weeks": [
@@ -20,34 +33,12 @@
         ]
     },
     {
-        "Team": "GetoffmyDitka Ditka",
-        "Total Winnings": 80.0,
-        "Top Weeks": [
-            "1",
-            "10"
-        ],
-        "Bottom Weeks": [
-            "3",
-            "5"
-        ]
-    },
-    {
         "Team": "Good Vibes",
         "Total Winnings": 50.0,
         "Top Weeks": [
             "3"
         ],
         "Bottom Weeks": []
-    },
-    {
-        "Team": "Ballin Ballers",
-        "Total Winnings": 40.0,
-        "Top Weeks": [
-            "8"
-        ],
-        "Bottom Weeks": [
-            "1"
-        ]
     },
     {
         "Team": "InIt2WinIt BeNnEtT",
@@ -67,6 +58,17 @@
         ],
         "Bottom Weeks": [
             "6"
+        ]
+    },
+    {
+        "Team": "Ballin Ballers",
+        "Total Winnings": 30.0,
+        "Top Weeks": [
+            "8"
+        ],
+        "Bottom Weeks": [
+            "1",
+            "11"
         ]
     },
     {
